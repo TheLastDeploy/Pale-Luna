@@ -1,6 +1,6 @@
-# Tales Umbra
+# Pale Luna
 
-Um prequel de Pale Luna: Terminal Edition
+Prepare-se para reviver o terror de Pale Luna em uma nova versão do JavaScript!
 
 ## Instalação
 
