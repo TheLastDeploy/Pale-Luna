@@ -1,0 +1,30 @@
+# Pale Luna
+
+Bem-vindo à recriação do misterioso e intrigante jogo Pale Luna! Este projeto traz à vida o enigmático estilo narrativo do jogo original, proporcionando uma experiência interativa única.
+
+## Características
+- Adaptação fiel ao espírito do jogo original.
+- Narrativa interativa e imersiva.
+- Desenvolvido em JavaScript.
+
+## Permitir a execução do script:
+
+Antes de rodar o arquivo, é necessário conceder permissão de execução. Para isso:
+
+1. Abra o terminal, navegue até a pasta onde está o jogo:
+   cd ~/Pale Luna 
+   ou 
+   simplesmente aperte com o botão direito dentro
+   da pasta do jogo (com o paleluna.sh), e clique em abrir no terminal.
+   
+2. Execute o comando para tornar o arquivo executável:
+chmod +x PaleLuna.sh
+
+3. Executar o script sem usar o terminal:
+
+Agora que o arquivo já tem permissão, siga estes passos:
+Abra o Gerenciador de Arquivos e vá até a pasta Pale Luna.
+Clique com o botão direito no arquivo PaleLuna.sh.
+Selecione "Executar como um programa".
+
+Após seguir esses passos, o jogo deve iniciar normalmente. 🚀
