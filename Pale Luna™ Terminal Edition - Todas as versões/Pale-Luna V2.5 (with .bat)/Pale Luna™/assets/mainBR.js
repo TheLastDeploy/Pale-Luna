@@ -766,7 +766,8 @@ console.log ("")
     
         const conteudo =
                          "Nome: " + Usuario + "\r\n" +
-                         "Senha: " + Senha + "\r\n";
+                         "Senha: " + Senha + "\r\n" + 
+                         "Idioma: Brasil (BR) \r\n";
     
         fs.writeFileSync(accountFilePath, conteudo, 'utf8');
     

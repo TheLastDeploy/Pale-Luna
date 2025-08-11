@@ -583,7 +583,7 @@ let destruir = false
 // 1 (LEAVE)
 // END
 
-const accountFilePath = '../Account/Containfo.txt';
+const accountFilePath = '../Account/AcountInfo.txt';
 let Login
 let overwrite = "Y"
 
@@ -617,6 +617,32 @@ const count = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin')).length;
 const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
 console.log(`Endings completed: ${count}/5`);
 console.log('List of endings:', finais);
+pauseToContinue()
+const path = require('path')
+
+printDivider()
+console.log ("-> Remember...")
+const vbsFilePath = path.join(__dirname, 'OnlyEN.vbs');
+const commando_aviso = `wscript.exe //nologo "${vbsFilePath}"`
+exec(commando_aviso)
+pauseToContinue()
+
+
+console.log ("███████████████████████████████████████████████████████████████████")
+console.log ("██                                                               ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                                                               ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                                                               ██")
+console.log ("███████████████████████████████████████████████████████████████████")
+console.log ("")
 printDivider() // Manteve o tamanho maior conforme seu design original
 console.log ("-> Can we start?");
 printDivider() // Manteve o tamanho maior conforme seu design original
@@ -644,6 +670,21 @@ if (começar === "2") {
     InvalidOption()
 }
 console.clear();
+console.log ("███████████████████████████████████████████████████████████████████")
+console.log ("██                                                               ██")
+console.log ("██                                                               ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                         ██████████                            ██")
+console.log ("██                        ████████████                           ██")
+console.log ("██                        ████████████                           ██")
+console.log ("██                         ██████████                            ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                          ████████                             ██")
+console.log ("██                      ███████████████                          ██")
+console.log ("██                      ███████████████                          ██")
+console.log ("██                                                               ██")
+console.log ("███████████████████████████████████████████████████████████████████")
+console.log ("")
 printDivider();
     console.log("-> Would you like to create an account?");
     console.log("-> (For local saving only!)");
@@ -659,6 +700,21 @@ printDivider();
         console.clear();
     
         if (fs.existsSync(accountFilePath)) { // Checks if an account file already exists
+            console.log ("███████████████████████████████████████████████████████████████████")
+console.log ("██                                                               ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                       █████   ██████                          ██")
+console.log ("██                      ████        ██████                       ██")
+console.log ("██                                 ██████                        ██")
+console.log ("██                               ██████                          ██")
+console.log ("██                             ██████                            ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                                                               ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                                                               ██")
+console.log ("███████████████████████████████████████████████████████████████████")
+console.log ("")
             console.log("---------------------------------------------------------------");
             console.log("-> An account file already exists!");
             console.log("-> Would you like to overwrite it? (Y/N)");
@@ -667,6 +723,21 @@ printDivider();
     
             if (overwrite !== 'Y') { // If user does not want to overwrite
                 console.clear();
+                console.log ("███████████████████████████████████████████████████████████████████")
+console.log ("██                                                               ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                                                               ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                                                               ██")
+console.log ("███████████████████████████████████████████████████████████████████")
+console.log ("")
                 console.log("---------------------------------------------------------------");
                 console.log("-> Account creation canceled. Existing file was not overwritten.");
                 console.log("---------------------------------------------------------------");
@@ -674,6 +745,22 @@ printDivider();
             }
         }
         if (overwrite == "Y") { // If user confirms to overwrite or no file existed
+            console.clear()
+            console.log ("███████████████████████████████████████████████████████████████████")
+console.log ("██                                                               ██")
+console.log ("██                                                               ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                         ██████████                            ██")
+console.log ("██                        ████████████                           ██")
+console.log ("██                        ████████████                           ██")
+console.log ("██                         ██████████                            ██")
+console.log ("██                           ██████                              ██")
+console.log ("██                          ████████                             ██")
+console.log ("██                      ███████████████                          ██")
+console.log ("██                      ███████████████                          ██")
+console.log ("██                                                               ██")
+console.log ("███████████████████████████████████████████████████████████████████")
+console.log ("")
         console.log("---------------------------------------------------------------");
         Usuario = prompt("Enter username: "); // Prompt for username
         Senha = prompt("Enter your password: "); // Prompt for password
@@ -681,7 +768,8 @@ printDivider();
     
         const conteudo = // Content to be written to the file
                          "Name: " + Usuario + "\r\n" +
-                         "Password: " + Senha + "\r\n";
+                         "Password: " + Senha + "\r\n" + 
+                         "Language: English (EN) \r\n";
     
         fs.writeFileSync(accountFilePath, conteudo, 'utf8'); // Writes account details to file
     
