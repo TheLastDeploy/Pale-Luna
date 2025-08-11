@@ -1,4 +1,4 @@
-# Pale Luna
+# Pale Luna.
 
 Prepare-se para reviver o terror de Pale Luna em uma nova versão do JavaScript!
 
