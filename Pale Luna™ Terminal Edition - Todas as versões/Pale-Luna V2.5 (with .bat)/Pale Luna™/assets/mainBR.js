@@ -10,7 +10,7 @@ function Opcãoinvalida() {
     console.log("---------------------------------------------------------------");
     console.log ("-> Opção invalida!")
     console.log("---------------------------------------------------------------");
-    console.log("-> Pressione 1 para fechar...");
+    console.log("-> Pressione [1] para fechar...");
     console.log("---------------------------------------------------------------");
     while (prompt("> ") !== '1') {
         // Fica em loop até o jogador pressionar 1
@@ -21,7 +21,7 @@ function Opcãoinvalida() {
 function pausarParaFechar() {
     console.clear()
     console.log("---------------------------------------------------------------");
-    console.log("-> Pressione 1 para fechar...");
+    console.log("-> Pressione [1] para fechar...");
     console.log("---------------------------------------------------------------");
     while (prompt("> ") !== '1') {
         // Fica em loop até o jogador pressionar 1
@@ -31,7 +31,7 @@ function pausarParaFechar() {
 
 function pausarParaContinuar() {
     console.log("---------------------------------------------------------------");
-    console.log("-> Pressione 1 para continuar...");
+    console.log("-> Pressione [1] para continuar...");
     console.log("---------------------------------------------------------------");
     while (prompt("> ") !== '1') {
         // Fica em loop até o jogador pressionar 1
@@ -72,8 +72,9 @@ function inventario() {
 
         console.log("---------------------------------------------------------------");
         console.log("-> Você quer voltar?");
-        console.log("1. SIM");
-        console.log("2. NÃO");
+        console.log("---------------------------------------------------------------");
+        console.log("[01] SIM");
+        console.log("[02] NÃO");
         console.log("---------------------------------------------------------------");
         
         // Renomeei a variável para não ter o mesmo nome da função.
@@ -105,8 +106,8 @@ function menosSanidade() {
     console.log ("-> Você agora tem " ,valorsanidade, "% de sanidade")
     console.log("---------------------------------------------------------------");
     console.log ("-> Você quer continuar?")
-            console.log ("1. SIM")
-            console.log ("2. NÃO")
+            console.log ("[01] SIM")
+            console.log ("[02] NÃO")
             console.log("---------------------------------------------------------------");
             let s2 = Number(prompt("> "))
     
@@ -130,8 +131,8 @@ function maisSanidade() {
             console.log ("-> Você agora tem " ,valorsanidade, "% de sanidade")
             console.log("---------------------------------------------------------------");
             console.log ("-> Você quer continuar?")
-                    console.log ("1. SIM")
-                    console.log ("2. NÃO")
+                    console.log ("[01] SIM")
+                    console.log ("[02] NÃO")
                     console.log("---------------------------------------------------------------");
                     let s3 = Number(prompt("> "))
             
@@ -155,8 +156,9 @@ function sanidade() {
     console.log ("-> Sua sanidade está em ",valorsanidade, "%")
     console.log("---------------------------------------------------------------");
             console.log ("-> Você quer voltar as opções anteriores?")
-            console.log ("1. SIM")
-            console.log ("2. NÃO")
+            console.log("---------------------------------------------------------------")
+            console.log ("[01] SIM")
+            console.log ("[02] NÃO")
             console.log("---------------------------------------------------------------");
             let s1 = Number(prompt("> "))
     
@@ -193,8 +195,8 @@ while (v1 != 1) {
     console.log ("-> Você agora tem " ,Vida, "% de vida")
     console.log("---------------------------------------------------------------");
     console.log ("-> Você quer continuar?")
-            console.log ("1. SIM")
-            console.log ("2. NÃO")
+            console.log ("[01] SIM")
+            console.log ("[02] NÃO")
             console.log("---------------------------------------------------------------");
             let v1 = Number(prompt("> "))
     
@@ -243,8 +245,8 @@ function menosVidaM() {
         console.log ("-> Você agora tem " ,Vida, "% de vida")
         console.log("---------------------------------------------------------------");
         console.log ("-> Você quer continuar?")
-                console.log ("1. SIM")
-                console.log ("2. NÃO")
+                console.log ("[01] SIM")
+                console.log ("[02] NÃO")
                 console.log("---------------------------------------------------------------");
                 let v2 = Number(prompt("> "))
         
@@ -293,8 +295,8 @@ function menosVidaM() {
             console.log ("-> Você agora tem " ,Vida, "% de vida")
             console.log("---------------------------------------------------------------");
             console.log ("-> Você quer continuar?")
-                    console.log ("1. SIM")
-                    console.log ("2. NÃO")
+                    console.log ("[01] SIM")
+                    console.log ("[02] NÃO")
                     console.log("---------------------------------------------------------------");
                     let v3 = Number(prompt("> "))
             
@@ -328,8 +330,8 @@ function menosVidaM() {
                 console.log ("-> Você agora tem " ,Vida, "% de vida")
                 console.log("---------------------------------------------------------------");
                 console.log ("-> Você quer continuar?")
-                        console.log ("1. SIM")
-                        console.log ("2. NÃO")
+                        console.log ("[01] SIM")
+                        console.log ("[02] NÃO")
                         console.log("---------------------------------------------------------------");
                         let v4 = Number(prompt("> "))
                 
@@ -365,8 +367,8 @@ function menosVidaM() {
                 console.log ("-> Você agora tem " ,Vida, "% de vida")
                 console.log("---------------------------------------------------------------");
                 console.log ("-> Você quer continuar?")
-                        console.log ("1. SIM")
-                        console.log ("2. NÃO")
+                        console.log ("[01] SIM")
+                        console.log ("[02] NÃO")
                         console.log("---------------------------------------------------------------");
                         let v5 = Number(prompt("> "))
                 
@@ -562,15 +564,15 @@ console.log ("---------------------------------------------------------------");
 console.log ("--- VERSÃO 2.5 ---")
 console.log ("---------------------------------------------------------------");
 console.log ("Bem-vindo a Pale Luna! Siga as regras para garantir a experiência completa.");
-console.log ("Regra 1: Digite apenas números (1, 2, 3 e 4).");
-console.log ("Regra 2: Não utilize caracteres especiais.");
-console.log ("Regra 3: Divirta-se 😉");
+console.log ("Regra [01]: Digite apenas números (1, 2, 3 e 4).");
+console.log ("Regra [02]: Não utilize caracteres especiais.");
+console.log ("Regra [03]: Divirta-se 😉");
 console.log ("---------------------------------------------------------------");
 const folderPath = '../Achievements';
 const count = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin')).length;
 const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
-console.log(`Finais completados: ${count}/5`);
-console.log('Lista de finais:', finais);
+console.log(`Finais completados: [${count}/5]`);
+console.log('Lista de finais:', "[",finais,"]");
 pausarParaContinuar()
 
 const local_conta = save_conquistas;
@@ -606,7 +608,7 @@ console.log ("-> Os seguintes finais serão restaurados!")
 console.log ("---------------------------------------------------------------");
 console.log(dados)
 } catch (err) {
-console.error('ERRO: Falha na leitura dos arquivos!')
+console.error('[ERRO]: Falha na leitura dos arquivos!')
 
 }
 pausarParaContinuar()
@@ -680,8 +682,8 @@ if (!skipaccount) {
         console.log("---------------------------------------------------------------");
         console.log ("-> Opções");
         console.log("---------------------------------------------------------------");
-        console.log ("(1) Criar Conta");
-        console.log ("(2) Ignorar");
+        console.log ("[01] Criar Conta");
+        console.log ("[01] Ignorar");
         console.log("---------------------------------------------------------------");
         Login = Number(prompt("> "));
         
@@ -707,10 +709,11 @@ if (!skipaccount) {
     console.log ("")
                 console.log("---------------------------------------------------------------");
                 console.log("-> Um arquivo já existe!");
-                console.log("-> Você gostaria de atualiza-lo? (S/N)");
+                console.log("-> Você gostaria de atualiza-lo? [S/N]");
                 console.log("---------------------------------------------------------------");
                 overwrite = prompt("> ").toUpperCase();
         
+
                 if (overwrite !== 'S') {
                     console.clear();
                     console.log ("███████████████████████████████████████████████████████████████████")
@@ -805,17 +808,17 @@ console.log ("")
 console.log ("---------------------------------------------------------------");
 console.log ("-> Podemos começar?");
 console.log ("---------------------------------------------------------------");
-console.log ("Opções:");
-console.log ("1: Sim");
-console.log ("2: Nao");
+console.log ("[OPÇÕES]");
+console.log ("---------------------------------------------------------------")
+console.log ("[01] Sim");
+console.log ("[02] Nao");
 console.log ("---------------------------------------------------------------");
-console.log ("Comando?");
 let começar = prompt("> ");
 
 if (count >5 || count < 0) {
     console.clear();
     console.log ("---------------------------------------------------------------");
-    console.log ("-> ERRO: Você não pode ter mais de 5 finais ou menos de 0 finais, por favor execute o apagador de progresso!.");
+    console.log ("-> [ERRO]: Você não pode ter mais de 5 finais ou menos de 0 finais, por favor execute o apagador de progresso!.");
         console.log ("---------------------------------------------------------------");
         process.exit(1); // Encerra o programa com código de saída 1 (falha)
 }
@@ -928,15 +931,17 @@ while (jogoAtivo) {
 console.log ("-> Você está em uma sala escura. A luz da lua raia pela janela.");
 console.log ("-> Há um POTE DE OURO no canto da sala, junto com uma PÁ. E do outro lado existe uma PORTA.");
 console.log ("---------------------------------------------------------------");
-console.log ("Opções:");
-console.log ("1. PÁ");
-console.log ("2. POTE DE OURO");
-console.log ("3. PORTA");
-console.log("---------------------------------------------------------------");
-console.log ("Ações:");
-console.log ("4. INVENTÁRIO")
-console.log ("5. VER SANIDADE")
-console.log ("6. VIDA");
+console.log ("[OPÇÕES]");
+console.log ("---------------------------------------------------------------")
+console.log ("[01] PÁ");
+console.log ("[02] POTE DE OURO");
+console.log ("[03] PORTA");
+console.log ("---------------------------------------------------------------");
+console.log ("[AÇÕES]");
+console.log ("---------------------------------------------------------------")
+console.log ("[04] INVENTÁRIO")
+console.log ("[05] VER SANIDADE")
+console.log ("[06] VIDA");
 console.log ("---------------------------------------------------------------");
     console.log ("Comando?");
     let inicio = Number(prompt("> "));
@@ -971,7 +976,7 @@ if (inicio === 1) {
     console.log ("-> Você tentou abrir a porta...");
     if (temChave) {
         console.log ("-> Você consegue abrir a porta com a chave encontrada!");
-        console.log ("-> AVISO: Você usou a chave!");
+        console.log ("-> [AVISO] Você usou a chave!");
         temChave = false
         jogoAtivo = false;
         saiudacasa = true;
@@ -1136,15 +1141,17 @@ while (jogoAtivo1) {
         console.log ("-> Pegue sua recompensa. A lua palida sorri para você.");
         console.log ("-> Você está em uma floresta, Existem caminhos para o NORTE, OESTE e LESTE:");
         console.log ("---------------------------------------------------------------");
-        console.log ("Opções:");
-        console.log ("1. NORTE.");
-        console.log ("2. OESTE.");
-        console.log ("3. LESTE.");
+        console.log ("[OPÇÕES]");
+        console.log ("---------------------------------------------------------------")
+        console.log ("[01] NORTE.");
+        console.log ("[02] OESTE.");
+        console.log ("[03] LESTE.");
         console.log("---------------------------------------------------------------");
-        console.log ("Ações:");
-        console.log ("4. INVENTÁRIO");
-        console.log ("5. SANIDADE");
-        console.log ("6. VIDA");
+        console.log ("[AÇÕES]");
+        console.log ("---------------------------------------------------------------")
+        console.log ("[04] INVENTÁRIO");
+        console.log ("[05] SANIDADE");
+        console.log ("[06] VIDA");
         console.log ("---------------------------------------------------------------");
         
     
@@ -1184,9 +1191,10 @@ while (jogoAtivo1) {
         console.log ("---------------------------------------------------------------");
         console.log ("-> Você encontra um atalho secreto!");
         console.log ("---------------------------------------------------------------");
-        console.log ("Opções:");
-        console.log ("1. Ir pelo atalho");
-        console.log ("2. Ignorar o atalho");
+        console.log ("[OPÇÕES]");
+        console.log ("---------------------------------------------------------------")
+        console.log ("[01] Ir pelo atalho");
+        console.log ("[02] Ignorar o atalho");
         console.log ("---------------------------------------------------------------");
         console.log ("Comando?")
         atalho = prompt ("> ");
@@ -1224,9 +1232,10 @@ while (jogoAtivo1) {
         console.log ("-> De repente você de longe vê vindo um homem alto, com um machado e não muito amigavel.");
         O = true
         console.log("---------------------------------------------------------------");
-        console.log ("Opções:");
-        console.log ("1. Fugir");
-        console.log ("2. Se esconder");
+        console.log ("[OPÇÕES]");
+        console.log ("--------------------------------------------------------------")
+        console.log ("[01] Fugir");
+        console.log ("[02] Se esconder");
         console.log("---------------------------------------------------------------");
         console.log ("Comando?");
         decisão1 = prompt("> ");
@@ -1443,15 +1452,17 @@ while (jogoAtivo2) {
     console.log ("-> Pegue sua recompensa. A lua palida sorri para você.");
     console.log ("-> Você está em uma floresta, Existem caminhos para o NORTE, SUL e LESTE:");
     console.log ("---------------------------------------------------------------");
-    console.log ("Opções:");
-    console.log ("1. NORTE.");
-    console.log ("2. SUL.");
-    console.log ("3. LESTE.");
-    console.log("---------------------------------------------------------------");
-    console.log ("Ações:");
-    console.log ("4. INVENTÁRIO");
-    console.log ("5. SANIDADE");
-    console.log ("6. VIDA");
+    console.log ("[OPÇÕES]");
+    console.log ("---------------------------------------------------------------")
+    console.log ("[01] NORTE.");
+    console.log ("[02] SUL.");
+    console.log ("[03] LESTE.");
+    console.log("----------------------------------------------------------------");
+    console.log ("[AÇÕES]");
+    console.log ("---------------------------------------------------------------")
+    console.log ("[04] INVENTÁRIO");
+    console.log ("[05] SANIDADE");
+    console.log ("[06] VIDA");
     console.log ("---------------------------------------------------------------");
     console.log ("Comando?");
     floresta2 = Number(prompt("> "));
@@ -1485,9 +1496,10 @@ while (jogoAtivo2) {
         N = true
         console.log ("-> Você encontra uma cabana velha feita de madeira");
         console.log ("---------------------------------------------------------------");
-        console.log ("Opções:");
-        console.log ("1. Entrar na cabana");
-        console.log ("2. Ignorar a cabana");
+        console.log ("[OPÇÕES]");
+        console.log ("---------------------------------------------------------------")
+        console.log ("[01] Entrar na cabana");
+        console.log ("[02] Ignorar a cabana");
         console.log ("---------------------------------------------------------------");
         console.log ("Comando?");
         cabana = prompt("> ");
@@ -1515,10 +1527,11 @@ while (jogoAtivo2) {
             console.log ("-> Você entra na cabana e encontra um baú velho");
             console.log ("-> Dentro do baú você encontra um pergaminho com um mapa");
             console.log ("---------------------------------------------------------------");
-            console.log ("Opções:");
-            console.log ("1. Pegar o mapa");
-            console.log ("2. Voltar para a bifurcação");
-            console.log ("3. Pegar Kit Medico (Cura 50% da vida)");
+            console.log ("[OPÇÕES]");
+            console.log ("---------------------------------------------------------------")
+            console.log ("[01] Pegar o mapa");
+            console.log ("[02] Voltar para a bifurcação");
+            console.log ("[03] Pegar Kit Medico (Cura 50% da vida)");
             console.log ("---------------------------------------------------------------");
             console.log ("Comando?");
             cabana1 = prompt("> ");
@@ -1530,8 +1543,9 @@ while (jogoAtivo2) {
                 tentanovamente1 = false;
                 mapaachado = true;
                 console.log ("---------------------------------------------------------------");
-                console.log ("Opções:");
-                console.log ("1. Voltar para a bifurcação");
+                console.log ("[OPÇÕES]");
+                console.log ("---------------------------------------------------------------")
+                console.log ("[01] Voltar para a bifurcação");
                 console.log ("---------------------------------------------------------------");
                 console.log ("Comando?");
                 cabana2 = prompt("> ");
@@ -1553,7 +1567,7 @@ while (jogoAtivo2) {
                     console.log("---------------------------------------------------------------");
                     console.log("-> Você já pegou o kit medico!")
                     console.log("---------------------------------------------------------------");
-                console.log ("-> Pressione 1 para continuar!")
+                console.log ("-> Pressione [1] para continuar!")
                 console.log("---------------------------------------------------------------");
                 let by1 = Number(prompt("> "))
                 if (by1 == 1){
@@ -1567,7 +1581,7 @@ while (jogoAtivo2) {
                 console.log ("-> Você pega o kit medico rapido e ja começa os seus medicamentos e bandanas")
                 console.log ("-> Parabens, você curou a sua vida em +50.")
                 console.log("---------------------------------------------------------------");
-                console.log ("-> Pressione 1 para continuar!")
+                console.log ("-> Pressione [1] para continuar!")
                 console.log("---------------------------------------------------------------");
                 kitm = true
                 let by = Number(prompt("> "))
@@ -1604,9 +1618,10 @@ while (jogoAtivo2) {
             console.log ("-> Você ignora a cabana e continua o seu caminho...");
             console.log ("-> Após andar um pouco você encontra uma ponte quebrada");
             console.log ("---------------------------------------------------------------");
-            console.log ("Opções:");
-            console.log ("1. Pular a ponte");
-            console.log ("2. Voltar para a bifurcação");
+            console.log ("[OPÇÕES]");
+            console.log ("---------------------------------------------------------------")
+            console.log ("[01] Pular a ponte");
+            console.log ("[02] Voltar para a bifurcação");
             console.log ("---------------------------------------------------------------");
             console.log ("Comando?");
             ponte = prompt("> ");
@@ -1659,10 +1674,11 @@ while (jogoAtivo2) {
         S = true
         console.log ("-> Você encontra um lago, e um barco a sua frente");
         console.log ("---------------------------------------------------------------");
-        console.log ("Opções:");
-        console.log ("1. Pegar o barco");
-        console.log ("2. Ignorar o barco");
-        console.log ("3. Voltar para a bifurcação");
+        console.log ("[OPÇÕES]");
+        console.log ("---------------------------------------------------------------")
+        console.log ("[01] Pegar o barco");
+        console.log ("[02] Ignorar o barco");
+        console.log ("[03] Voltar para a bifurcação");
         console.log ("---------------------------------------------------------------");
         console.log ("Comando?");
         barco = prompt("> ");
@@ -1674,9 +1690,10 @@ while (jogoAtivo2) {
             console.log ("-> Você pega o barco e começa a remar...");
             console.log ("-> Porém o barco começa a afundar, dentro do rio você ve uma caverna submersa!")
             console.log ("---------------------------------------------------------------");
-        console.log ("Opções:");
-        console.log ("1. Ignorar caverna");
-        console.log ("2. Entrar dentro da caverna");
+        console.log ("[OPÇÕES]");
+        console.log ("---------------------------------------------------------------")
+        console.log ("[01] Ignorar caverna");
+        console.log ("[02] Entrar dentro da caverna");
         console.log ("---------------------------------------------------------------");
         console.log ("Comando?");
         barco2 = prompt("> ");
@@ -1692,11 +1709,11 @@ while (jogoAtivo2) {
             console.log ("-> Você entra dentro da caverna, e dentro dela você fica horrorizado...")
             console.log ("-> Dentro você vê varias lapides e no centro do cemiterio, há um pergaminho aberto...")
             console.log ("---------------------------------------------------------------");
-            console.log ("Opções")
+            console.log ("[OPÇÕES]")
             console.log ("---------------------------------------------------------------");
-            console.log ("1. Ler")
-            console.log ("2. Não Ler")
-            console.log ("3. DESTRUIR!")
+            console.log ("[01] Ler")
+            console.log ("[01] Não Ler")
+            console.log ("[01] DESTRUIR!")
             console.log ("---------------------------------------------------------------");
             pergaminho = Number(prompt("> "));
 
@@ -1706,7 +1723,7 @@ while (jogoAtivo2) {
                 console.log ("---------------------------------------------------------------");
                 console.log ("Você pega o pergaminho e começa a ler...")
                 console.log ("---------------------------------------------------------------");
-                console.log ("DIA 1: Onde eu estou?")
+                console.log ("[DIA 01]: Onde eu estou?")
                 console.log ("---------------------------------------------------------------");
                 console.log("Não sei bem por onde começar.");
 console.log("Minhas mãos ainda tremem tanto que mal consigo segurar esta caneta improvisada...");
@@ -1730,14 +1747,14 @@ console.log("Estou preso, perdido, e agora encontrei um cemitério submerso.");
 console.log("Que tipo de loucura é esta? Preciso registrar tudo.");
 console.log("Espero que este carvão dure. E que eu também dure.");
 console.log ("---------------------------------------------------------------");
-console.log ("-> Pressione 1 para continuar lendo, ou pressione 2 para fechar")
+console.log ("-> Pressione [1] para continuar lendo, ou pressione [2] para fechar")
 console.log ("---------------------------------------------------------------");
 teste = Number(prompt("> "))
 
 if (teste == 1) {
     console.clear()
     console.log ("---------------------------------------------------------------");
-    console.log ("DIA 2: Será que isso é real?")
+    console.log ("[DIA 02]: Será que isso é real?")
     console.log ("---------------------------------------------------------------");
 console.log("Passei a noite em claro, se é que existe noite neste buraco úmido.");
 console.log("A luz da lanterna morreu. Agora só tenho a escuridão e o som da água.");
@@ -1765,7 +1782,7 @@ console.log("A sanidade é uma linha tênue sobre um abismo de lápides.");
 console.log ("---------------------------------------------------------------");
 console.log ("-> Ao final você vê muito sangue e teme pela vida do escritor...")
 console.log ("---------------------------------------------------------------");
-console.log ("-> Pressione 1 para tentar voltar ao caminho nadando, ou 2 para ficar na caverna")
+console.log ("-> Pressione [1] para tentar voltar ao caminho nadando, ou [2] para ficar na caverna")
 console.log ("---------------------------------------------------------------");
 
 teste2 = Number(prompt("> ")) 
@@ -1793,7 +1810,7 @@ if (teste2 == 1) {
     console.log ("-> Para passar o tempo você começa a vasculhar o local e no canto de uma lapide você ve uma chave!")
     console.log ("-> Você pega ela...")
     console.log ("---------------------------------------------------------------");
-    console.log ("-> CHAVE COLETADA!")
+    console.log ("[CHAVE COLETADA]")
     chavedois = true
     console.log ("---------------------------------------------------------------");
     console.log ("2 dias depois você nota que realmente não há nada para se fazer la embaixo.")
@@ -1817,7 +1834,7 @@ if (teste2 == 1) {
                     console.log ("---------------------------------------------------------------")
                     console.log ("-> Você destruiu o pergaminho, ou seja você não pode mais ler ele!")
                     console.log ("---------------------------------------------------------------")
-                    console.log ("-> Pressione 1 para continuar")
+                    console.log ("-> Pressione [1] para continuar")
                     console.log ("---------------------------------------------------------------")
                     let ab = Number(prompt("> "))
                     if (ab == 1) {
@@ -1825,7 +1842,7 @@ if (teste2 == 1) {
                     } else {
                         console.clear()
                         console.log ("---------------------------------------------------------------")
-                        console.log ("ERRO 678: Valor Invalido!")
+                        console.log ("[ERRO 678] Valor Invalido!")
                         console.log ("---------------------------------------------------------------")
                         process.exit()
                     }
@@ -1858,9 +1875,10 @@ if (teste2 == 1) {
             console.log ("-> Você ignora o barco e continua o seu caminho...");
             console.log ("-> Depois de andar um pouco você encontra um lobo");
             console.log ("---------------------------------------------------------------");
-            console.log ("Opções:");
-            console.log ("1. Correr");
-            console.log ("2. Se esconder");
+            console.log ("[OPÇÕES]");
+            console.log ("---------------------------------------------------------------")
+            console.log ("[01] Correr");
+            console.log ("[01] Se esconder");
             console.log ("---------------------------------------------------------------");
             console.log ("Comando?");
             decisão2 = prompt("> ");
@@ -1872,7 +1890,7 @@ if (teste2 == 1) {
                 console.log ("-> Você começa a correr o mais rapido possivel...");
                 console.log ("-> Porém o lobo é mais rápido e te morde, você está ferido em um nivel medio!");
                 console.log ("---------------------------------------------------------------");
-                console.log ("-> Pressione 1 para continuar")
+                console.log ("-> Pressione [1] para continuar")
                 console.log ("---------------------------------------------------------------");
                 let a1 = Number(prompt("> "))
 
@@ -1888,7 +1906,7 @@ if (teste2 == 1) {
                 console.log ("-> Dentro dela você piora a sua situação, pois há varios animais que te mordem, incluindo o lobo!");
                 console.log ("-> Você fica ferido muito gravimente.")
                 console.log ("---------------------------------------------------------------");
-                console.log ("-> Pressione 1 para continuar")
+                console.log ("-> Pressione [1] para continuar")
                 console.log ("---------------------------------------------------------------");
                 let a2 = Number(prompt("> "))
 
@@ -1940,12 +1958,14 @@ while (jogoAtivo3) {
         while (mapa67 == false) {
         console.log ("-> Quer usar o mapa?");
         console.log ("---------------------------------------------------------------");
-        console.log ("Opções:");
-        console.log ("1. Sim");
-        console.log ("2. Não");
+        console.log ("OPÇÕES");
+        console.log ("---------------------------------------------------------------")
+        console.log ("[01] Sim");
+        console.log ("[02] Não");
         console.log ("---------------------------------------------------------------");
-        console.log ("Ações:");
-        console.log ("3. Inventario")
+        console.log ("AÇÕES");
+        console.log ("---------------------------------------------------------------")
+        console.log ("[03] Inventario")
         console.log ("---------------------------------------------------------------");
         console.log ("Comando?");
         mapa = prompt("> ");
@@ -1957,7 +1977,7 @@ while (jogoAtivo3) {
             console.log ("---------------------------------------------------------------");
             console.log ("-> O mapa diz que o caminho do Norte é o caminho certo");
             console.log ("---------------------------------------------------------------");
-            console.log ("-> *AVISO* Você não pode usar o mapa novamente");
+            console.log ("-> [AVISO] Você não pode usar o mapa novamente");
             mapaachado = false;
 
         } else if (mapa == 2) {
@@ -2109,15 +2129,17 @@ while (jogoAtivo3) {
     console.log ("-> Pegue sua recompensa. A lua palida sorri para você.");
     console.log ("-> Você está em uma floresta, Existem caminhos para o NORTE, SUL e OESTE:");
     console.log ("---------------------------------------------------------------");
-    console.log ("Opções:");
-    console.log ("1. NORTE.")
-    console.log ("2. SUL.");
-    console.log ("3. OESTE.");
+    console.log ("[OPÇÕES]");
+    console.log ("---------------------------------------------------------------");
+    console.log ("[01] NORTE.")
+    console.log ("[02] SUL.");
+    console.log ("[03] OESTE.");
     console.log("---------------------------------------------------------------");
-    console.log ("Ações:");
-    console.log ("4. INVENTÁRIO");
-    console.log ("5. SANIDADE");
-    console.log ("6. VIDA");
+    console.log ("[AÇÕES]");
+    console.log ("---------------------------------------------------------------");
+    console.log ("[04] INVENTÁRIO");
+    console.log ("[05] SANIDADE");
+    console.log ("[06] VIDA");
     console.log ("---------------------------------------------------------------");
     console.log ("Comando?");
     floresta3 = Number(prompt("> "));
@@ -2144,9 +2166,10 @@ while (jogoAtivo3) {
         console.log ("-> Você decidi ir pelo lado Norte.");
         console.log ("-> Você passa pelo caminho e encontra algo brilhante no chão");
         console.log ("---------------------------------------------------------------");
-        console.log ("Opções:");
-        console.log ("1. Escavar o chão");
-        console.log ("2. Ignorar o objeto");
+        console.log ("[OPÇÕES]");
+        console.log ("---------------------------------------------------------------");
+        console.log ("[01] Escavar o chão");
+        console.log ("[02] Ignorar o objeto");
         console.log ("---------------------------------------------------------------");
         console.log ("Comando?");
         objeto = prompt("> ");
@@ -2177,9 +2200,10 @@ while (jogoAtivo3) {
             console.log ("-> Você escava o chão e encontra uma foto de uma criança");
             console.log ("-> Na foto você vê que tem algo escrito atrás");
             console.log ("---------------------------------------------------------------");
-            console.log ("Opções:");
-            console.log ("1. Ler o que está escrito");
-            console.log ("2. Ignorar a foto");
+            console.log ("[OPÇÕES]");
+            console.log ("---------------------------------------------------------------");
+            console.log ("[01] Ler o que está escrito");
+            console.log ("[02] Ignorar a foto");
             console.log ("---------------------------------------------------------------");
             fotopega = true
             console.log ("Comando?");
@@ -2242,12 +2266,11 @@ while (jogoAtivo3) {
         console.log ("-> Você vai pelo caminho do Sul...");
         console.log ("-> Você encontra um lobo");
         console.log ("---------------------------------------------------------------");
-        console.log ("Opções:");
-        console.log ("1. Correr");
-        console.log ("2. Se esconder");
+        console.log ("[OPÇÕES]");
         console.log ("---------------------------------------------------------------");
-        console.log ("O que deseja fazer agora?");
-        console.log ("---------------------------------------------------------------");
+        console.log ("[01] Correr");
+        console.log ("[02] Se esconder");
+        console.log ("---------------------------------------------------------------")
         console.log ("Comando?")
         decisão2 = prompt("> ");
         console.log (" ")
@@ -2386,14 +2409,16 @@ while (jogoAtivo4) {
 console.log ("-> Pegue sua recompensa, a lua palida sorri para você")
 console.log ("-> A sua frente exitem caminhos, ao NORTE e SUL");
 console.log ("---------------------------------------------------------------");
-console.log ("Opções:");
-console.log ("1. NORTE");
-console.log ("2. SUL");
+console.log ("[OPÇÕES]");
+console.log ("---------------------------------------------------------------");
+console.log ("[01] NORTE");
+console.log ("[02] SUL");
 console.log("---------------------------------------------------------------");
-console.log ("Ações:");
-console.log ("3. INVENTÁRIO");
-console.log ("4. SANIDADE");
-console.log ("5. VIDA");
+console.log ("[AÇÕES]");
+console.log ("---------------------------------------------------------------");
+console.log ("[03] INVENTÁRIO");
+console.log ("[04] SANIDADE");
+console.log ("[05] VIDA");
 console.log ("---------------------------------------------------------------");
     console.log ("Comando?")
     floresta4 = prompt("> ");
@@ -2406,11 +2431,11 @@ console.log ("---------------------------------------------------------------");
         N = true 
         console.log ("-> Você encontra um carro encostado na beira de uma estrada a sua frente.")
         console.log ("---------------------------------------------------------------");
-        console.log ("Opções:")
+        console.log ("[OPÇÕES]")
         console.log ("---------------------------------------------------------------")
-        console.log ("1. Tentar ligar o carro.")
-        console.log ("2. Ignorar o carro")
-        console.log ("3. Sair andando pela estrada")
+        console.log ("[01] Tentar ligar o carro.")
+        console.log ("[02] Ignorar o carro")
+        console.log ("[03] Sair andando pela estrada")
         console.log ("---------------------------------------------------------------");
         console.log ("Comando?")
         carro = Number(prompt("> "))
@@ -2421,9 +2446,9 @@ console.log ("---------------------------------------------------------------");
             console.log ("---------------------------------------------------------------");
             console.log ("-> Você consegue ligar o carro.")
             console.log ("---------------------------------------------------------------");
-            console.log ("Opções:")
-            console.log ("1. Ir embora")
-            console.log ("2. Voltar para o caminho")
+            console.log ("[OPÇÕES]")
+            console.log ("[01] Ir embora")
+            console.log ("[02] Voltar para o caminho")
             console.log ("---------------------------------------------------------------");
             console.log ("Comando?")
             carro1 = Number(prompt("> "))
@@ -2434,7 +2459,7 @@ console.log ("---------------------------------------------------------------");
                 console.log ("---------------------------------------------------------------")
                 console.log("-> Você tem certeza? Essa ação não terá volta!")
                 console.log ("---------------------------------------------------------------")
-                console.log ("-> Pressione 1 para continuar ou 2 para cancelar!")
+                console.log ("-> Pressione [1] para continuar ou [2] para cancelar!")
                 console.log ("---------------------------------------------------------------")
 
                 let br = Number(prompt("> "))
@@ -2448,7 +2473,7 @@ console.log ("---------------------------------------------------------------");
                     console.log ("-> Você antes de ir embora lembra da foto da criança...")
                     console.log ("-> e resolve chamar a policia assim que chegar em sua casa!")
                     console.log ("---------------------------------------------------------------");
-                    console.log ("-> Você completou o GOOD_ENDING")
+                    console.log ("-> Você completou o [GOOD_ENDING]")
                     console.log ("---------------------------------------------------------------")
                     GOOD_ENDING=true
                     jogoAtivo4=false
@@ -2457,7 +2482,7 @@ console.log ("---------------------------------------------------------------");
                     console.log ("-> Você antes de ir embora lembra da foto da criança.")
                     console.log ("-> mas acha que uma pessoa simplesmente deixou cair...")
                     console.log ("---------------------------------------------------------------");
-                    console.log ("-> Você completou o BAD_ENDING_2")
+                    console.log ("-> Você completou o [BAD_ENDING_2]")
                     console.log ("---------------------------------------------------------------")
                     BAD_ENDING_2=true
                     jogoAtivo4=false
@@ -2465,7 +2490,7 @@ console.log ("---------------------------------------------------------------");
                     console.log ("---------------------------------------------------------------");
                     console.log ("-> Você vai embora sem nem pensar direito.")
                     console.log ("---------------------------------------------------------------");
-                    console.log ("-> Você completou o BAD_ENDING_3")
+                    console.log ("-> Você completou o [BAD_ENDING_3]")
                     console.log ("---------------------------------------------------------------")
                     BAD_ENDING_3=true
                     jogoAtivo4=false
@@ -2515,9 +2540,10 @@ console.log ("---------------------------------------------------------------");
         S=true
         console.log ("-> Nesse caminho, você encontra uma casa, que parece ser normal.")
         console.log ("---------------------------------------------------------------");
-        console.log ("Opções:")
-        console.log ("1. Entrar na casa.")
-        console.log ("2. Ignorar a casa e seguir o caminho.")
+        console.log ("[OPÇÕES]")
+        console.log ("---------------------------------------------------------------");
+        console.log ("[01] Entrar na casa.")
+        console.log ("[02] Ignorar a casa e seguir o caminho.")
         console.log ("---------------------------------------------------------------");
         console.log ("Comando?")
         casa2 = Number(prompt("> "))
