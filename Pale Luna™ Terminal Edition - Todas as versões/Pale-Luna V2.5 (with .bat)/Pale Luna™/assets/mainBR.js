@@ -5,6 +5,7 @@ const prompt = require('prompt-sync')();
 const { exec } = require('child_process');
 const fs = require('fs');
 
+
 function updateAccountFileWithAchievement(achievementName) {
     let nome = '';
     let senha = '';
@@ -581,8 +582,10 @@ let destruir = false
 // FIM
 
 const accountFilePath = '../Account/Containfo.txt';
+const save_conquistas = '../Account/Conquistas.txt'
 let Login
 let overwrite = "S"
+let skipaccount = false
 
 console.log (" ");
 console.log (" ");
@@ -615,15 +618,190 @@ const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
 console.log(`Finais completados: ${count}/5`);
 console.log('Lista de finais:', finais);
 pausarParaContinuar()
-const path = require('path');
 
-console.log ("---------------------------------------------------------------");
-console.log ("-> Lembre-se...")
-const vbsFilePath = path.join(__dirname, 'OnlyBR.vbs');
-const commando_aviso = `wscript.exe //nologo "${vbsFilePath}"`
-exec(commando_aviso)
-
+const local_conta = '../Account/Conquistas.txt';
+const count1 = fs.existsSync(local_conta)
+if (!count1) {
+    console.log ("---------------------------------------------------------------");
+console.log ("-> Não foi detectado arquivos de save!")
 pausarParaContinuar()
+}
+if (count1) {
+console.log ("---------------------------------------------------------------");
+console.log ("-> Foi detectado finais em seu arquivo de save!")
+console.log ("---------------------------------------------------------------");
+console.log ("-> Quer restaurar?")
+console.log ("---------------------------------------------------------------");
+let restart = prompt("> ").toUpperCase()
+
+if (restart == "1"){
+try {
+const dados = fs.readFileSync(save_conquistas, 'utf8')
+console.clear()
+console.log ("---------------------------------------------------------------");
+console.log ("-> Os seguintes finais serão restaurados!")
+console.log ("---------------------------------------------------------------");
+console.log(dados)
+} catch (err) {
+console.error('ERRO: Falha na leitura dos arquivos!')
+
+}
+pausarParaContinuar()
+
+dados = fs.readFileSync(save_conquistas, 'utf8')
+
+if (dados.includes('BAD_ENDING.bin')){
+    fs.writeFileSync('../Achievements/BAD_ENDING.bin', 'a', 'utf8');
+} else if (dados.includes('REAL_ENDING.bin')) {
+    fs.writeFileSync('../Achievements/REAL_ENDING.bin', 'a', 'utf8');
+} else if (dados.includes('GOOD_ENDING.bin')) {
+    fs.writeFileSync('../Achievements/GOOD_ENDING.bin', 'a', 'utf8');
+} else if (dados.includes('BAD_ENDING2.bin')) {
+    fs.writeFileSync('../Achievements/BAD_ENDING2.bin', 'a', 'utf8');
+} else if (dados.includes('BAD_ENDING3.bin')) {
+    fs.writeFileSync('../Achievements/BAD_ENDING3.bin', 'a', 'utf8');
+}
+
+skipaccount = true
+
+} else if (restart == "2"){
+    pausarParaContinuar()
+} else {
+    Opcãoinvalida()
+}
+
+
+}
+
+if (!skipaccount) {console.clear();
+    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("██                                                               ██")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                         ██████████                            ██")
+    console.log ("██                        ████████████                           ██")
+    console.log ("██                        ████████████                           ██")
+    console.log ("██                         ██████████                            ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                          ████████                             ██")
+    console.log ("██                      ███████████████                          ██")
+    console.log ("██                      ███████████████                          ██")
+    console.log ("██                                                               ██")
+    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("")
+    console.log("---------------------------------------------------------------");
+        console.log("-> Você gostaria de criar uma conta?");
+        console.log("-> (Apenas para salvamento local!)");
+        console.log("---------------------------------------------------------------");
+        console.log ("-> Opções");
+        console.log("---------------------------------------------------------------");
+        console.log ("(1) Criar Conta");
+        console.log ("(2) Ignorar");
+        console.log("---------------------------------------------------------------");
+        Login = Number(prompt("> "));
+        
+        if (Login == 1) {
+            console.clear();
+        
+            if (fs.existsSync(save_conquistas && accountFilePath)) {
+                
+                console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                       █████   ██████                          ██")
+    console.log ("██                      ████        ██████                       ██")
+    console.log ("██                                 ██████                        ██")
+    console.log ("██                               ██████                          ██")
+    console.log ("██                             ██████                            ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                                                               ██")
+    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("")
+                console.log("---------------------------------------------------------------");
+                console.log("-> Um arquivo já existe!");
+                console.log("-> Você gostaria de atualiza-lo? (S/N)");
+                console.log("---------------------------------------------------------------");
+                overwrite = prompt("> ").toUpperCase();
+        
+                if (overwrite !== 'S') {
+                    console.clear();
+                    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                                                               ██")
+    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("")
+                    console.log("---------------------------------------------------------------");
+                    console.log("-> Criação de conta cancelada. Arquivo existente não foi sobrescrito.");
+                    console.log("---------------------------------------------------------------");
+        
+                }
+            }
+            if (overwrite == "S") {
+                console.clear()
+                console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("██                                                               ██")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                         ██████████                            ██")
+    console.log ("██                        ████████████                           ██")
+    console.log ("██                        ████████████                           ██")
+    console.log ("██                         ██████████                            ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                          ████████                             ██")
+    console.log ("██                      ███████████████                          ██")
+    console.log ("██                      ███████████████                          ██")
+    console.log ("██                                                               ██")
+    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("")
+            console.log("---------------------------------------------------------------");
+            Usuario = prompt("Digite o nome de usuário: ");
+            Senha = prompt("Digite a sua senha: ");
+            console.log("---------------------------------------------------------------");
+        
+            const conteudo =
+                             "Nome: " + Usuario + "\r\n" +
+                             "Senha: " + Senha + "\r\n" + 
+                             "Idioma: Brasil (BR) \r\n";
+        
+            fs.writeFileSync(accountFilePath, conteudo, 'utf8');
+    
+            let finais1
+    if (finais.length == 0) {
+        finais1; 
+    
+    } else {
+        finais1 = finais
+    }
+            const conteudo5 = 
+            
+                             (finais1) + "\r\n"; 
+    
+    fs.writeFileSync(save_conquistas, conteudo5, 'utf8');           
+            console.log("-> Conta criada e salva com sucesso!");
+        }
+        } else {
+            console.clear();
+            console.log("---------------------------------------------------------------");
+            console.log("-> Criação de conta ignorada!");
+        }
+        }
+
+    pausarParaContinuar()
+
+console.clear()
 console.log ("███████████████████████████████████████████████████████████████████")
 console.log ("██                                                               ██")
 console.log ("██                           ██████                              ██")
@@ -666,124 +844,17 @@ if (começar === "2") {
 } else if (começar !== "1") {
     Opcãoinvalida()
 }
-console.clear();
-console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("██                                                               ██")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                         ██████████                            ██")
-console.log ("██                        ████████████                           ██")
-console.log ("██                        ████████████                           ██")
-console.log ("██                         ██████████                            ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                          ████████                             ██")
-console.log ("██                      ███████████████                          ██")
-console.log ("██                      ███████████████                          ██")
-console.log ("██                                                               ██")
-console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("")
-console.log("---------------------------------------------------------------");
-    console.log("-> Você gostaria de criar uma conta?");
-    console.log("-> (Apenas para salvamento local!)");
-    console.log("---------------------------------------------------------------");
-    console.log ("-> Opções");
-    console.log("---------------------------------------------------------------");
-    console.log ("(1) Criar Conta");
-    console.log ("(2) Ignorar");
-    console.log("---------------------------------------------------------------");
-    Login = Number(prompt("> "));
-    
-    if (Login == 1) {
-        console.clear();
-    
-        if (fs.existsSync(accountFilePath)) {
-            
-            console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                       █████   ██████                          ██")
-console.log ("██                      ████        ██████                       ██")
-console.log ("██                                 ██████                        ██")
-console.log ("██                               ██████                          ██")
-console.log ("██                             ██████                            ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                                                               ██")
-console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("")
-            console.log("---------------------------------------------------------------");
-            console.log("-> Um arquivo de conta já existe!");
-            console.log("-> Você gostaria de sobrescrevê-lo? (S/N)");
-            console.log("---------------------------------------------------------------");
-            overwrite = prompt("> ").toUpperCase();
-    
-            if (overwrite !== 'S') {
-                console.clear();
-                console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                                                               ██")
-console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("")
-                console.log("---------------------------------------------------------------");
-                console.log("-> Criação de conta cancelada. Arquivo existente não foi sobrescrito.");
-                console.log("---------------------------------------------------------------");
-    
-            }
-        }
-        if (overwrite == "S") {
-            console.clear()
-            console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("██                                                               ██")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                         ██████████                            ██")
-console.log ("██                        ████████████                           ██")
-console.log ("██                        ████████████                           ██")
-console.log ("██                         ██████████                            ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                          ████████                             ██")
-console.log ("██                      ███████████████                          ██")
-console.log ("██                      ███████████████                          ██")
-console.log ("██                                                               ██")
-console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("")
-        console.log("---------------------------------------------------------------");
-        Usuario = prompt("Digite o nome de usuário: ");
-        Senha = prompt("Digite a sua senha: ");
-        console.log("---------------------------------------------------------------");
-    
-        const conteudo =
-                         "Nome: " + Usuario + "\r\n" +
-                         "Senha: " + Senha + "\r\n" + 
-                         "Idioma: Brasil (BR) \r\n";
-    
-        fs.writeFileSync(accountFilePath, conteudo, 'utf8');
-    
-        console.log("-> Conta criada e salva com sucesso!");
-    }
-    } else {
-        console.clear();
-        console.log("---------------------------------------------------------------");
-        console.log("-> Criação de conta ignorada!");
-        console.log("---------------------------------------------------------------");
-    }
+
+
+console.clear()
+    const path = require('path');
+    console.log ("---------------------------------------------------------------");
+    console.log ("-> Lembre-se...")
+    const vbsFilePath = path.join(__dirname, 'OnlyBR.vbs');
+    const commando_aviso = `wscript.exe //nologo "${vbsFilePath}"`
+    exec(commando_aviso)
     
     pausarParaContinuar()
-
-
-
 while (jogoAtivo) { 
     
     if (!papega && !temChave){
@@ -2597,32 +2668,43 @@ if (BAD_ENDING) {
     exec('start cmd.exe /c aBR.exe')
     const conteudo = "VOCÊ COMPLETOU O PRIMEIRO FINAL RUIM";
 fs.writeFileSync('../Achievements/BAD_ENDING.bin', conteudo, 'utf8');
-updateAccountFileWithAchievement('BAD_ENDING')
+fs.appendFile(save_conquistas, 'BAD_ENDING.bin', (err) => {
+    if (err) throw err;
+})
+
 } else if (REAL_ENDING) {
     exec('start cmd.exe /c PoliceMonitorBR.exe', (error) => {
     if (error) {
       console.error(`Erro ao executar o arquivo: ${error.message}`);
       return;
     }
-
+    fs.appendFile(save_conquistas, 'REAL_ENDING.bin', (err) => {
+        if (err) throw err;
+    })
     if (REAL_ENDING) {
         const conteudo1 = "VOCÊ COMPLETOU O FINAL REAL";
         fs.writeFileSync('../Achievements/REAL_ENDING.bin', conteudo1, 'utf8');
-        updateAccountFileWithAchievement('REAL_ENDING')
+
     }
 });
 } else if (GOOD_ENDING) {
         const conteudo2 = "VOCÊ COMPLETOU O FINAL BOM";
         fs.writeFileSync('../Achievements/GOOD_ENDING.bin', conteudo2, 'utf8');
-        updateAccountFileWithAchievement('GOOD_ENDING')
+        fs.appendFile(save_conquistas, 'GOOD_ENDING.bin', (err) => {
+            if (err) throw err;
+        })
     } else if (BAD_ENDING_2) {
         const conteudo3 = "VOCÊ COMPLETOU O SEGUNDO FINAL RUIM";
         fs.writeFileSync('../Achievements/BAD_ENDING_2.bin', conteudo3, 'utf8');
-        updateAccountFileWithAchievement('BAD_ENDING_2')
+        fs.appendFile(save_conquistas, 'BAD_ENDING2.bin', (err) => {
+            if (err) throw err;
+        })
     } else if (BAD_ENDING_3) {
         const conteudo4 = "VOCÊ COMPLETOU O TERCEIRO FINAL RUIM";
         fs.writeFileSync('../Achievements/BAD_ENDING_3.bin', conteudo4, 'utf8');
-        updateAccountFileWithAchievement('BAD_ENDING_3')
+        fs.appendFile(save_conquistas, 'BAD_ENDING3.bin', (err) => {
+            if (err) throw err;
+        })
     }
 
 N = false
