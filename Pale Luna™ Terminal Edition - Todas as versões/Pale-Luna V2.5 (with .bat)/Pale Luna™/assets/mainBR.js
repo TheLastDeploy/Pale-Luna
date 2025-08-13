@@ -2559,9 +2559,10 @@ console.log("Após uma busca cuidadosa, você não encontra ninguém. A solidão
 console.log("Você então começa a revistar a casa em busca de algo útil, como um telefone.");
 console.log("Sobre uma mesa empoeirada, você encontra um bilhete com um mapa rudimentar desenhado com setas.");
 console.log("---------------------------------------------------------------");
-            console.log ("Opções:")
-            console.log ("1. Seguir mapa.")
-            console.log ("2. Não seguir o mapa.")
+            console.log ("[OPÇÕES]")
+            console.log ("---------------------------------------------------------------");
+            console.log ("[01] Seguir mapa.")
+            console.log ("[02] Não seguir o mapa.")
             console.log ("---------------------------------------------------------------");
             console.log("Comando?")
             mapa3 = Number(prompt("> "))
@@ -2574,9 +2575,10 @@ console.log("Você segue o mapa com atenção, cada curva um passo em direção 
 console.log("Ao chegar no 'X' marcado, você pisa e o chão range, soando oco sob seus pés.");
 console.log("Um receio imediato surge. A dúvida paira no ar: cavar e encarar o que há embaixo ou ignorar e seguir em frente?");
 console.log("---------------------------------------------------------------");
-                console.log ("Opções:")
-                console.log ("1. Escavar em busca de algo.")
-                console.log ("2. Não escavar.")
+                console.log ("[OPÇÕES]")
+                console.log ("---------------------------------------------------------------");
+                console.log ("[01] Escavar em busca de algo.")
+                console.log ("[02] Não escavar.")
                 console.log ("---------------------------------------------------------------");
                 console.log ("Comando?")
                 cavar = Number(prompt("> "))
