@@ -841,10 +841,8 @@ console.log("poles, but not everything went as planned and")
 console.log ("you were kidnapped by someone!")
 console.log("---------------------------------------------------------------");
 console.log("-> Your objective is to try to escape!")
-console.log("---------------------------------------------------------------");
     const path = require('path');
     printDivider();
-    console.log("---------------------------------------------------------------");
     console.log ("-> And remember...")
     const vbsFilePath = path.join(__dirname, 'OnlyEN.vbs');
     const commando_aviso = `wscript.exe //nologo "${vbsFilePath}"`
