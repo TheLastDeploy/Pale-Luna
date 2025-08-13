@@ -1,4 +1,3 @@
-
 // Property of Sad Berry Games
 
 
@@ -7,51 +6,7 @@ const { exec } = require('child_process');
 const fs = require('fs');
 
 
-function updateAccountFileWithAchievement(achievementName) {
-    let username = '';
-    let password = '';
-    let achievements = [];
-
-    if (fs.existsSync(accountFilePath)) {
-        try {
-            const content = fs.readFileSync(accountFilePath, 'utf8');
-            const usernameMatch = content.match(/Username: (.+)/);
-            const passwordMatch = content.match(/Password: (.+)/);
-            const achievementsMatch = content.match(/Achievements: \[([^\]]*)\]/);
-
-            if (usernameMatch) username = usernameMatch[1].trim();
-            if (passwordMatch) password = passwordMatch[1].trim();
-            if (achievementsMatch && achievementsMatch[1]) {
-                achievements = achievementsMatch[1].split(', ').map(s => s.trim()).filter(Boolean);
-            }
-        } catch (error) {
-            console.error(`ERROR reading account file: ${error.message}`);
-        }
-    }
-
-    if (!achievements.includes(achievementName)) {
-        achievements.push(achievementName);
-        console.log(`Achievement "${achievementName}" added to the list.`);
-    } else {
-        console.log(`Achievement "${achievementName}" already exists in the account.`);
-    }
-
-    let newContent = `Username: ${username}\r\nPassword: ${password}\r\n`;
-    if (achievements.length > 0) {
-        newContent += `Achievements: [${achievements.join(', ')}]\r\n`;
-    }
-
-    try {
-        fs.writeFileSync(accountFilePath, newContent.trim(), 'utf8');
-        console.log(`-> Account file updated with achievement: ${achievementName}`);
-    } catch (writeError) {
-        console.error(`ERROR rewriting account file: ${writeError.message}`);
-    }
-}
-
-
-
-// Nova função para imprimir a linha divisória padrão
+// New function to print the standard divider line
 function printDivider() {
     console.log("---------------------------------------------------------------");
 }
@@ -432,11 +387,11 @@ function decreaseLifeMedium() {
             }
         }
 
-let papega = false; // Control of shovel possession
 let temChave = false; // Control of key possession
 let jogoAtivo = true; // Flag to continue the game
 let jogoAtivo1 = true;
 let iniciofalha = false;
+let papega = false;
 let tentanovamente = true;
 let floresta1 = ("");
 let atalho = false;
@@ -584,8 +539,11 @@ let destruir = false
 // END
 
 const accountFilePath = '../Account/AcountInfo.txt';
+const save_conquistas = '../Account/Achievementsavefile.bin'
 let Login
 let overwrite = "Y"
+let skipaccount = false
+let check = false
 
 console.log (" ");
 console.log (" ");
@@ -598,36 +556,238 @@ console.log ("██║     ██║  ██║███████╗██�
 console.log ("╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝      ███████████████████████████");
 console.log ("██╗     ██╗   ██╗███╗   ██╗ █████╗    ███████████████████████████");
 console.log ("██║     ██║   ██║████╗  ██║██╔══██╗   ███████████████████████████");
-console.log ("██║     ██║   ██║██╔██╗ ██║███████║     ███████████████████████");
+console.log ("██║     ██║   ██║██╔██╗ ██║███████║     █████████████████████");
 console.log ("██║     ██║   ██║██║╚██╗██║██╔══██║      █████████████████████ ");
 console.log ("███████╗╚██████╔╝██║ ╚████║██║  ██║        █████████████████");
 console.log ("╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝           ███████████ ");
 printDivider();
 console.log ("--- TERMINAL EDITION - MADE BY SAD BERRY GAMES ---")
-printDivider() // Manteve o tamanho maior conforme seu design original
-console.log ("--- VERSION 2.2 ---")
-printDivider() // Manteve o tamanho maior conforme seu design original
+printDivider()
+console.log ("--- VERSION 2.5 ---")
+printDivider()
 console.log ("Welcome to Pale Luna! Follow the rules to ensure the full experience.");
 console.log ("Rule 1: Type only numbers (1, 2, 3, and 4).");
 console.log ("Rule 2: Do not use special characters.");
 console.log ("Rule 3: Have fun 😉");
-printDivider() // Manteve o tamanho maior conforme seu design original
+printDivider()
 const folderPath = '../Achievements';
 const count = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin')).length;
 const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
 console.log(`Endings completed: ${count}/5`);
 console.log('List of endings:', finais);
 pauseToContinue()
-const path = require('path')
 
+const local_conta = save_conquistas;
+const count1 = fs.existsSync(local_conta)
+
+while (check == false) {
+
+if (!count1) {
+    printDivider();
+console.log ("-> No save files detected!")
+check = true
+pauseToContinue()
+}
+if (count1) {
+printDivider();
+console.log ("-> Endings were detected in your save file! ")
+console.log ("-> If you already have the files in the achievements folder, DO NOT RESTORE")
+printDivider();
+console.log ("-> Do you want to restore them?")
+printDivider();
+console.log ("-> [01] Yes")
+console.log ("-> [02] No")
+console.log ("-> [03] Check Folder")
 printDivider()
-console.log ("-> Remember...")
-const vbsFilePath = path.join(__dirname, 'OnlyEN.vbs');
-const commando_aviso = `wscript.exe //nologo "${vbsFilePath}"`
-exec(commando_aviso)
+let restart = Number(prompt("> "))
+
+if (restart == 1){
+try {
+const dados = fs.readFileSync(save_conquistas, 'utf8')
+console.clear()
+printDivider();
+console.log ("-> The following endings will be restored!")
+printDivider();
+console.log(dados)
+} catch (err) {
+console.error('ERROR: Failed to read files!')
+
+}
 pauseToContinue()
 
+dados = fs.readFileSync(save_conquistas, 'utf8')
 
+if (dados.includes('BAD_ENDING.bin')){
+    fs.writeFileSync('../Achievements/BAD_ENDING.bin', 'a', 'utf8');
+} else if (dados.includes('REAL_ENDING.bin')) {
+    fs.writeFileSync('../Achievements/REAL_ENDING.bin', 'a', 'utf8');
+} else if (dados.includes('GOOD_ENDING.bin')) {
+    fs.writeFileSync('../Achievements/GOOD_ENDING.bin', 'a', 'utf8');
+} else if (dados.includes('BAD_ENDING2.bin')) {
+    fs.writeFileSync('../Achievements/BAD_ENDING2.bin', 'a', 'utf8');
+} else if (dados.includes('BAD_ENDING3.bin')) {
+    fs.writeFileSync('../Achievements/BAD_ENDING3.bin', 'a', 'utf8');
+}
+check = true
+skipaccount = true
+
+} else if (restart == 2){
+    console.clear()
+    console.log ("---------------------------------------------------------------");
+    console.log  ("-> Restoration Skipped!")
+    pauseToContinue()
+} else if (restart == 3) {
+console.log ("---------------------------------------------------------------");
+console.log ("-> Checking the folder...")
+console.log ("--------------------------------------------------------------");
+if (finais != null) {
+    console.log ("-> FILES FOUND:")
+    console.log (finais)
+    console.log ("---------------------------------------------------------------");
+    console.log ("-> If you want to keep these endings, DO NOT RESTORE")
+    pauseToContinue()
+    } else {
+        console.log ("---------------------------------------------------------------");
+        console.log ("-> No files.")
+        pauseToContinue()
+    }
+}else {
+    InvalidOption()
+}
+
+
+}
+}
+if (!skipaccount) {
+    console.clear();
+    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("██                                                               ██")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                         ██████████                            ██")
+    console.log ("██                        ████████████                           ██")
+    console.log ("██                        ████████████                           ██")
+    console.log ("██                         ██████████                            ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                          ████████                             ██")
+    console.log ("██                      ███████████████                          ██")
+    console.log ("██                      ███████████████                          ██")
+    console.log ("██                                                               ██")
+    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("")
+    printDivider();
+        console.log("-> Would you like to create an account?");
+        console.log("-> (For local saving only!)");
+        printDivider();
+        console.log ("-> Options");
+        printDivider();
+        console.log ("(1) Create Account");
+        console.log ("(2) Skip");
+        printDivider();
+        Login = Number(prompt("> "));
+        
+        if (Login == 1) {
+            console.clear();
+        
+            if (fs.existsSync(save_conquistas && accountFilePath)) {
+                
+                console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                       █████   ██████                          ██")
+    console.log ("██                      ████        ██████                       ██")
+    console.log ("██                                 ██████                        ██")
+    console.log ("██                               ██████                          ██")
+    console.log ("██                             ██████                            ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                                                               ██")
+    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("")
+                printDivider();
+                console.log("-> An account file already exists!");
+                console.log("-> Would you like to overwrite it? (Y/N)");
+                printDivider();
+                overwrite = prompt("> ").toUpperCase();
+        
+                if (overwrite !== 'Y') {
+                    console.clear();
+                    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                                                               ██")
+    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("")
+                    printDivider();
+                    console.log("-> Account creation canceled. Existing file was not overwritten.");
+                    printDivider();
+        
+                }
+            }
+            if (overwrite == "Y") {
+                console.clear()
+                console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("██                                                               ██")
+    console.log ("██                                                               ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                         ██████████                            ██")
+    console.log ("██                        ████████████                           ██")
+    console.log ("██                        ████████████                           ██")
+    console.log ("██                         ██████████                            ██")
+    console.log ("██                           ██████                              ██")
+    console.log ("██                          ████████                             ██")
+    console.log ("██                      ███████████████                          ██")
+    console.log ("██                      ███████████████                          ██")
+    console.log ("██                                                               ██")
+    console.log ("███████████████████████████████████████████████████████████████████")
+    console.log ("")
+            printDivider();
+            Usuario = prompt("Enter username: ");
+            Senha = prompt("Enter your password: ");
+            printDivider();
+        
+            const conteudo =
+                             "Name: " + Usuario + "\r\n" +
+                             "Password: " + Senha + "\r\n" + 
+                             "Language: English (EN) \r\n";
+        
+            fs.writeFileSync(accountFilePath, conteudo, 'utf8');
+    
+            let finais1
+    if (finais.length == 0) {
+        finais1; 
+    
+    } else {
+        finais1 = finais
+    }
+            const conteudo5 = 
+            
+                             (finais1) + "\r\n"; 
+    
+    fs.writeFileSync(save_conquistas, conteudo5, 'utf8');           
+            console.log("-> Account created and saved successfully!");
+        }
+        } else {
+            console.clear();
+            printDivider();
+            console.log("-> Account creation skipped!");
+        }
+        }
+
+    pauseToContinue()
+
+console.clear()
 console.log ("███████████████████████████████████████████████████████████████████")
 console.log ("██                                                               ██")
 console.log ("██                           ██████                              ██")
@@ -643,23 +803,24 @@ console.log ("██                           ██████               
 console.log ("██                                                               ██")
 console.log ("███████████████████████████████████████████████████████████████████")
 console.log ("")
-printDivider() // Manteve o tamanho maior conforme seu design original
+printDivider();
 console.log ("-> Can we start?");
-printDivider() // Manteve o tamanho maior conforme seu design original
+printDivider();
 console.log ("Options:");
 console.log ("1: Yes");
 console.log ("2: No");
-printDivider() // Manteve o tamanho maior conforme seu design original
+printDivider();
 console.log ("Command?");
 let começar = prompt("> ");
 
 if (count >5 || count < 0) {
     console.clear();
-    console.log ("------------------------------------------------------------------------------------------------"); // Manteve o tamanho maior conforme seu design original
+    printDivider();
     console.log ("-> ERROR: You cannot have more than 5 endings or less than 0 endings, please run the progress eraser!.");
-        console.log ("------------------------------------------------------------------------------------------------"); // Manteve o tamanho maior conforme seu design original
+        printDivider();
         process.exit(1); // Exits the program with exit code 1 (failure)
 }
+
 if (começar === "2") {
     console.log (" ");
     printDivider();
@@ -669,123 +830,29 @@ if (começar === "2") {
 } else if (começar !== "1") {
     InvalidOption()
 }
-console.clear();
-console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("██                                                               ██")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                         ██████████                            ██")
-console.log ("██                        ████████████                           ██")
-console.log ("██                        ████████████                           ██")
-console.log ("██                         ██████████                            ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                          ████████                             ██")
-console.log ("██                      ███████████████                          ██")
-console.log ("██                      ███████████████                          ██")
-console.log ("██                                                               ██")
-console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("")
-printDivider();
-    console.log("-> Would you like to create an account?");
-    console.log("-> (For local saving only!)");
-    console.log("---------------------------------------------------------------");
-    console.log ("-> Options");
-    console.log("---------------------------------------------------------------");
-    console.log ("(1) Create Account");
-    console.log ("(2) Skip");
-    console.log("---------------------------------------------------------------");
-    Login = Number(prompt("> ")); // User input for login choice (1 or 2)
-    
-    if (Login == 1) { // If user chooses to create an account
-        console.clear();
-    
-        if (fs.existsSync(accountFilePath)) { // Checks if an account file already exists
-            console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                       █████   ██████                          ██")
-console.log ("██                      ████        ██████                       ██")
-console.log ("██                                 ██████                        ██")
-console.log ("██                               ██████                          ██")
-console.log ("██                             ██████                            ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                                                               ██")
-console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("")
-            console.log("---------------------------------------------------------------");
-            console.log("-> An account file already exists!");
-            console.log("-> Would you like to overwrite it? (Y/N)");
-            console.log("---------------------------------------------------------------");
-            overwrite = prompt("> ").toUpperCase(); // User input for overwrite confirmation
-    
-            if (overwrite !== 'Y') { // If user does not want to overwrite
-                console.clear();
-                console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                                                               ██")
-console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("")
-                console.log("---------------------------------------------------------------");
-                console.log("-> Account creation canceled. Existing file was not overwritten.");
-                console.log("---------------------------------------------------------------");
-    
-            }
-        }
-        if (overwrite == "Y") { // If user confirms to overwrite or no file existed
-            console.clear()
-            console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("██                                                               ██")
-console.log ("██                                                               ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                         ██████████                            ██")
-console.log ("██                        ████████████                           ██")
-console.log ("██                        ████████████                           ██")
-console.log ("██                         ██████████                            ██")
-console.log ("██                           ██████                              ██")
-console.log ("██                          ████████                             ██")
-console.log ("██                      ███████████████                          ██")
-console.log ("██                      ███████████████                          ██")
-console.log ("██                                                               ██")
-console.log ("███████████████████████████████████████████████████████████████████")
-console.log ("")
-        console.log("---------------------------------------------------------------");
-        Usuario = prompt("Enter username: "); // Prompt for username
-        Senha = prompt("Enter your password: "); // Prompt for password
-        console.log("---------------------------------------------------------------");
-    
-        const conteudo = // Content to be written to the file
-                         "Name: " + Usuario + "\r\n" +
-                         "Password: " + Senha + "\r\n" + 
-                         "Language: English (EN) \r\n";
-    
-        fs.writeFileSync(accountFilePath, conteudo, 'utf8'); // Writes account details to file
-    
-        console.log("-> Account created and saved successfully!");
-    }
-    } else { // If user chooses to skip account creation
-        console.clear();
-        console.log("---------------------------------------------------------------");
-        console.log("-> Account creation skipped!");
-        console.log("---------------------------------------------------------------");
-    }
-    
-    pauseToContinue() // This function name should also be translated, e.g., pauseToContinue()
 
-while (jogoAtivo) {
 
+console.clear()
+console.log("---------------------------------------------------------------");
+console.log("[CONTEXT]")
+console.log("---------------------------------------------------------------");
+console.log("-> You are Paul, an electrical engineer who was called to fix")
+console.log("poles, but not everything went as planned and")
+console.log ("you were kidnapped by someone!")
+console.log("---------------------------------------------------------------");
+console.log("-> Your objective is to try to escape!")
+console.log("---------------------------------------------------------------");
+    const path = require('path');
+    printDivider();
+    console.log("---------------------------------------------------------------");
+    console.log ("-> And remember...")
+    const vbsFilePath = path.join(__dirname, 'OnlyEN.vbs');
+    const commando_aviso = `wscript.exe //nologo "${vbsFilePath}"`
+    exec(commando_aviso)
+    
+    pauseToContinue()
+while (jogoAtivo) { 
+    
     if (!papega && !temChave){
     console.log ("----------------------------------------------------------")
     console.log (" ")
@@ -801,7 +868,7 @@ while (jogoAtivo) {
     console.log ("██                            █  ██  █                      ███  ██")
     console.log ("██                               ██                         █ █  ██")
     console.log ("██                             ██  ██                         █  ██")
-    console.log ("██                            ██    ██                        █  ██")
+    console.log ("██                            ██    ██                        █  ██")                                            
     console.log ("███████████████████████████████████████████████████████████████████")
     console.log ("")
     } else if (papega && !temChave) {
@@ -819,7 +886,7 @@ while (jogoAtivo) {
     console.log ("██                            █  ██  █                      ███  ██")
     console.log ("██                               ██                         █ █  ██")
     console.log ("██                             ██  ██                         █  ██")
-    console.log ("██                            ██    ██                        █  ██")
+    console.log ("██                            ██    ██                        █  ██")                                            
     console.log ("███████████████████████████████████████████████████████████████████")
     console.log ("")
     } else if (papega && temChave) {
@@ -837,7 +904,7 @@ while (jogoAtivo) {
     console.log ("██                            █  ██  █                      ███  ██")
     console.log ("██                               ██                         █ █  ██")
     console.log ("██                             ██  ██                         █  ██")
-    console.log ("██                            ██    ██                        █  ██")
+    console.log ("██                            ██    ██                        █  ██")                                            
     console.log ("███████████████████████████████████████████████████████████████████")
     console.log ("")
     } else if (!papega && temChave) {
@@ -855,7 +922,7 @@ while (jogoAtivo) {
     console.log ("██                            █  ██  █                      ███  ██")
     console.log ("██                               ██                         █ █  ██")
     console.log ("██                             ██  ██                         █  ██")
-    console.log ("██                            ██    ██                        █  ██")
+    console.log ("██                            ██    ██                        █  ██")                                            
     console.log ("███████████████████████████████████████████████████████████████████")
     console.log ("")
     }
@@ -875,95 +942,60 @@ console.log ("6. LIFE");
 printDivider();
     console.log ("Command?");
     let inicio = Number(prompt("> "));
-    if (inicio === 1) {
-        if (papega) {
-            console.clear();
-            printDivider();
-            console.log ("-> You already picked up the shovel");
-        } else if (!papega) {
-        console.clear();
-        printDivider();
-        console.log ("-> You picked up the shovel, it might be useful in the future");
-        console.log ("-> What will you do now?");
-        papega = true;
-        }
-    } else if (inicio === 2) {
-        if (temChave) {
-            console.clear();
-            printDivider();
-            console.log ("-> You already picked up the gold pot and the key");
-        } else if (!temChave) {
-        console.clear();
-        printDivider();
-        console.log ("-> You picked up the gold pot, inside it you found a key");
-        console.log ("-> What will you do now?");
-        temChave = true;
-        }
-    } else if (inicio === 3) {
-        console.clear();
-        printDivider();
-        console.log ("-> You tried to open the door...");
-        if (temChave) {
-            console.log ("-> You can open the door with the found key!");
-            console.log ("-> WARNING: You used the key!");
-            temChave = false
-            jogoAtivo = false;
-            saiudacasa = true;
-        } else if (!temChave) {
-            console.log ("-> You try to open the door but it is locked...");
-            printDivider();
-        }
-    } else if (inicio == 4) {
-        inventory()
-    } else if (inicio == 5) {
-        sanity()
-    } else if (inicio == 6) {
-        showLife()
-    } else {
-       InvalidOption()
-    }
-    }
 
+if (inicio === 1) {
+    if (papega) {
+        console.clear();
+        printDivider();
+        console.log ("-> You already picked up the shovel");
+    } else if (!papega) {
     console.clear();
-    while (jogoAtivo1) {
-        if (!N && !L && !O){
-            console.log ("----------------------------------------------------------")
-            console.log (" ")
-            console.log ("██████████████████████████████████████████████████████         ████")
-            console.log ("                   ██                                            ")
-            console.log ("                 ██                                       /\\      ")
-            console.log ("               ██                                        WEST      ")
-            console.log ("         ██  ██                                                    ")
-            console.log ("       ██  ██                                                      ")
-            console.log ("     ██                                                            ")
-            console.log ("██   ██                            ██                 NORTH >      ")
-            console.log ("██   ██                          ██████                            ")
-            console.log ("██   ██                         █  ██  █                           ")
-            console.log ("██   ██                            ██                              ")
-            console.log ("██   ██                          ██  ██                  EAST      ")
-            console.log ("██   ██                         ██    ██                  \\/      ")
-            console.log ("██████████████████████████████████████████████████████         ████")
-            console.log ("")
-        } else if (!N && L && !O) {
-            console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                       /\\      ")
-        console.log ("               ██                                        WEST     ")
-        console.log ("         ██  ██                                                    ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                            ")
-        console.log ("██   ██                            ██                 NORTH >      ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██               (Already went) ")
-        console.log ("██   ██                          ██  ██                  EAST      ")
-        console.log ("██   ██                         ██    ██                  \\/      ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        console.log ("")
-        } else if (N && !L && !O) {
-            console.log ("----------------------------------------------------------")
+    printDivider();
+    console.log ("-> You picked up the shovel, it might be useful in the future");
+    console.log ("-> What will you do now?");
+    papega = true;
+    }
+} else if (inicio === 2) {
+    if (temChave) {
+        console.clear();
+        printDivider();
+        console.log ("-> You already picked up the gold pot and the key");
+    } else if (!temChave) {
+    console.clear();
+    printDivider();
+    console.log ("-> You picked up the gold pot, inside it you found a key");
+    console.log ("-> What will you do now?");
+    temChave = true;
+    }
+} else if (inicio === 3) {
+    console.clear();
+    printDivider();
+    console.log ("-> You tried to open the door...");
+    if (temChave) {
+        console.log ("-> You can open the door with the found key!");
+        console.log ("-> WARNING: You used the key!");
+        temChave = false
+        jogoAtivo = false;
+        saiudacasa = true;
+    } else if (!temChave) {
+        console.log ("-> You try to open the door but it is locked...");
+        printDivider();
+    }
+} else if (inicio == 4) {
+    inventory()
+} else if (inicio == 5) {
+    sanity()
+} else if (inicio == 6) {
+    showLife()
+} else {
+   InvalidOption()
+}
+}
+
+console.clear();
+while (jogoAtivo1) {
+    if (!N && !L && !O){
+        console.log ("----------------------------------------------------------")
         console.log (" ")
         console.log ("██████████████████████████████████████████████████████         ████")
         console.log ("                   ██                                            ")
@@ -972,256 +1004,297 @@ printDivider();
         console.log ("         ██  ██                                                    ")
         console.log ("       ██  ██                                                      ")
         console.log ("     ██                                                            ")
-        console.log ("██   ██                            ██        (Already went) NORTH >")
+        console.log ("██   ██                            ██                 NORTH >      ")
         console.log ("██   ██                          ██████                            ")
         console.log ("██   ██                         █  ██  █                           ")
         console.log ("██   ██                            ██                              ")
         console.log ("██   ██                          ██  ██                  EAST      ")
-        console.log ("██   ██                         ██    ██                  \\/         ")
+        console.log ("██   ██                         ██    ██                  \\/         ")                                            
         console.log ("██████████████████████████████████████████████████████         ████")
         console.log ("")
-        } else if (!N && !L && O) {
-            console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                       /\\      ")
-        console.log ("               ██                                        WEST     ")
-        console.log ("         ██  ██                                    (Already went)           ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                            ")
-        console.log ("██   ██                            ██                 NORTH >      ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██                              ")
-        console.log ("██   ██                          ██  ██                  EAST      ")
-        console.log ("██   ██                         ██    ██                  \\/      ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        } else if (!N && L && O) {
-            console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                       /\\      ")
-        console.log ("               ██                                        WEST     ")
-        console.log ("         ██  ██                                    (Already went)              ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                            ")
-        console.log ("██   ██                            ██                 NORTH >      ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██               (Already went) ")
-        console.log ("██   ██                          ██  ██                  EAST        ")
-        console.log ("██   ██                         ██    ██                  \\/         ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        } else if (N && L && !O) {
-            console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                       /\\      ")
-        console.log ("               ██                                        WEST     ")
-        console.log ("         ██  ██                                                    ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                            ")
-        console.log ("██   ██                            ██        (Already went) NORTH >      ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██              (Already went)")
-        console.log ("██   ██                          ██  ██                  EAST         ")
-        console.log ("██   ██                         ██    ██                  \\/         ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        } else if (N && !L && O) {
-            console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                       /\\     ")
-        console.log ("               ██                                        WEST     ")
-        console.log ("         ██  ██                                    (Already went) ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                            ")
-        console.log ("██   ██                            ██        (Already went) NORTH > ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██                              ")
-        console.log ("██   ██                          ██  ██                  EAST         ")
-        console.log ("██   ██                         ██    ██                  \\/         ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        } else if (N && L && O) {
-            console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                       /\\      ")
-        console.log ("               ██                                        WEST     ")
-        console.log ("         ██  ██                                    (Already went)   ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                            ")
-        console.log ("██   ██                            ██        (Already went) NORTH > ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██              (Already went) ")
-        console.log ("██   ██                          ██  ██                  EAST         ")
-        console.log ("██   ██                         ██    ██                  \\/         ")
-        console.log ("██████████████████████████████████████████████████████         ████")
-        }
-            printDivider();
-            console.log ("-> Claim your reward. The pale moon smiles at you.");
-            console.log ("-> You are in a forest. There are paths to the NORTH, WEST, and EAST:");
-            printDivider();
-            console.log ("Options:");
-            console.log ("1. NORTH.");
-            console.log ("2. WEST.");
-            console.log ("3. EAST.");
-            printDivider();
-            console.log ("Actions:");
-            console.log ("4. INVENTORY");
-            console.log ("5. SANITY");
-            console.log ("6. LIFE");
-            printDivider();
+    } else if (!N && L && !O) {
+        console.log ("----------------------------------------------------------")
+    console.log (" ")
+    console.log ("██████████████████████████████████████████████████████         ████")
+    console.log ("                   ██                                            ")
+    console.log ("                 ██                                       /\\      ")
+    console.log ("               ██                                        WEST     ")
+    console.log ("         ██  ██                                                    ")
+    console.log ("       ██  ██                                                      ")
+    console.log ("     ██                                                            ")
+    console.log ("██   ██                            ██                 NORTH >      ")
+    console.log ("██   ██                          ██████                            ")
+    console.log ("██   ██                         █  ██  █                           ")
+    console.log ("██   ██                            ██               (Already went)           ")
+    console.log ("██   ██                          ██  ██                  EAST      ")
+    console.log ("██   ██                         ██    ██                  \\/         ")                                            
+    console.log ("██████████████████████████████████████████████████████         ████")
+    console.log ("")
+    } else if (N && !L && !O) {
+        console.log ("----------------------------------------------------------")
+    console.log (" ")
+    console.log ("██████████████████████████████████████████████████████         ████")
+    console.log ("                   ██                                            ")
+    console.log ("                 ██                                       /\\      ")
+    console.log ("               ██                                        WEST      ")
+    console.log ("         ██  ██                                                    ")
+    console.log ("       ██  ██                                                      ")
+    console.log ("     ██                                                            ")
+    console.log ("██   ██                            ██        (Already went) NORTH >      ")
+    console.log ("██   ██                          ██████                            ")
+    console.log ("██   ██                         █  ██  █                           ")
+    console.log ("██   ██                            ██                              ")
+    console.log ("██   ██                          ██  ██                  EAST      ")
+    console.log ("██   ██                         ██    ██                  \\/         ")                                            
+    console.log ("██████████████████████████████████████████████████████         ████")
+    console.log ("")
+    } else if (!N && !L && O) {
+        console.log ("----------------------------------------------------------")
+    console.log (" ")
+    console.log ("██████████████████████████████████████████████████████         ████")
+    console.log ("                   ██                                            ")
+    console.log ("                 ██                                       /\\      ")
+    console.log ("               ██                                        WEST     ")
+    console.log ("         ██  ██                                         (Already went)           ")
+    console.log ("       ██  ██                                                      ")
+    console.log ("     ██                                                            ")
+    console.log ("██   ██                            ██                 NORTH >      ")
+    console.log ("██   ██                          ██████                            ")
+    console.log ("██   ██                         █  ██  █                           ")
+    console.log ("██   ██                            ██                              ")
+    console.log ("██   ██                          ██  ██                  EAST      ")
+    console.log ("██   ██                         ██    ██                  \\/      ")
+    console.log ("██████████████████████████████████████████████████████         ████")
+    } else if (!N && L && O) {
+        console.log ("----------------------------------------------------------")
+    console.log (" ")
+    console.log ("██████████████████████████████████████████████████████         ████")
+    console.log ("                   ██                                            ")
+    console.log ("                 ██                                       /\\      ")
+    console.log ("               ██                                        WEST     ")
+    console.log ("         ██  ██                                         (Already went)              ")
+    console.log ("       ██  ██                                                      ")
+    console.log ("     ██                                                            ")
+    console.log ("██   ██                            ██                 NORTH >      ")
+    console.log ("██   ██                          ██████                            ")
+    console.log ("██   ██                         █  ██  █                           ")
+    console.log ("██   ██                            ██               (Already went)           ")
+    console.log ("██   ██                          ██  ██                  EAST        ")
+    console.log ("██   ██                         ██    ██                  \\/         ")                                            
+    console.log ("██████████████████████████████████████████████████████         ████")
+    } else if (N && L && !O) {
+        console.log ("----------------------------------------------------------")
+    console.log (" ")
+    console.log ("██████████████████████████████████████████████████████         ████")
+    console.log ("                   ██                                            ")
+    console.log ("                 ██                                       /\\      ")
+    console.log ("               ██                                        WEST     ")
+    console.log ("         ██  ██                                                    ")
+    console.log ("       ██  ██                                                      ")
+    console.log ("     ██                                                            ")
+    console.log ("██   ██                            ██        (Already went) NORTH >      ")
+    console.log ("██   ██                          ██████                            ")
+    console.log ("██   ██                         █  ██  █                           ")
+    console.log ("██   ██                            ██              (Already went)           ")
+    console.log ("██   ██                          ██  ██                  EAST         ")
+    console.log ("██   ██                         ██    ██                  \\/         ")                                            
+    console.log ("██████████████████████████████████████████████████████         ████")
+    } else if (N && !L && O) {
+        console.log ("----------------------------------------------------------")
+    console.log (" ")
+    console.log ("██████████████████████████████████████████████████████         ████")
+    console.log ("                   ██                                            ")
+    console.log ("                 ██                                       /\\     ")
+    console.log ("               ██                                        WEST     ")
+    console.log ("         ██  ██                                         (Already went)           ")
+    console.log ("       ██  ██                                                      ")
+    console.log ("     ██                                                            ")
+    console.log ("██   ██                            ██        (Already went) NORTH >      ")
+    console.log ("██   ██                          ██████                            ")
+    console.log ("██   ██                         █  ██  █                           ")
+    console.log ("██   ██                            ██                              ")
+    console.log ("██   ██                          ██  ██                  EAST         ")
+    console.log ("██   ██                         ██    ██                  \\/         ")                                            
+    console.log ("██████████████████████████████████████████████████████         ████")
+    } else if (N && L && O) {
+        console.log ("----------------------------------------------------------")
+    console.log (" ")
+    console.log ("██████████████████████████████████████████████████████         ████")
+    console.log ("                   ██                                            ")
+    console.log ("                 ██                                       /\\      ")
+    console.log ("               ██                                        WEST     ")
+    console.log ("         ██  ██                                         (Already went)   ")
+    console.log ("       ██  ██                                                      ")
+    console.log ("     ██                                                            ")
+    console.log ("██   ██                            ██        (Already went) NORTH >      ")
+    console.log ("██   ██                          ██████                            ")
+    console.log ("██   ██                         █  ██  █                           ")
+    console.log ("██   ██                            ██               (Already went)           ")
+    console.log ("██   ██                          ██  ██                  EAST         ")
+    console.log ("██   ██                         ██    ██                  \\/         ")                                            
+    console.log ("██████████████████████████████████████████████████████         ████")
+    }
+        printDivider();
+        console.log ("-> Claim your reward. The pale moon smiles at you.");
+        console.log ("-> You are in a forest. There are paths to the NORTH, WEST, and EAST:");
+        printDivider();
+        console.log ("Options:");
+        console.log ("1. NORTH.");
+        console.log ("2. WEST.");
+        console.log ("3. EAST.");
+        printDivider();
+        console.log ("Actions:");
+        console.log ("4. INVENTORY");
+        console.log ("5. SANITY");
+        console.log ("6. LIFE");
+        printDivider();
+        
+    
+    console.log ("Command?");
+    floresta1 = Number(prompt("> "));
 
-
-        console.log ("Command?");
-        floresta1 = Number(prompt("> "));
-        if (floresta1 === 1) {
+    if (floresta1 === 1) {
+        console.clear();
+        printDivider();
+        console.log ("-> You feel more confident going North...");
+        N = true
+         // Randomization of 50% chance of success or failure
+         
+    if (Math.random() < 0.5) {
+        printDivider();
+        console.log ("-> You trip on a root and fall!");
+        console.log ("-> You lost time and need to go back.");
+        console.log ("-> You walk back...");
+        } else {
+            printDivider();
+            console.log (" ")
+            console.log ("███████████████████████████████████████████████████████████████████")
+            console.log ("██                                                                 ")
+            console.log ("██                                                                 ")
+            console.log ("██                                                                 ")
+            console.log ("██                                                                   ")
+            console.log ("██                                                                   ")
+            console.log ("██                                                                 ")
+            console.log ("██                                 ██                              ")
+            console.log ("██                               ██████                       ███████")
+            console.log ("██                              █  ██  █              ██   ████      ")
+            console.log ("██                                 ██               ██  ████         ")
+            console.log ("██                               ██  ██           ██                 ")
+            console.log ("██                              ██    ██         ██                  ")                                            
+            console.log ("████████████████████████████████████████████████████████████████████")
+            console.log ("")
+        printDivider();
+        console.log ("-> You find a secret shortcut!");
+        printDivider();
+        console.log ("Options:");
+        console.log ("1. Take the shortcut");
+        console.log ("2. Ignore the shortcut");
+        printDivider();
+        console.log ("Command?")
+        atalho = prompt ("> ");
+        if (atalho == 1) {
             console.clear();
             printDivider();
-            console.log ("-> You feel more confident going North...");
-            N = true
-             // Randomization of 50% chance of success or failure
-
-        if (Math.random() < 0.5) {
+            console.log ("-> You quickly advance through the forest.");
+            console.log ("-> You manage to leave the forest, but secrets still await discovery...");
             printDivider();
-            console.log ("-> You trip on a root and fall!");
-            console.log ("-> You lost time and need to go back.");
-            console.log ("-> You walk back...");
-            } else {
-                printDivider();
-                console.log (" ")
-                console.log ("███████████████████████████████████████████████████████████████████")
-                console.log ("██                                                                 ")
-                console.log ("██                                                                 ")
-                console.log ("██                                                                 ")
-                console.log ("██                                                                   ")
-                console.log ("██                                                                   ")
-                console.log ("██                                                                 ")
-                console.log ("██                                 ██                              ")
-                console.log ("██                               ██████                       ███████")
-                console.log ("██                              █  ██  █              ██   ████      ")
-                console.log ("██                                 ██               ██  ████         ")
-                console.log ("██                               ██  ██           ██                 ")
-                console.log ("██                              ██    ██         ██                  ")
-                console.log ("████████████████████████████████████████████████████████████████████")
-                console.log ("")
+            console.log ("-> You won!!");
+            console.log ("-> Congratulations? You completed the BAD ENDING, SECRETS STILL AWAIT YOU.");
             printDivider();
-            console.log ("-> You find a secret shortcut!");
-            printDivider();
-            console.log ("Options:");
-            console.log ("1. Take the shortcut");
-            console.log ("2. Ignore the shortcut");
-            printDivider();
-            console.log ("Command?")
-            atalho = prompt ("> ");
-            if (atalho == 1) {
-                console.clear();
-                printDivider();
-                console.log ("-> You quickly advance through the forest.");
-                console.log ("-> You manage to leave the forest, but secrets still await discovery...");
-                printDivider();
-                console.log ("-> You won!!");
-                console.log ("-> Congratulations? You completed the BAD ENDING, SECRETS STILL AWAIT YOU.");
-                printDivider();
-
-                jogoAtivo=false
-                jogoAtivo1=false
-                jogoAtivo2=false
-                jogoAtivo3=false
-                jogoAtivo4=false
-                REAL_ENDING=false
-                BAD_ENDING=true
-            } else if (atalho == 2) {
-                console.clear();
-                printDivider();
-                console.log ("-> You find it dangerous and ignore the shortcut");
-                console.log ("-> You decide to go back to the path options");
-
-            } else {
-                InvalidOption()
-             }
-          }
-        } else if (floresta1 === 2) {
+              
+            jogoAtivo=false
+            jogoAtivo1=false
+            jogoAtivo2=false
+            jogoAtivo3=false
+            jogoAtivo4=false
+            REAL_ENDING=false
+            BAD_ENDING=true
+        } else if (atalho == 2) {
             console.clear();
             printDivider();
-            console.log ("-> You go by the West path...")
-            console.log ("-> Suddenly from afar you see a tall man coming, with an axe and not very friendly.");
-            O = true
-            printDivider();
-            console.log ("Options:");
-            console.log ("1. Run away");
-            console.log ("2. Hide");
-            printDivider();
-            console.log ("Command?");
-            decisão1 = prompt("> ");
-
-             if (decisão1 === "1") {
-                 console.clear();
-                 printDivider();
-                 console.log ("-> You start running as fast as possible...");
-                 console.log ("-> But unfortunately you trip on a rock, and get hit by the man's axe")
-                 printDivider();
-                 console.log ("-> Press 1 to continue...")
-                 console.log ("-> (If you type anything other than 1 the game will close!)")
-                 printDivider();
-
-                 let machado = Number(prompt("> "))
-                 if (machado == 1) {
-                 decreaseSanity()
-                 decreaseLifeLarge()
-                 } else {
-                     process.exit(56)
-                 }
-             } else if (decisão1 === "2") {
-                 console.clear();
-                 printDivider();
-                 console.log ("-> You decide to hide in a bush next to you");
-                 console.log ("-> However, unfortunately he manages to see you, and hits you with an axe!");
-                 printDivider();
-                 console.log ("-> Press 1 to continue...")
-                 console.log ("-> (If you type anything other than 1 the game will close!)")
-                 printDivider();
-
-                 let machado1 = Number(prompt("> "))
-                 if (machado1 == 1) {
-                 decreaseSanity()
-                 decreaseLifeLarge()
-                 } else {
-                     process.exit(56)
-                 }
-             } else {
-                InvalidOption()
-             }
-        } else if (floresta1 === 3) {
-            console.clear();
-            printDivider();
-            console.log ("-> After thinking, you decide to go East...")
-            L = true
-            console.log ("-> You start to enter the dense forest...");
-            saiudafloresta = true;
-            jogoAtivo1 = false;
-            back = false
-        } else if (floresta1 == 4) {
-            inventory()
-        } else if (floresta1 == 5) {
-            sanity()
-        } else if (floresta1 == 6) {
-            showLife()
+            console.log ("-> You find it dangerous and ignore the shortcut");
+            console.log ("-> You decide to go back to the path options");
+            
         } else {
             InvalidOption()
          }
-    }
+      } 
+    } else if (floresta1 === 2) {
+        console.clear();
+        printDivider();
+        console.log ("-> You go by the West path...")
+        console.log ("-> Suddenly from afar you see a tall man coming, with an axe and not very friendly.");
+        O = true
+        printDivider();
+        console.log ("Options:");
+        console.log ("1. Run away");
+        console.log ("2. Hide");
+        printDivider();
+        console.log ("Command?");
+        decisão1 = prompt("> ");
 
-    console.clear();
+         if (decisão1 === "1") {
+             console.clear();
+             printDivider();
+             console.log ("-> You start running as fast as possible...");
+             console.log ("-> But unfortunately you trip on a rock, and get hit by the man's axe")
+             printDivider();
+             console.log ("-> Press 1 to continue...")
+             console.log ("-> (If you type anything other than 1 the game will close!)")
+             printDivider();
+
+             let machado = Number(prompt("> "))
+             if (machado == 1) {
+             decreaseSanity()
+             decreaseLifeLarge()
+             } else {
+                 process.exit(56)
+             }
+         } else if (decisão1 === "2") {
+             console.clear();
+             printDivider();
+             console.log ("-> You decide to hide in a bush next to you");
+             console.log ("-> However, unfortunately he manages to see you, and hits you with an axe!");
+             printDivider();
+             console.log ("-> Press 1 to continue...")
+             console.log ("-> (If you type anything other than 1 the game will close!)")
+             printDivider();
+
+             let machado1 = Number(prompt("> "))
+             if (machado1 == 1) {
+             decreaseSanity()
+             decreaseLifeLarge()
+             } else {
+                 process.exit(56)
+             }
+         } else {
+            InvalidOption()
+         }
+    } else if (floresta1 === 3) {
+        console.clear();
+        printDivider();
+        console.log ("-> After thinking, you decide to go East...") 
+        L = true
+        console.log ("-> You start to enter the dense forest...");
+        saiudafloresta = true;
+        jogoAtivo1 = false;
+        back = false
+    } else if (floresta1 == 4) {
+        inventory()
+    } else if (floresta1 == 5) {
+        sanity()
+    } else if (floresta1 == 6) {
+        showLife()
+    } else {
+        InvalidOption()
+     }
+}
+console.clear();
+N = false
+O = false
+L = false
+S = false
+
 while (jogoAtivo2) {
     if (!N && !S && !L) {
         console.log ("----------------------------------------------------------")
@@ -1236,9 +1309,9 @@ while (jogoAtivo2) {
         console.log ("██   ██                            ██                     EAST >        ")
         console.log ("██   ██                          ██████                            ")
         console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██                  SOUTH           ")
+        console.log ("██   ██                            ██                   SOUTH           ")
         console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")
+        console.log ("██   ██                         ██    ██                           ")                                            
         console.log ("██████████████████████████████████████████████████            █████")
         console.log ("")
     } else if (N && S && L) {
@@ -1248,15 +1321,15 @@ while (jogoAtivo2) {
         console.log ("                   ██                                            ")
         console.log ("                 ██                                     /\\         ")
         console.log ("               ██                                      NORTH          ")
-        console.log ("         ██  ██                                    (Already went)  ")
+        console.log ("         ██  ██                                       (Already went)           ")
         console.log ("       ██  ██                                                      ")
         console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██             (Already went) EAST > ")
+        console.log ("██   ██                            ██             (Already went) EAST >        ")
         console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █           (Already went)")
-        console.log ("██   ██                            ██                  SOUTH           ")
+        console.log ("██   ██                         █  ██  █              (Already went)            ")
+        console.log ("██   ██                            ██                   SOUTH           ")
         console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")
+        console.log ("██   ██                         ██    ██                           ")                                            
         console.log ("██████████████████████████████████████████████████            █████")
         console.log ("")
     } else if (!N && !S && L) {
@@ -1269,12 +1342,12 @@ while (jogoAtivo2) {
         console.log ("         ██  ██                                                    ")
         console.log ("       ██  ██                                                      ")
         console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██             (Already went) EAST >        ")
+        console.log ("██   ██                            ██              (Already went) EAST >        ")
         console.log ("██   ██                          ██████                            ")
         console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██                  SOUTH           ")
+        console.log ("██   ██                            ██                   SOUTH           ")
         console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")
+        console.log ("██   ██                         ██    ██                           ")                                            
         console.log ("██████████████████████████████████████████████████            █████")
         console.log ("")
     } else if (!N && S && !L) {
@@ -1289,10 +1362,10 @@ while (jogoAtivo2) {
         console.log ("     ██                                                          ")
         console.log ("██   ██                            ██                     EAST >        ")
         console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █           (Already went)             ")
-        console.log ("██   ██                            ██                  SOUTH           ")
+        console.log ("██   ██                         █  ██  █              (Already went)             ")
+        console.log ("██   ██                            ██                   SOUTH           ")
         console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")
+        console.log ("██   ██                         ██    ██                           ")                                            
         console.log ("██████████████████████████████████████████████████            █████")
         console.log ("")
     } else if (N && !S && !L) {
@@ -1302,15 +1375,15 @@ while (jogoAtivo2) {
         console.log ("                   ██                                            ")
         console.log ("                 ██                                     /\\         ")
         console.log ("               ██                                      NORTH          ")
-        console.log ("         ██  ██                                    (Already went)              ")
+        console.log ("         ██  ██                                       (Already went)              ")
         console.log ("       ██  ██                                                      ")
         console.log ("     ██                                                          ")
         console.log ("██   ██                            ██                     EAST >        ")
         console.log ("██   ██                          ██████                            ")
         console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██                  SOUTH           ")
+        console.log ("██   ██                            ██                   SOUTH           ")
         console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")
+        console.log ("██   ██                         ██    ██                           ")                                            
         console.log ("██████████████████████████████████████████████████            █████")
         console.log ("")
     } else if (!N && S && L) {
@@ -1323,12 +1396,12 @@ while (jogoAtivo2) {
         console.log ("         ██  ██                                                    ")
         console.log ("       ██  ██                                                      ")
         console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██             (Already went)   EAST >        ")
+        console.log ("██   ██                            ██              (Already went)   EAST >        ")
         console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █           (Already went)            ")
-        console.log ("██   ██                            ██                  SOUTH           ")
+        console.log ("██   ██                         █  ██  █              (Already went)            ")
+        console.log ("██   ██                            ██                   SOUTH           ")
         console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")
+        console.log ("██   ██                         ██    ██                           ")                                            
         console.log ("██████████████████████████████████████████████████            █████")
         console.log ("")
     } else if (N && S && !L) {
@@ -1338,15 +1411,15 @@ while (jogoAtivo2) {
         console.log ("                   ██                                            ")
         console.log ("                 ██                                     /\\         ")
         console.log ("               ██                                      NORTH          ")
-        console.log ("         ██  ██                                    (Already went)            ")
+        console.log ("         ██  ██                                       (Already went)            ")
         console.log ("       ██  ██                                                      ")
         console.log ("     ██                                                          ")
         console.log ("██   ██                            ██                     EAST >        ")
         console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █           (Already went)             ")
-        console.log ("██   ██                            ██                  SOUTH           ")
+        console.log ("██   ██                         █  ██  █              (Already went)             ")
+        console.log ("██   ██                            ██                   SOUTH           ")
         console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")
+        console.log ("██   ██                         ██    ██                           ")                                            
         console.log ("██████████████████████████████████████████████████            █████")
         console.log ("")
     } else if (N && !S && L) {
@@ -1356,15 +1429,15 @@ while (jogoAtivo2) {
         console.log ("                   ██                                            ")
         console.log ("                 ██                                     /\\         ")
         console.log ("               ██                                      NORTH          ")
-        console.log ("         ██  ██                                    (Already went)             ")
+        console.log ("         ██  ██                                       (Already went)             ")
         console.log ("       ██  ██                                                      ")
         console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██             (Already went) EAST >        ")
+        console.log ("██   ██                            ██              (Already went) EAST >        ")
         console.log ("██   ██                          ██████                            ")
         console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██                  SOUTH           ")
+        console.log ("██   ██                            ██                   SOUTH           ")
         console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")
+        console.log ("██   ██                         ██    ██                           ")                                            
         console.log ("██████████████████████████████████████████████████            █████")
         console.log ("")
     }
@@ -1437,7 +1510,7 @@ while (jogoAtivo2) {
         console.log ("██  █  ██  █                                      █            █  ██")
         console.log ("██     ██                                         █-----██-----█  ██")
         console.log ("██   ██  ██                                       █            █  ██")
-        console.log ("██  ██    ██                                      █   (Map)    █  ██")
+        console.log ("██  ██    ██                                      █   (Map)    █  ██")                                            
         console.log ("████████████████████████████████████████████████████████████████████")
         console.log ("")
             printDivider();
@@ -1491,7 +1564,7 @@ while (jogoAtivo2) {
                     InvalidOption()
                 }
                 } else {
-                console.clear();
+                console.clear()
                 printDivider();
                 console.log ("-> You quickly grab the medical kit and start your medication and bandages")
                 console.log ("-> Congratulations, you healed your life by +50.")
@@ -1526,7 +1599,7 @@ while (jogoAtivo2) {
             console.log ("██                 █  ██  █                           ██")
             console.log ("██                    ██                              ██")
             console.log ("██                  ██  ██                            ██-------")
-            console.log ("██                 ██    ██                           ██     ------")
+            console.log ("██                 ██    ██                           ██     ------")                                       
             console.log ("████████████████████████████████████████████████████████████████████ ---")
             console.log ("")
             printDivider();
@@ -1695,9 +1768,9 @@ printDivider();
 console.log ("-> At the end you see a lot of blood and fear for the writer's life...")
 printDivider();
 console.log ("-> Press 1 to try to swim back to the path, or 2 to stay in the cave")
-console.log ("----------------------------------------------------------------------------------------------------------------------------------------------------"); // Manteve o tamanho maior conforme seu design original
+printDivider();
 
-teste2 = Number(prompt("> "))
+teste2 = Number(prompt("> ")) 
 if (teste2 == 1) {
     console.clear()
     printDivider();
@@ -1830,7 +1903,7 @@ if (teste2 == 1) {
             } else {
                 InvalidOption()
              }
-
+    
 } else if (barco === "3") {
     console.clear();
     printDivider();
@@ -1863,7 +1936,7 @@ L = false
 S = false
 
 while (jogoAtivo3) {
-
+    
     if (mapaachado) {
         let mapa67 = false
         while (mapa67 == false) {
@@ -1901,7 +1974,7 @@ while (jogoAtivo3) {
         } else {
             console.clear();
             printDivider();
-            console.log ("-> Invalid Option, you lost the chance to use the map!!")
+            console.log("-> Invalid Option, you lost the chance to use the map!!")
             mapaachado = false
         }
     }
@@ -1915,7 +1988,7 @@ while (jogoAtivo3) {
     console.log ("██ ██        ██")
     console.log ("██   ████████")
     console.log ("██ ██               ██")
-    console.log ("████              ██████                 ██          WEST >   ")
+    console.log ("████              ██████                 ██          WEST >   ")            
     console.log ("██               █  ██  █        ████████████")
     console.log ("██                  ██               █ █ ██")
     console.log ("██                ██  ██             █ █           SOUTH")
@@ -1931,7 +2004,7 @@ while (jogoAtivo3) {
     console.log ("██ ██        ██                                  (Already went)")
     console.log ("██   ████████")
     console.log ("██ ██               ██")
-    console.log ("████              ██████                 ██  (Already went) WEST >   ")
+    console.log ("████              ██████                 ██  (Already went) WEST >   ")            
     console.log ("██               █  ██  █        ████████████")
     console.log ("██                  ██               █ █ ██      (Already went)")
     console.log ("██                ██  ██             █ █           SOUTH")
@@ -1947,7 +2020,7 @@ while (jogoAtivo3) {
         console.log ("██ ██        ██")
         console.log ("██   ████████")
         console.log ("██ ██               ██")
-        console.log ("████              ██████                 ██  (Already went) WEST >   ")
+        console.log ("████              ██████                 ██  (Already went) WEST >   ")            
         console.log ("██               █  ██  █        ████████████")
         console.log ("██                  ██               █ █ ██")
         console.log ("██                ██  ██             █ █           SOUTH")
@@ -1963,7 +2036,7 @@ while (jogoAtivo3) {
         console.log ("██ ██        ██")
         console.log ("██   ████████")
         console.log ("██ ██               ██")
-        console.log ("████              ██████                 ██          WEST >   ")
+        console.log ("████              ██████                 ██          WEST >   ")            
         console.log ("██               █  ██  █        ████████████")
         console.log ("██                  ██               █ █ ██      (Already went)")
         console.log ("██                ██  ██             █ █           SOUTH")
@@ -1979,7 +2052,7 @@ while (jogoAtivo3) {
         console.log ("██ ██        ██                                  (Already went)")
         console.log ("██   ████████")
         console.log ("██ ██               ██")
-        console.log ("████              ██████                 ██          WEST >   ")
+        console.log ("████              ██████                 ██          WEST >   ")            
         console.log ("██               █  ██  █        ████████████")
         console.log ("██                  ██               █ █ ██")
         console.log ("██                ██  ██             █ █           SOUTH")
@@ -1995,7 +2068,7 @@ while (jogoAtivo3) {
         console.log ("██ ██        ██")
         console.log ("██   ████████")
         console.log ("██ ██               ██")
-        console.log ("████              ██████                 ██  (Already went) WEST >   ")
+        console.log ("████              ██████                 ██  (Already went) WEST >   ")            
         console.log ("██               █  ██  █        ████████████")
         console.log ("██                  ██               █ █ ██      (Already went)")
         console.log ("██                ██  ██             █ █           SOUTH")
@@ -2011,7 +2084,7 @@ while (jogoAtivo3) {
         console.log ("██ ██        ██                                  (Already went)")
         console.log ("██   ████████")
         console.log ("██ ██               ██")
-        console.log ("████              ██████                 ██          WEST >   ")
+        console.log ("████              ██████                 ██          WEST >   ")            
         console.log ("██               █  ██  █        ████████████")
         console.log ("██                  ██               █ █ ██      (Already went)")
         console.log ("██                ██  ██             █ █           SOUTH")
@@ -2027,7 +2100,7 @@ while (jogoAtivo3) {
         console.log ("██ ██        ██                                  (Already went)")
         console.log ("██   ████████")
         console.log ("██ ██               ██")
-        console.log ("████              ██████                 ██  (Already went) WEST >   ")
+        console.log ("████              ██████                 ██  (Already went) WEST >   ")            
         console.log ("██               █  ██  █        ████████████")
         console.log ("██                  ██               █ █ ██")
         console.log ("██                ██  ██             █ █           SOUTH")
@@ -2255,7 +2328,7 @@ while (jogoAtivo4) {
         console.log ("██ ██        ██                    █             (Already went)  ██")
         console.log ("██   ████████                      ██                      ██")
         console.log ("██ ██               ██           ██████                    ██")
-        console.log ("████              ██████           ██                      ██")
+        console.log ("████              ██████           ██                      ██")            
         console.log ("██               █  ██  █          ██                      ██")
         console.log ("██                  ██             ██            (Already went)  ██")
         console.log ("██                ██  ██                           SOUTH     ██")
@@ -2271,7 +2344,7 @@ while (jogoAtivo4) {
         console.log ("██ ██        ██                    █                       ██")
         console.log ("██   ████████                      ██                      ██")
         console.log ("██ ██               ██           ██████                    ██")
-        console.log ("████              ██████           ██                      ██")
+        console.log ("████              ██████           ██                      ██")            
         console.log ("██               █  ██  █          ██                      ██")
         console.log ("██                  ██             ██            (Already went)  ██")
         console.log ("██                ██  ██                           SOUTH     ██")
@@ -2287,7 +2360,7 @@ while (jogoAtivo4) {
         console.log ("██ ██        ██                    █             (Already went)  ██")
         console.log ("██   ████████                      ██                      ██")
         console.log ("██ ██               ██           ██████                    ██")
-        console.log ("████              ██████           ██                      ██")
+        console.log ("████              ██████           ██                      ██")            
         console.log ("██               █  ██  █          ██                      ██")
         console.log ("██                  ██             ██                      ██")
         console.log ("██                ██  ██                           SOUTH     ██")
@@ -2303,7 +2376,7 @@ while (jogoAtivo4) {
         console.log ("██ ██        ██                    █                       ██")
         console.log ("██   ████████                      ██                      ██")
         console.log ("██ ██               ██           ██████                    ██")
-        console.log ("████              ██████           ██                      ██")
+        console.log ("████              ██████           ██                      ██")            
         console.log ("██               █  ██  █          ██                      ██")
         console.log ("██                  ██             ██                      ██")
         console.log ("██                ██  ██                           SOUTH     ██")
@@ -2311,7 +2384,7 @@ while (jogoAtivo4) {
         console.log ("██████████████████████████████████████████████             ██")
         console.log (" ")
     }
-
+    
     printDivider();
 console.log ("-> Claim your reward, the pale moon smiles at you")
 console.log ("-> In front of you there are paths, to the NORTH and SOUTH");
@@ -2333,7 +2406,7 @@ printDivider();
         console.clear();
         printDivider();
         console.log ("-> You choose to go North...");
-        N = true
+        N = true 
         console.log ("-> You find a car parked by the side of a road in front of you.")
         printDivider();
         console.log ("Options:")
@@ -2369,7 +2442,7 @@ printDivider();
 
                 let br = Number(prompt("> "))
                 if (br == 1) {
-
+                
                 console.clear();
                 printDivider();
                 console.log ("-> You decide to leave by the road!")
@@ -2506,7 +2579,7 @@ console.log("-> Amidst the panic, suddenly, you hear...");
                    console.log ("----------------------------------------------------------------------------")
                    jogoAtivo4 = false
                    REAL_ENDING=true
-
+                   
 
                 } else if (cavar == 2) {
                     console.clear();
@@ -2524,7 +2597,7 @@ printDivider();
                     console.log(" ██████  ██   ██  ██      ██ ███████      ██████    ██████  ███████ ██   ██ ");
                     printDivider();
                     process.exit(1);
-
+                    
                 } else {
                     InvalidOption()
                  }
@@ -2550,12 +2623,12 @@ console.log("-> The sound of his footsteps approaches your hiding place, louder 
                 console.log(" ██████  ██   ██  ██      ██ ███████      ██████    ██████  ███████ ██   ██ ");
                 printDivider();
                 process.exit(1);
-
+                
             } else {
                 InvalidOption()
              }
 
-
+            
         } else if (casa2 == 2) {
             console.clear();
             if (!casafora) {
@@ -2593,7 +2666,9 @@ if (BAD_ENDING) {
     exec('start cmd.exe /c aEN.exe')
     const conteudo = "YOU COMPLETED THE FIRST BAD ENDING";
 fs.writeFileSync('../Achievements/BAD_ENDING.bin', conteudo, 'utf8');
-updateAccountFileWithAchievement('BAD_ENDING')
+fs.appendFile(save_conquistas, 'BAD_ENDING.bin', (err) => {
+    if (err) throw err;
+})
 
 } else if (REAL_ENDING) {
     exec('start cmd.exe /c PoliceMonitorEN.exe', (error) => {
@@ -2601,25 +2676,32 @@ updateAccountFileWithAchievement('BAD_ENDING')
       console.error(`Error executing file: ${error.message}`);
       return;
     }
-
+    fs.appendFile(save_conquistas, 'REAL_ENDING.bin', (err) => {
+        if (err) throw err;
+    })
     if (REAL_ENDING) {
         const conteudo1 = "YOU COMPLETED THE REAL ENDING";
         fs.writeFileSync('../Achievements/REAL_ENDING.bin', conteudo1, 'utf8');
-        updateAccountFileWithAchievement('REAL_ENDING')
     }
 });
 } else if (GOOD_ENDING) {
         const conteudo2 = "YOU COMPLETED THE GOOD ENDING";
         fs.writeFileSync('../Achievements/GOOD_ENDING.bin', conteudo2, 'utf8');
-        updateAccountFileWithAchievement('GOOD_ENDING')
+        fs.appendFile(save_conquistas, 'GOOD_ENDING.bin', (err) => {
+            if (err) throw err;
+        })
     } else if (BAD_ENDING_2) {
         const conteudo3 = "YOU COMPLETED THE SECOND BAD ENDING";
         fs.writeFileSync('../Achievements/BAD_ENDING_2.bin', conteudo3, 'utf8');
-        updateAccountFileWithAchievement('BAD_ENDING_2')
+        fs.appendFile(save_conquistas, 'BAD_ENDING2.bin', (err) => {
+            if (err) throw err;
+        })
     } else if (BAD_ENDING_3) {
         const conteudo4 = "YOU COMPLETED THE THIRD BAD ENDING";
         fs.writeFileSync('../Achievements/BAD_ENDING_3.bin', conteudo4, 'utf8');
-        updateAccountFileWithAchievement('BAD_ENDING_3')
+        fs.appendFile(save_conquistas, 'BAD_ENDING3.bin', (err) => {
+            if (err) throw err;
+        })
     }
 
 N = false

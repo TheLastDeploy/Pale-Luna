@@ -5,53 +5,6 @@ const prompt = require('prompt-sync')();
 const { exec } = require('child_process');
 const fs = require('fs');
 
-
-function updateAccountFileWithAchievement(achievementName) {
-    let nome = '';
-    let senha = '';
-    let conquistas = [];
-
-
-    if (fs.existsSync(accountFilePath)) {
-        try {
-            const content = fs.readFileSync(accountFilePath, 'utf8');
-            const nomeMatch = content.match(/Nome: (.+)/);
-            const senhaMatch = content.match(/Senha: (.+)/);
-            const conquistasMatch = content.match(/Conquistas: \[([^\]]*)\]/);
-
-            if (nomeMatch) nome = nomeMatch[1].trim();
-            if (senhaMatch) senha = senhaMatch[1].trim();
-            if (conquistasMatch && conquistasMatch[1]) {
-                conquistas = conquistasMatch[1].split(', ').map(s => s.trim()).filter(Boolean);
-            }
-        } catch (error) {
-            console.error(`ERRO ao ler o arquivo de conta: ${error.message}`);
-            
-        }
-    }
-
-    if (!conquistas.includes(achievementName)) {
-        conquistas.push(achievementName);
-        console.log(`Conquista "${achievementName}" adicionada à lista.`);
-    } else {
-        console.log(`Conquista "${achievementName}" já existe na conta.`);
-    }
-
-
-    let newContent = `Nome: ${nome}\r\nSenha: ${senha}\r\n`;
-    if (conquistas.length > 0) {
-        newContent += `Conquistas: [${conquistas.join(', ')}]\r\n`;
-    }
-
-    try {
-        fs.writeFileSync(accountFilePath, newContent.trim(), 'utf8');
-        console.log(`-> Arquivo de conta atualizado com a conquista: ${achievementName}`);
-    } catch (writeError) {
-        console.error(`ERRO ao reescrever o arquivo de conta: ${writeError.message}`);
-    }
-}
-
-
 function Opcãoinvalida() {
     console.clear()
     console.log("---------------------------------------------------------------");
@@ -582,10 +535,11 @@ let destruir = false
 // FIM
 
 const accountFilePath = '../Account/Containfo.txt';
-const save_conquistas = '../Account/Conquistas.txt'
+const save_conquistas = '../Account/Conquistassavefile.bin'
 let Login
 let overwrite = "S"
 let skipaccount = false
+let check = false
 
 console.log (" ");
 console.log (" ");
@@ -619,22 +573,31 @@ console.log(`Finais completados: ${count}/5`);
 console.log('Lista de finais:', finais);
 pausarParaContinuar()
 
-const local_conta = '../Account/Conquistas.txt';
+const local_conta = save_conquistas;
 const count1 = fs.existsSync(local_conta)
+
+while (check == false) {
+
 if (!count1) {
     console.log ("---------------------------------------------------------------");
 console.log ("-> Não foi detectado arquivos de save!")
+check = true
 pausarParaContinuar()
 }
 if (count1) {
 console.log ("---------------------------------------------------------------");
 console.log ("-> Foi detectado finais em seu arquivo de save!")
+console.log ("-> Se você já tiver os arquivos na pasta de conquistas, NÃO RESTAURE")
 console.log ("---------------------------------------------------------------");
 console.log ("-> Quer restaurar?")
 console.log ("---------------------------------------------------------------");
-let restart = prompt("> ").toUpperCase()
+console.log ("-> [01] Sim")
+console.log ("-> [02] Não")
+console.log ("-> [03] Verificar Pasta")
+console.log ("---------------------------------------------------------------");
+let restart = Number(prompt("> "))
 
-if (restart == "1"){
+if (restart == 1){
 try {
 const dados = fs.readFileSync(save_conquistas, 'utf8')
 console.clear()
@@ -661,19 +624,41 @@ if (dados.includes('BAD_ENDING.bin')){
 } else if (dados.includes('BAD_ENDING3.bin')) {
     fs.writeFileSync('../Achievements/BAD_ENDING3.bin', 'a', 'utf8');
 }
-
+check = true
 skipaccount = true
 
-} else if (restart == "2"){
+} else if (restart == 2){
+    check = true
+    console.clear()
+    console.log ("---------------------------------------------------------------");
+    console.log  ("-> Restauração Pulada!")
     pausarParaContinuar()
+} else if (restart == 3){
+    console.clear()
+    console.log ("---------------------------------------------------------------");
+    console.log  ("-> Checando a pasta...")
+    console.log ("---------------------------------------------------------------");
+
+    if (finais != null) {
+        console.log ("-> ARQUIVOS ENCONTRADOS:")
+        console.log (finais)
+        console.log ("---------------------------------------------------------------");
+        console.log ("-> Se quiser manter esses finais, NÃO RESTAURE")
+        pausarParaContinuar()
+    } else {
+        console.log ("---------------------------------------------------------------");
+        console.log ("-> Não foi encontrado arquivos de finais!")
+        pausarParaContinuar()
+    }
 } else {
     Opcãoinvalida()
 }
-
+}
 
 }
 
-if (!skipaccount) {console.clear();
+if (!skipaccount) {
+    console.clear();
     console.log ("███████████████████████████████████████████████████████████████████")
     console.log ("██                                                               ██")
     console.log ("██                                                               ██")
@@ -847,9 +832,18 @@ if (começar === "2") {
 
 
 console.clear()
+console.log("---------------------------------------------------------------");
+console.log ("[CONTEXTO]")
+console.log("---------------------------------------------------------------");
+console.log ("-> Você é Paul, um engenheiro eletrico que foi chamado para consertar")
+console.log ("postes, porém nem tudo ocorreu como planejado e")
+console.log ("você foi sequestrado por alguem!")
+console.log("---------------------------------------------------------------");
+console.log ("-> Seu objetivo é tentar fugir!")
+pausarParaContinuar()
     const path = require('path');
-    console.log ("---------------------------------------------------------------");
-    console.log ("-> Lembre-se...")
+    console.log("---------------------------------------------------------------");
+    console.log ("-> E lembre-se...")
     const vbsFilePath = path.join(__dirname, 'OnlyBR.vbs');
     const commando_aviso = `wscript.exe //nologo "${vbsFilePath}"`
     exec(commando_aviso)
