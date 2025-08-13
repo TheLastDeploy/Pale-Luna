@@ -1,4 +1,5 @@
 @echo off
+color 0B
 cd..
 cd Achievements
 
