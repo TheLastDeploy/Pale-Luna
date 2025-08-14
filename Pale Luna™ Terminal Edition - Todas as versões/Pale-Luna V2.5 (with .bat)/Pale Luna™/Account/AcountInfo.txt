@@ -1,3 +1,0 @@
-Name: Lukz
-Password: 123
-Language: English (EN) 
