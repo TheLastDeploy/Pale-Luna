@@ -604,8 +604,6 @@ if (!skipaccount) {
         console.log("-> Você gostaria de criar uma conta?");
         console.log("-> (Apenas para salvamento local!)");
         console.log("---------------------------------------------------------------");
-        console.log ("[OPÇÕES]");
-        console.log("---------------------------------------------------------------");
         console.log ("[01] Criar Conta");
         console.log ("[02] Ignorar");
         console.log("---------------------------------------------------------------");

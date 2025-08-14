@@ -608,8 +608,6 @@ if (!skipaccount) {
     console.log("-> Would you like to create an account?");
     console.log("-> (For local saving only!)");
     printDivider();
-    console.log("-> [OPTIONS]");
-    printDivider();
     console.log("[01] Create Account");
     console.log("[02] Skip");
     printDivider();
@@ -716,7 +714,7 @@ console.log("---------------------------------------------------------------");
 console.log("-> [SYSTEM] Account created successfully!");
 console.log("---------------------------------------------------------------");
 console.log("-> You can access your information in the 'Containfo.txt' file in the 'Account' folder.");
-console.log("-> Your endings are saved in the 'Conquistassavefile.bin' file in the 'Account' folder.");v
+console.log("-> Your endings are saved in the 'Conquistassavefile.bin' file in the 'Account' folder.");
         
 
     } else {
