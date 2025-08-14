@@ -878,7 +878,7 @@ while (jogoAtivo) {
         console.log("██                                                               ██")
         console.log("██    █      █                                                   ██")
         console.log("██   ███     █                                                   ██")
-        console.log("██  (Pot)  ███                                                   ██")
+        console.log("██  (Pot)   ███                                                  ██")
         console.log("██         (Shovel)                                              ██")
         console.log("██                                                            █████")
         console.log("██                               ██                           █  ██")
