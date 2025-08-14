@@ -1,4 +1,4 @@
-# Pale Luna.
+# Pale Luna: Terminal Edition
 
 Prepare-se para reviver o terror de Pale Luna em uma nova versão do JavaScript!
 
@@ -10,4 +10,4 @@ Prepare-se para reviver o terror de Pale Luna em uma nova versão do JavaScript!
 - Instale ou extraia o o jogo
 - Pronto
 
-## Made by Sad Berry Games
+## Feito por Lukz, CEO da Sad Berry Games
