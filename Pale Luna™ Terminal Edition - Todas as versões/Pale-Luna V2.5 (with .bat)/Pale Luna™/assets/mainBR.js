@@ -106,6 +106,7 @@ function menosSanidade() {
     console.log ("-> Você agora tem " ,valorsanidade, "% de sanidade")
     console.log("---------------------------------------------------------------");
     console.log ("-> Você quer continuar?")
+    console.log("---------------------------------------------------------------");
             console.log ("[01] SIM")
             console.log ("[02] NÃO")
             console.log("---------------------------------------------------------------");
@@ -127,10 +128,11 @@ function maisSanidade() {
         while (s3 != 1) {
             console.clear()
             console.log("---------------------------------------------------------------");
-            console.log ("-> AVISO: SUA SANIDADE SUBIU!")
+            console.log ("-> [AVISO] SUA SANIDADE SUBIU!")
             console.log ("-> Você agora tem " ,valorsanidade, "% de sanidade")
             console.log("---------------------------------------------------------------");
             console.log ("-> Você quer continuar?")
+            console.log("---------------------------------------------------------------");
                     console.log ("[01] SIM")
                     console.log ("[02] NÃO")
                     console.log("---------------------------------------------------------------");
@@ -195,6 +197,7 @@ while (v1 != 1) {
     console.log ("-> Você agora tem " ,Vida, "% de vida")
     console.log("---------------------------------------------------------------");
     console.log ("-> Você quer continuar?")
+    console.log("---------------------------------------------------------------");
             console.log ("[01] SIM")
             console.log ("[02] NÃO")
             console.log("---------------------------------------------------------------");
@@ -245,6 +248,7 @@ function menosVidaM() {
         console.log ("-> Você agora tem " ,Vida, "% de vida")
         console.log("---------------------------------------------------------------");
         console.log ("-> Você quer continuar?")
+        console.log("---------------------------------------------------------------");
                 console.log ("[01] SIM")
                 console.log ("[02] NÃO")
                 console.log("---------------------------------------------------------------");
@@ -295,6 +299,7 @@ function menosVidaM() {
             console.log ("-> Você agora tem " ,Vida, "% de vida")
             console.log("---------------------------------------------------------------");
             console.log ("-> Você quer continuar?")
+            console.log("---------------------------------------------------------------");
                     console.log ("[01] SIM")
                     console.log ("[02] NÃO")
                     console.log("---------------------------------------------------------------");
@@ -330,6 +335,7 @@ function menosVidaM() {
                 console.log ("-> Você agora tem " ,Vida, "% de vida")
                 console.log("---------------------------------------------------------------");
                 console.log ("-> Você quer continuar?")
+                console.log("---------------------------------------------------------------");
                         console.log ("[01] SIM")
                         console.log ("[02] NÃO")
                         console.log("---------------------------------------------------------------");
@@ -367,6 +373,7 @@ function menosVidaM() {
                 console.log ("-> Você agora tem " ,Vida, "% de vida")
                 console.log("---------------------------------------------------------------");
                 console.log ("-> Você quer continuar?")
+                console.log("---------------------------------------------------------------");
                         console.log ("[01] SIM")
                         console.log ("[02] NÃO")
                         console.log("---------------------------------------------------------------");
@@ -680,7 +687,7 @@ if (!skipaccount) {
         console.log("-> Você gostaria de criar uma conta?");
         console.log("-> (Apenas para salvamento local!)");
         console.log("---------------------------------------------------------------");
-        console.log ("-> Opções");
+        console.log ("[OPÇÕES]");
         console.log("---------------------------------------------------------------");
         console.log ("[01] Criar Conta");
         console.log ("[01] Ignorar");
