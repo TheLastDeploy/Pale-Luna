@@ -928,20 +928,32 @@ if (!skipaccount) {
     pausarParaContinuar()
     
     dados = fs.readFileSync(save_conquistas, 'utf8')
-    
-    if (dados.includes('BAD_ENDING.bin')){
+    if (dados.includes('BAD_ENDING.bin')) {
         fs.writeFileSync('../Achievements/BAD_ENDING.bin', 'a', 'utf8');
-    } else if (dados.includes('REAL_ENDING.bin')) {
+    }
+    if (dados.includes('REAL_ENDING.bin')) {
         fs.writeFileSync('../Achievements/REAL_ENDING.bin', 'a', 'utf8');
-    } else if (dados.includes('GOOD_ENDING.bin')) {
+    }
+    if (dados.includes('GOOD_ENDING.bin')) {
         fs.writeFileSync('../Achievements/GOOD_ENDING.bin', 'a', 'utf8');
-    } else if (dados.includes('BAD_ENDING2.bin')) {
+    }
+    if (dados.includes('BAD_ENDING2.bin')) {
         fs.writeFileSync('../Achievements/BAD_ENDING2.bin', 'a', 'utf8');
-    } else if (dados.includes('BAD_ENDING3.bin')) {
+    }
+    if (dados.includes('BAD_ENDING3.bin')) {
         fs.writeFileSync('../Achievements/BAD_ENDING3.bin', 'a', 'utf8');
-    } else if (dados.includes('SECRET_ENDING.bin')) {
+    }
+    if (dados.includes('SECRET_ENDING.bin')) {
         fs.writeFileSync('../Achievements/SECRET_ENDING.bin', 'a', 'utf8');
     }
+    if (dados.includes('undefined')) {
+        console.clear()
+        console.log("---------------------------------------------------------------");
+    console.log("-> Você ainda não tem finais...")
+    console.log("--------------------------------------------------------------");
+    pauseToContinue()
+    }
+    
     check = true
     skipaccount = true
     
