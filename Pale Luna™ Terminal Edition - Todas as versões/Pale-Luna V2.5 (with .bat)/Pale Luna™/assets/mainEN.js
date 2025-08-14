@@ -583,88 +583,9 @@ const folderPath = '../Achievements';
 const count = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin')).length;
 const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
 console.log(`Endings completed: [${count}/5]`);
-console.log('List of endings:', "[", finais, "]");
+console.log('List of endings:', finais);
 pauseToContinue()
 
-const local_conta = save_conquistas;
-const count1 = fs.existsSync(local_conta)
-
-while (check == false) {
-
-    if (!count1) {
-        printDivider();
-        console.log("-> No save files detected!")
-        check = true
-        pauseToContinue()
-    }
-    if (count1) {
-        printDivider();
-        console.log("-> Endings were detected in your save file!")
-        console.log("-> If you already have the files in the achievements folder, DO NOT RESTORE")
-        printDivider();
-        console.log("-> Do you want to restore them?")
-        printDivider();
-        console.log("-> [01] Yes")
-        console.log("-> [02] No")
-        console.log("-> [03] Check Folder")
-        printDivider()
-        let restart = Number(prompt("> "))
-
-        if (restart == 1) {
-            try {
-                const dados = fs.readFileSync(save_conquistas, 'utf8')
-                console.clear()
-                printDivider();
-                console.log("-> The following endings will be restored!")
-                printDivider();
-                console.log(dados)
-            } catch (err) {
-                console.error('ERROR: Failed to read files!')
-
-            }
-            pauseToContinue()
-
-            dados = fs.readFileSync(save_conquistas, 'utf8')
-
-            if (dados.includes('BAD_ENDING.bin')) {
-                fs.writeFileSync('../Achievements/BAD_ENDING.bin', 'a', 'utf8');
-            } else if (dados.includes('REAL_ENDING.bin')) {
-                fs.writeFileSync('../Achievements/REAL_ENDING.bin', 'a', 'utf8');
-            } else if (dados.includes('GOOD_ENDING.bin')) {
-                fs.writeFileSync('../Achievements/GOOD_ENDING.bin', 'a', 'utf8');
-            } else if (dados.includes('BAD_ENDING2.bin')) {
-                fs.writeFileSync('../Achievements/BAD_ENDING2.bin', 'a', 'utf8');
-            } else if (dados.includes('BAD_ENDING3.bin')) {
-                fs.writeFileSync('../Achievements/BAD_ENDING3.bin', 'a', 'utf8');
-            }
-            check = true
-            skipaccount = true
-
-        } else if (restart == 2) {
-            console.clear()
-            printDivider();
-            console.log("-> Restoration Skipped!")
-            pauseToContinue()
-        } else if (restart == 3) {
-            console.log("---------------------------------------------------------------");
-            console.log("-> Checking the folder...")
-            console.log("--------------------------------------------------------------");
-            if (finais != null) {
-                console.log("-> FILES FOUND:")
-                console.log(finais)
-                console.log("---------------------------------------------------------------");
-                console.log("-> If you want to keep these endings, DO NOT RESTORE")
-                pauseToContinue()
-            } else {
-                console.log("---------------------------------------------------------------");
-                console.log("-> No files.")
-                pauseToContinue()
-            }
-        } else {
-            InvalidOption()
-        }
-    }
-}
 if (!skipaccount) {
     console.clear();
     console.log("███████████████████████████████████████████████████████████████████")
@@ -795,6 +716,85 @@ if (!skipaccount) {
 
 pauseToContinue()
 
+const local_conta = save_conquistas;
+const count1 = fs.existsSync(local_conta)
+
+while (check == false) {
+
+    if (!count1) {
+        printDivider();
+        console.log("-> No save files detected!")
+        check = true
+        pauseToContinue()
+    }
+    if (count1) {
+        printDivider();
+        console.log("-> Endings were detected in your save file!")
+        console.log("-> If you already have the files in the achievements folder, DO NOT RESTORE")
+        printDivider();
+        console.log("-> Do you want to restore them?")
+        printDivider();
+        console.log("-> [01] Yes")
+        console.log("-> [02] No")
+        console.log("-> [03] Check Folder")
+        printDivider()
+        let restart = Number(prompt("> "))
+
+        if (restart == 1) {
+            try {
+                const dados = fs.readFileSync(save_conquistas, 'utf8')
+                console.clear()
+                printDivider();
+                console.log("-> The following endings will be restored!")
+                printDivider();
+                console.log(dados)
+            } catch (err) {
+                console.error('ERROR: Failed to read files!')
+
+            }
+            pauseToContinue()
+
+            dados = fs.readFileSync(save_conquistas, 'utf8')
+
+            if (dados.includes('BAD_ENDING.bin')) {
+                fs.writeFileSync('../Achievements/BAD_ENDING.bin', 'a', 'utf8');
+            } else if (dados.includes('REAL_ENDING.bin')) {
+                fs.writeFileSync('../Achievements/REAL_ENDING.bin', 'a', 'utf8');
+            } else if (dados.includes('GOOD_ENDING.bin')) {
+                fs.writeFileSync('../Achievements/GOOD_ENDING.bin', 'a', 'utf8');
+            } else if (dados.includes('BAD_ENDING2.bin')) {
+                fs.writeFileSync('../Achievements/BAD_ENDING2.bin', 'a', 'utf8');
+            } else if (dados.includes('BAD_ENDING3.bin')) {
+                fs.writeFileSync('../Achievements/BAD_ENDING3.bin', 'a', 'utf8');
+            }
+            check = true
+            skipaccount = true
+
+        } else if (restart == 2) {
+            console.clear()
+            printDivider();
+            console.log("-> Restoration Skipped!")
+            pauseToContinue()
+        } else if (restart == 3) {
+            console.log("---------------------------------------------------------------");
+            console.log("-> Checking the folder...")
+            console.log("--------------------------------------------------------------");
+            if (finais != null) {
+                console.log("-> FILES FOUND:")
+                console.log(finais)
+                console.log("---------------------------------------------------------------");
+                console.log("-> If you want to keep these endings, DO NOT RESTORE")
+                pauseToContinue()
+            } else {
+                console.log("---------------------------------------------------------------");
+                console.log("-> No files.")
+                pauseToContinue()
+            }
+        } else {
+            InvalidOption()
+        }
+    }
+}
 console.clear()
 console.log("███████████████████████████████████████████████████████████████████")
 console.log("██                                                               ██")
@@ -814,8 +814,6 @@ console.log("")
 printDivider();
 console.log("-> Can we start?");
 printDivider();
-console.log("[OPTIONS]");
-printDivider()
 console.log("[01] Yes");
 console.log("[02] No");
 printDivider();

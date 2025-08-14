@@ -579,92 +579,9 @@ const folderPath = '../Achievements';
 const count = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin')).length;
 const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
 console.log(`Finais completados: [${count}/5]`);
-console.log('Lista de finais:', "[",finais,"]");
+console.log('Lista de finais:', finais);
 pausarParaContinuar()
 
-const local_conta = save_conquistas;
-const count1 = fs.existsSync(local_conta)
-
-while (check == false) {
-
-if (!count1) {
-    console.log ("---------------------------------------------------------------");
-console.log ("-> Não foi detectado arquivos de save!")
-check = true
-pausarParaContinuar()
-}
-if (count1) {
-console.log ("---------------------------------------------------------------");
-console.log ("-> Foi detectado finais em seu arquivo de save!")
-console.log ("-> Se você já tiver os arquivos na pasta de conquistas, NÃO RESTAURE")
-console.log ("---------------------------------------------------------------");
-console.log ("-> Quer restaurar?")
-console.log ("---------------------------------------------------------------");
-console.log ("-> [01] Sim")
-console.log ("-> [02] Não")
-console.log ("-> [03] Verificar Pasta")
-console.log ("---------------------------------------------------------------");
-let restart = Number(prompt("> "))
-
-if (restart == 1){
-try {
-const dados = fs.readFileSync(save_conquistas, 'utf8')
-console.clear()
-console.log ("---------------------------------------------------------------");
-console.log ("-> Os seguintes finais serão restaurados!")
-console.log ("---------------------------------------------------------------");
-console.log(dados)
-} catch (err) {
-console.error('[ERRO]: Falha na leitura dos arquivos!')
-
-}
-pausarParaContinuar()
-
-dados = fs.readFileSync(save_conquistas, 'utf8')
-
-if (dados.includes('BAD_ENDING.bin')){
-    fs.writeFileSync('../Achievements/BAD_ENDING.bin', 'a', 'utf8');
-} else if (dados.includes('REAL_ENDING.bin')) {
-    fs.writeFileSync('../Achievements/REAL_ENDING.bin', 'a', 'utf8');
-} else if (dados.includes('GOOD_ENDING.bin')) {
-    fs.writeFileSync('../Achievements/GOOD_ENDING.bin', 'a', 'utf8');
-} else if (dados.includes('BAD_ENDING2.bin')) {
-    fs.writeFileSync('../Achievements/BAD_ENDING2.bin', 'a', 'utf8');
-} else if (dados.includes('BAD_ENDING3.bin')) {
-    fs.writeFileSync('../Achievements/BAD_ENDING3.bin', 'a', 'utf8');
-}
-check = true
-skipaccount = true
-
-} else if (restart == 2){
-    check = true
-    console.clear()
-    console.log ("---------------------------------------------------------------");
-    console.log  ("-> Restauração Pulada!")
-    pausarParaContinuar()
-} else if (restart == 3){
-    console.clear()
-    console.log ("---------------------------------------------------------------");
-    console.log  ("-> Checando a pasta...")
-    console.log ("---------------------------------------------------------------");
-
-    if (finais != null) {
-        console.log ("-> ARQUIVOS ENCONTRADOS:")
-        console.log (finais)
-        console.log ("---------------------------------------------------------------");
-        console.log ("-> Se quiser manter esses finais, NÃO RESTAURE")
-        pausarParaContinuar()
-    } else {
-        console.log ("---------------------------------------------------------------");
-        console.log ("-> Não foi encontrado arquivos de finais!")
-        pausarParaContinuar()
-    }
-} else {
-    Opcãoinvalida()
-}
-}
-
-}
 
 if (!skipaccount) {
     console.clear();
@@ -690,7 +607,7 @@ if (!skipaccount) {
         console.log ("[OPÇÕES]");
         console.log("---------------------------------------------------------------");
         console.log ("[01] Criar Conta");
-        console.log ("[01] Ignorar");
+        console.log ("[02] Ignorar");
         console.log("---------------------------------------------------------------");
         Login = Number(prompt("> "));
         
@@ -796,6 +713,91 @@ if (!skipaccount) {
 
     pausarParaContinuar()
 
+    const local_conta = save_conquistas;
+    const count1 = fs.existsSync(local_conta)
+    
+    while (check == false) {
+    
+    if (!count1) {
+        console.log ("---------------------------------------------------------------");
+    console.log ("-> Não foi detectado arquivos de save!")
+    check = true
+    pausarParaContinuar()
+    }
+    if (count1) {
+    console.log ("---------------------------------------------------------------");
+    console.log ("-> Foi detectado finais em seu arquivo de save!")
+    console.log ("-> Se você já tiver os arquivos na pasta de conquistas, NÃO RESTAURE")
+    console.log ("---------------------------------------------------------------");
+    console.log ("-> Quer restaurar?")
+    console.log ("---------------------------------------------------------------");
+    console.log ("-> [01] Sim")
+    console.log ("-> [02] Não")
+    console.log ("-> [03] Verificar Pasta")
+    console.log ("---------------------------------------------------------------");
+    let restart = Number(prompt("> "))
+    
+    if (restart == 1){
+    try {
+    const dados = fs.readFileSync(save_conquistas, 'utf8')
+    console.clear()
+    console.log ("---------------------------------------------------------------");
+    console.log ("-> Os seguintes finais serão restaurados!")
+    console.log ("---------------------------------------------------------------");
+    console.log(dados)
+    } catch (err) {
+    console.error('[ERRO]: Falha na leitura dos arquivos!')
+    
+    }
+    pausarParaContinuar()
+    
+    dados = fs.readFileSync(save_conquistas, 'utf8')
+    
+    if (dados.includes('BAD_ENDING.bin')){
+        fs.writeFileSync('../Achievements/BAD_ENDING.bin', 'a', 'utf8');
+    } else if (dados.includes('REAL_ENDING.bin')) {
+        fs.writeFileSync('../Achievements/REAL_ENDING.bin', 'a', 'utf8');
+    } else if (dados.includes('GOOD_ENDING.bin')) {
+        fs.writeFileSync('../Achievements/GOOD_ENDING.bin', 'a', 'utf8');
+    } else if (dados.includes('BAD_ENDING2.bin')) {
+        fs.writeFileSync('../Achievements/BAD_ENDING2.bin', 'a', 'utf8');
+    } else if (dados.includes('BAD_ENDING3.bin')) {
+        fs.writeFileSync('../Achievements/BAD_ENDING3.bin', 'a', 'utf8');
+    }
+    check = true
+    skipaccount = true
+    
+    } else if (restart == 2){
+        check = true
+        console.clear()
+        console.log ("---------------------------------------------------------------");
+        console.log  ("-> Restauração Pulada!")
+        pausarParaContinuar()
+    } else if (restart == 3){
+        console.clear()
+        console.log ("---------------------------------------------------------------");
+        console.log  ("-> Checando a pasta...")
+        console.log ("---------------------------------------------------------------");
+    
+        if (finais != null) {
+            console.log ("-> ARQUIVOS ENCONTRADOS:")
+            console.log (finais)
+            console.log ("---------------------------------------------------------------");
+            console.log ("-> Se quiser manter esses finais, NÃO RESTAURE")
+            pausarParaContinuar()
+        } else {
+            console.log ("---------------------------------------------------------------");
+            console.log ("-> Não foi encontrado arquivos de finais!")
+            pausarParaContinuar()
+        }
+    } else {
+        Opcãoinvalida()
+    }
+    }
+    
+    }
+
+
 console.clear()
 console.log ("███████████████████████████████████████████████████████████████████")
 console.log ("██                                                               ██")
@@ -814,8 +816,6 @@ console.log ("██████████████████████
 console.log ("")
 console.log ("---------------------------------------------------------------");
 console.log ("-> Podemos começar?");
-console.log ("---------------------------------------------------------------");
-console.log ("[OPÇÕES]");
 console.log ("---------------------------------------------------------------")
 console.log ("[01] Sim");
 console.log ("[02] Nao");
