@@ -451,7 +451,7 @@ let teste
 let teste2
 let valorsanidade = 100
 let destruir = false
-
+let skipsavefilecheck = false
 
 
 
@@ -613,7 +613,8 @@ if (!skipaccount) {
         
         if (Login == 1) {
             console.clear();
-        
+        skipsavefilecheck = true
+        check = true
             if (fs.existsSync(save_conquistas && accountFilePath)) {
                 
                 console.log ("███████████████████████████████████████████████████████████████████")
@@ -702,8 +703,15 @@ if (!skipaccount) {
                              (finais1) + "\r\n"; 
     
     fs.writeFileSync(save_conquistas, conteudo5, 'utf8');           
-            console.log("-> Conta criada e salva com sucesso!");
         }
+        console.clear();
+        console.log("---------------------------------------------------------------");
+        console.log ("-> [SISTEMA] Conta criada com sucesso!");
+        console.log("---------------------------------------------------------------");
+        console.log("-> Você pode acessar suas informações no arquivo 'Containfo.txt' na pasta 'Account'.");
+        console.log("-> Seus finais estão salvos no arquivo 'Conquistassavefile.bin' na pasta 'Account'.");
+        
+
         } else {
             console.clear();
             console.log("---------------------------------------------------------------");
@@ -718,13 +726,13 @@ if (!skipaccount) {
     
     while (check == false) {
     
-    if (!count1) {
+    if (!count1 && !skipsavefilecheck) {
         console.log ("---------------------------------------------------------------");
     console.log ("-> Não foi detectado arquivos de save!")
     check = true
     pausarParaContinuar()
     }
-    if (count1) {
+    if (count1 && !skipsavefilecheck) {
     console.log ("---------------------------------------------------------------");
     console.log ("-> Foi detectado finais em seu arquivo de save!")
     console.log ("-> Se você já tiver os arquivos na pasta de conquistas, NÃO RESTAURE")

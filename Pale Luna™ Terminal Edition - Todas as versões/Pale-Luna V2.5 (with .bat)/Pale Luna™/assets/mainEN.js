@@ -458,6 +458,7 @@ let teste
 let teste2
 let valorsanidade = 100
 let destruir = false
+let skipsavefilecheck = false
 
 // Answers for the TRUE ENDING:;
 // 1 (YES);
@@ -616,6 +617,8 @@ if (!skipaccount) {
 
     if (Login == 1) {
         console.clear();
+        skipsavefilecheck = true
+        check = true
 
         if (fs.existsSync(save_conquistas && accountFilePath)) {
 
@@ -707,6 +710,15 @@ if (!skipaccount) {
             fs.writeFileSync(save_conquistas, conteudo5, 'utf8');
             console.log("-> Account created and saved successfully!");
         }
+
+        console.clear();
+console.log("---------------------------------------------------------------");
+console.log("-> [SYSTEM] Account created successfully!");
+console.log("---------------------------------------------------------------");
+console.log("-> You can access your information in the 'Containfo.txt' file in the 'Account' folder.");
+console.log("-> Your endings are saved in the 'Conquistassavefile.bin' file in the 'Account' folder.");v
+        
+
     } else {
         console.clear();
         printDivider();
