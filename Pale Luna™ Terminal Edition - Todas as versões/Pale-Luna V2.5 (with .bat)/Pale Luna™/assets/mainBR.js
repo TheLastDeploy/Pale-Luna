@@ -853,7 +853,7 @@ console.clear()
 console.log("---------------------------------------------------------------");
 console.log ("[CONTEXTO]")
 console.log("---------------------------------------------------------------");
-console.log ("-> Você é Paul, um engenheiro eletrico que foi chamado para consertar")
+console.log ("-> Você é Michael Nevins, um engenheiro eletrico que foi chamado para consertar")
 console.log ("postes, porém nem tudo ocorreu como planejado e")
 console.log ("você foi sequestrado por alguem!")
 console.log("---------------------------------------------------------------");
