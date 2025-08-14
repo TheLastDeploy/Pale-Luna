@@ -16,6 +16,9 @@ pause
 exit /b 1
 )
 node menu.js
+cd..
+if not exist HAHAHAHAHAHAHA.txt (
 taskkill /f /im "vlc.exe"
+)
 pause
 exit /b 0

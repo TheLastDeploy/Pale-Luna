@@ -4,6 +4,7 @@
 const prompt = require('prompt-sync')();
 const { exec } = require('child_process');
 const fs = require('fs');
+const path = require('path');
 
 function Opcãoinvalida() {
     console.clear()
@@ -549,6 +550,175 @@ let Login
 let overwrite = "S"
 let skipaccount = false
 let check = false
+let SECRET_ENDING = false
+
+
+function conquistaannoying(nomeArquivo){
+    const Achievementspasta = '../Achievements'
+    const caminhocompleto = path.join(Achievementspasta, nomeArquivo)
+
+    return fs.existsSync(caminhocompleto)
+}
+
+const arquivoconquistasecreta = 'SECRET_ENDING.bin'
+let jogadortem = false
+
+
+if(conquistaannoying(arquivoconquistasecreta)){
+    jogadortem = true
+} else {
+
+}
+
+function lerNumeroDoArquivo(nomeDoArquivo) {
+    const pastaDosArquivos = '../'; 
+    const caminhoCompleto = path.join(pastaDosArquivos, nomeDoArquivo);
+  
+    try {
+      const conteudoDoArquivo = fs.readFileSync(caminhoCompleto, 'utf8');
+      
+      const numeroLido = parseInt(conteudoDoArquivo.trim(), 10); 
+  
+      if (isNaN(numeroLido)) {
+        return 0; 
+      }
+  
+      return numeroLido;
+      
+    } catch (erro) {
+      return 0; 
+    }
+  }
+
+  const numero = lerNumeroDoArquivo('HAHAHAHAHAHAHA.txt')
+
+
+  if(numero == 3){
+    exec('start cmd.exe /c goodbye.bat')
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
+    
+    process.exit()
+} else if (numero == 2){
+console.clear()
+console.log ("---------------------------------------------------------------------------")
+console.log ("-> Eu acho que você não entendeu, né?")
+console.log ("-> Você NUNCA teve controle neste mundo...")
+console.log ("-> E agora eu irei te mostrar como as coisas são por aqui!")
+console.log ("---------------------------------------------------------------------------")
+const conteudo10002 = "3";
+    fs.writeFileSync('../HAHAHAHAHAHAHA.txt', conteudo10002, 'utf8');
+    process.exit()
+} else if (numero == 1) {
+console.clear()
+console.log ("---------------------------------------------------------------------------")
+console.log ("-> Você acha mesmo que depois do que você fez eu irei te deixar em paz???")
+console.log ("---------------------------------------------------------------------------")
+    const conteudo10001 = "2";
+    fs.writeFileSync('../HAHAHAHAHAHAHA.txt', conteudo10001, 'utf8');
+    process.exit()
+} else if (jogadortem == true) {
+    console.clear()
+    console.log ("---------------------------------------------------------------------------")
+    console.log ("-> Serio? Você acha mesmo que é só fechar e abrir o jogo?")
+    console.log ("---------------------------------------------------------------------------")
+    if (jogadortem == true){
+        const conteudo1000 = "1";
+        fs.writeFileSync('../HAHAHAHAHAHAHA.txt', conteudo1000, 'utf8');
+    }
+    process.exit()
+}
+
 
 console.log (" ");
 console.log (" ");
@@ -578,7 +748,7 @@ console.log ("---------------------------------------------------------------");
 const folderPath = '../Achievements';
 const count = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin')).length;
 const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
-console.log(`Finais completados: [${count}/5]`);
+console.log(`Finais completados: [${count}/6]`);
 console.log('Lista de finais:', finais);
 pausarParaContinuar()
 
@@ -769,6 +939,8 @@ if (!skipaccount) {
         fs.writeFileSync('../Achievements/BAD_ENDING2.bin', 'a', 'utf8');
     } else if (dados.includes('BAD_ENDING3.bin')) {
         fs.writeFileSync('../Achievements/BAD_ENDING3.bin', 'a', 'utf8');
+    } else if (dados.includes('SECRET_ENDING.bin')) {
+        fs.writeFileSync('../Achievements/SECRET_ENDING.bin', 'a', 'utf8');
     }
     check = true
     skipaccount = true
@@ -857,7 +1029,6 @@ console.log ("você foi sequestrado por alguem!")
 console.log("---------------------------------------------------------------");
 console.log ("-> Seu objetivo é tentar fugir!")
 pausarParaContinuar()
-    const path = require('path');
     console.log("---------------------------------------------------------------");
     console.log ("-> E lembre-se...")
     const vbsFilePath = path.join(__dirname, 'OnlyBR.vbs');
@@ -2618,6 +2789,16 @@ console.log("-> Em meio ao pânico, de repente, você ouve...");
                    jogoAtivo4 = false
                    REAL_ENDING=true
                    
+                   if (destruir == true){
+                    console.clear();
+                    console.log("---------------------------------------------------------------");
+                    console.log("-> A terra solta cede facilmente. Logo, você distingue a forma inconfundível de um corpo humano.");
+                    console.log("-> Ao limpar a última camada de terra, seu sangue gela com a visão.");
+                    console.log("---------------------------------------------------------------");
+                    console.log("-> O corpo da criança levanta olhando fixamente para você...")
+                    console.log("-> CRIANÇA: 'VOCÊ DESTRUIU MEU PERGAMINHO, AGORA EU VOU TE DESTRUIR...'")
+                    SECRET_ENDING = true
+                   }
 
                 } else if (cavar == 2) {
                     console.clear();
@@ -2738,6 +2919,12 @@ fs.appendFile(save_conquistas, 'BAD_ENDING.bin', (err) => {
         const conteudo4 = "VOCÊ COMPLETOU O TERCEIRO FINAL RUIM";
         fs.writeFileSync('../Achievements/BAD_ENDING_3.bin', conteudo4, 'utf8');
         fs.appendFile(save_conquistas, 'BAD_ENDING3.bin', (err) => {
+            if (err) throw err;
+        })
+    } else if (SECRET_ENDING){
+        const conteudo6 = "VOCÊ COMPLETOU O FINAL SECRETO";
+        fs.writeFileSync('../Achievements/SECRET_ENDING.bin', conteudo6, 'utf8');
+        fs.appendFile(save_conquistas, 'SECRET_ENDING.bin', (err) => {
             if (err) throw err;
         })
     }
