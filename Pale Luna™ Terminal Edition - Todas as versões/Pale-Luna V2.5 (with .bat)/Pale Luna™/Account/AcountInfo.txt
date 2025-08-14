@@ -1,3 +1,0 @@
-Name: Lukz
-Password: Lukz
-Language: English (EN) 
