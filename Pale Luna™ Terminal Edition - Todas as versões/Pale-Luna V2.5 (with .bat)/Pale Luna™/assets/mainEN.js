@@ -776,6 +776,7 @@ while (check == false) {
             console.log("-> Restoration Skipped!")
             pauseToContinue()
         } else if (restart == 3) {
+            console.clear()
             console.log("---------------------------------------------------------------");
             console.log("-> Checking the folder...")
             console.log("--------------------------------------------------------------");
