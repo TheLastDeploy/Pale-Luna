@@ -402,32 +402,32 @@ let jogoAtivo1 = true;
 let iniciofalha = false;
 let papega = false;
 let tentanovamente = true;
-let floresta1 = ("");
+let floresta1;
 let atalho = false;
 let gameover = false;
 let saiudafloresta = false;
-let floresta2 = ("");
+let floresta2;
 let jogoAtivo2 = true
-let cabana = ("");
+let cabana;
 let mapaachado = false;
 let tentanovamente1 = true;
-let cabana1 = ("");
+let cabana1;
 let kitm = false
-let cabana2 = ("");
+let cabana2;
 let saiudacasa = false;
 let saiudafloresta1 = false;
-let floresta3 = ("");
+let floresta3;
 let jogoAtivo3 = true
-let mapa = ("");
-let objeto = ("");
-let foto = ("");
-let decisão1 = ("");
-let decisão2 = ("");
-let barco = ("");
-let ponte = ("");
+let mapa;
+let objeto;
+let foto;
+let decisão1;
+let decisão2;
+let barca;
+let ponte;
 let tentanovamente2 = true;
 let jogoAtivo4 = true;
-let floresta4 = ("");
+let floresta4;
 let BAD_ENDING = false;
 let BAD_ENDING_2 = false;
 let BAD_ENDING_3 = false;
@@ -459,7 +459,6 @@ let teste2
 let valorsanidade = 100
 let destruir = false
 let skipsavefilecheck = false
-
 // Answers for the TRUE ENDING:;
 // 1 (YES);
 // 1 (SHOVEL);
@@ -548,7 +547,7 @@ let skipsavefilecheck = false
 // 1 (LEAVE)
 // END
 
-const accountFilePath = '../Account/AcountInfo.txt';
+const accountFilePath = '../Account/AccountInfo.txt';
 const save_conquistas = '../Account/Achievementsavefile.bin'
 let Login
 let overwrite = "Y"
@@ -718,6 +717,9 @@ console.log ("------------------------------------------------------------------
     process.exit()
 }
 
+const conquistasExistem = fs.existsSync(save_conquistas);
+
+const contaExiste = fs.existsSync(accountFilePath);
 console.log(" ");
 console.log(" ");
 console.log(" ")
@@ -739,6 +741,7 @@ printDivider()
 console.log("--- VERSION 2.5 ---")
 printDivider()
 console.log("Welcome to Pale Luna! Follow the rules to ensure the full experience.");
+console.log("---------------------------------------------------------------");
 console.log("Rule [01]: Type only numbers (1, 2, 3, and 4).");
 console.log("Rule [02]: Do not use special characters.");
 console.log("Rule [03]: Have fun 😉");
@@ -749,6 +752,8 @@ const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
 console.log(`Endings completed: [${count}/6]`);
 console.log('List of endings:', finais);
 pauseToContinue()
+
+let contagg = false
 
 if (!skipaccount) {
     console.clear();
@@ -781,7 +786,7 @@ if (!skipaccount) {
         skipsavefilecheck = true
         check = true
 
-        if (fs.existsSync(save_conquistas && accountFilePath)) {
+        if (contaExiste) {
 
             console.log("███████████████████████████████████████████████████████████████████")
             console.log("██                                                               ██")
@@ -824,7 +829,6 @@ if (!skipaccount) {
                 console.log("")
                 printDivider();
                 console.log("-> Account creation canceled. Existing file was not overwritten.");
-                printDivider();
 
             }
         }
@@ -858,27 +862,36 @@ if (!skipaccount) {
             fs.writeFileSync(accountFilePath, conteudo, 'utf8');
 
             let finais1
-            if (finais.length == 0) {
-                finais1;
-
-            } else {
-                finais1 = finais
-            }
-            const conteudo5 =
-
-                (finais1) + "\r\n";
-
-            fs.writeFileSync(save_conquistas, conteudo5, 'utf8');
-            console.log("-> Account created and saved successfully!");
-        }
-
+    if (count == 0) {
         console.clear();
         console.log("---------------------------------------------------------------");
-        console.log("-> [SYSTEM] Account created successfully!");
+console.log("-> [SYSTEM] Account created successfully!");
+console.log("---------------------------------------------------------------");
+console.log("-> You can access your information in the file ")
+console.log("'Accountinfo.txt' in the 'Account' folder.");
+console.log("-> You have no endings, when you do, they will be stored in: ")
+console.log("'Achievementsavefile.bin' in the 'Account' folder.");
+    
+    } else {
+        finais1 = finais
+        const conteudo5 = 
+            
+                             (finais1) + "\r\n"; 
+    
+    fs.writeFileSync(save_conquistas, conteudo5, 'utf8');      
+    contagg = true     
+    }  
+        }
+        if (contagg){
+        console.clear();
         console.log("---------------------------------------------------------------");
-        console.log("-> You can access your information in the 'Containfo.txt' file in the 'Account' folder.");
-        console.log("-> Your endings are saved in the 'Conquistassavefile.bin' file in the 'Account' folder.");
-        
+console.log("-> [SYSTEM] Account created successfully!");
+console.log("---------------------------------------------------------------");
+console.log("-> You can access your information in the file ") 
+console.log("'Accountinfo.txt' in the 'Account' folder.");
+console.log("-> Your endings are saved in the file")
+console.log("'Achievementsavefile.bin' in the 'Account' folder.");
+        }
 
     } else {
         console.clear();
@@ -1430,9 +1443,9 @@ while (jogoAtivo1) {
         console.log("[02] Hide");
         printDivider();
         console.log("Command?");
-        decisão1 = prompt(">");
+        decisão1 = Number(prompt(">"));
 
-        if (decisão1 === "1") {
+        if (decisão1 === 1) {
             console.clear();
             printDivider();
             console.log("-> You start running as fast as possible...");
@@ -1449,7 +1462,7 @@ while (jogoAtivo1) {
             } else {
                 process.exit(56)
             }
-        } else if (decisão1 === "2") {
+        } else if (decisão1 === 2) {
             console.clear();
             printDivider();
             console.log("-> You decide to hide in a bush next to you");
@@ -1888,7 +1901,7 @@ while (jogoAtivo2) {
             console.log("[02] Enter the cave");
             printDivider();
             console.log("Command?");
-            barco2 = prompt(">");
+            barco2 = Number(prompt(">"));
             console.log(" ");
 
             if (barco2 == 1) {
@@ -2015,6 +2028,8 @@ while (jogoAtivo2) {
                                 printDivider();
                                 console.log("2 days later you realize there's really nothing to do down there.")
                                 console.log("And then you go back to the surface...")
+                            } else {
+                                InvalidOption()
                             }
 
                         } else if (teste == 2) {
@@ -2069,7 +2084,7 @@ while (jogoAtivo2) {
             } else {
                 InvalidOption()
             }
-        } else if (barco === "2") {
+        } else if (barco === 2) {
             console.clear();
             printDivider();
             console.log("-> You ignore the boat and continue on your way...");
@@ -2081,10 +2096,10 @@ while (jogoAtivo2) {
             console.log("[02] Hide");
             printDivider();
             console.log("Command?");
-            decisão2 = prompt(">");
+            decisão2 = Number(prompt(">"));
             console.log(" ");
 
-            if (decisão2 === "1") {
+            if (decisão2 === 1) {
                 console.clear();
                 printDivider();
                 console.log("-> You start running as fast as possible...");
@@ -2099,7 +2114,7 @@ while (jogoAtivo2) {
                 } else {
                     InvalidOption()
                 }
-            } else if (decisão2 === "2") {
+            } else if (decisão2 === 2) {
                 console.clear();
                 printDivider();
                 console.log("-> You hide in a cave nearby");
@@ -2120,7 +2135,7 @@ while (jogoAtivo2) {
                 InvalidOption()
             }
 
-        } else if (barco === "3") {
+        } else if (barco === 3) {
             console.clear();
             printDivider();
             console.log("-> You return to the fork...");
@@ -2419,12 +2434,8 @@ while (jogoAtivo3) {
                     console.log("-> After a while you decide to continue on your way");
                     console.log("-> You arrive at a fork");
                     pauseToContinue()
-
-                    if (Math.random() < 0.5) {
                         decreaseSanity()
-                    } else {
-                        increaseSanity()
-                    }
+                    
                     fotopega = true
                     leufoto = true
                     jogoAtivo3 = false;
@@ -2470,10 +2481,10 @@ while (jogoAtivo3) {
         console.log("What do you want to do now?");
         printDivider();
         console.log("Command?")
-        decisão2 = prompt(">");
+        decisão2 = Number(prompt(">"));
         console.log(" ")
 
-        if (decisão2 === "1") {
+        if (decisão2 === 1) {
             console.clear();
             printDivider();
             console.log("-> You start running as fast as possible...");
@@ -2488,7 +2499,7 @@ while (jogoAtivo3) {
             console.log(" ██████  ██   ██  ██      ██ ███████      ██████    ██████  ███████ ██   ██ ");
             printDivider();
             process.exit(1);
-        } else if (decisão2 === "2") {
+        } else if (decisão2 === 2) {
             console.clear();
             printDivider();
             console.log("-> You hide in a cave nearby");
@@ -2503,7 +2514,9 @@ while (jogoAtivo3) {
             console.log(" ██████  ██   ██  ██      ██ ███████      ██████    ██████  ███████ ██   ██ ");
             printDivider();
             process.exit(1);
-        }
+        } InvalidOption()
+
+
     } else if (floresta3 == 3) {
         console.clear();
         printDivider();
@@ -2766,12 +2779,13 @@ while (jogoAtivo4) {
         if (casa2 == 1) {
             console.clear();
             console.log("---------------------------------------------------------------");
-            console.log("Upon entering the house, your steps echo eerily through the silence.");
-            console.log("Your first instinct is to look for signs of life, someone living or perhaps trapped there.");
+            console.log("-> Upon entering the house, your steps echo eerily through the silence.");
+            console.log("-> Your first instinct is to look for signs of life")
+            console.log("someone living or perhaps trapped there.");
             console.log("---------------------------------------------------------------");
-            console.log("After a careful search, you find no one. The solitude of the place is palpable.");
-            console.log("You then start searching the house for something useful, like a phone.");
-            console.log("On a dusty table, you find a note with a rudimentary map drawn with arrows.");
+            console.log("-> After a careful search, you find no one. The solitude of the place is palpable.");
+            console.log("-> You then start searching the house for something useful, like a phone.");
+            console.log("-> On a dusty table, you find a note with a rudimentary map drawn with arrows.");
             console.log("---------------------------------------------------------------");
             console.log("[OPTIONS]")
             printDivider();
@@ -2785,9 +2799,9 @@ while (jogoAtivo4) {
             if (mapa3 == 1) {
                 console.clear();
                 console.log("---------------------------------------------------------------");
-                console.log("You follow the map carefully, each turn a step towards the unknown.");
-                console.log("Upon reaching the marked 'X', you step and the ground creaks, sounding hollow under your feet.");
-                console.log("Immediate apprehension arises. Doubt lingers in the air: dig and face what lies beneath or ignore and move on?");
+                console.log("-> You follow the map carefully, each turn a step towards the unknown.");
+                console.log("-> Upon reaching the marked 'X', you step and the ground creaks, sounding hollow under your feet.");
+                console.log("-> Immediate apprehension arises. Doubt lingers in the air: dig and face what lies beneath or ignore and move on?");
                 console.log("---------------------------------------------------------------");
                 console.log("[OPTIONS]")
                 printDivider();
@@ -2795,7 +2809,7 @@ while (jogoAtivo4) {
                 console.log("[02] Do not dig.")
                 printDivider();
                 console.log("Command?")
-                cavar = Number(prompt("> "))
+                let cavar = Number(prompt("> "))
                 console.log(" ")
 
                 if (cavar == 1) {
@@ -2814,6 +2828,7 @@ while (jogoAtivo4) {
                         BAD_ENDING_2 = false
                         BAD_ENDING_3 = false
                         GOOD_ENDING = false
+                        jogoAtivo4 = false
                         console.log("---------------------------------------------------------------");
                     } else {
                         console.log("-> It's the small, fragile body of a child.");

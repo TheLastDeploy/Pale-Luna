@@ -1,4 +1,3 @@
-
 // Propriedade de Sad Berry Games.
 
 const prompt = require('prompt-sync')();
@@ -9,7 +8,7 @@ const path = require('path');
 function Opcãoinvalida() {
     console.clear()
     console.log("---------------------------------------------------------------");
-    console.log ("-> Opção invalida!")
+    console.log("-> Opção invalida!")
     console.log("---------------------------------------------------------------");
     console.log("-> Pressione [1] para fechar...");
     console.log("---------------------------------------------------------------");
@@ -390,69 +389,69 @@ function menosVidaM() {
             }
         }
 
-let temChave = false; // Controle de posse da chave
-let jogoAtivo = true; // Flag para continuar o jogo
-let jogoAtivo1 = true;
-let iniciofalha = false;
-let papega = false;
-let tentanovamente = true;
-let floresta1 = ("");
-let atalho = false;
-let gameover = false;
-let saiudafloresta = false;
-let floresta2 = ("");
-let jogoAtivo2 = true
-let cabana = ("");
-let mapaachado = false;
-let tentanovamente1 = true;
-let cabana1 = ("");
-let kitm = false
-let cabana2 = ("");
-let saiudacasa = false;
-let saiudafloresta1 = false;
-let floresta3 = ("");
-let jogoAtivo3 = true
-let mapa = ("");
-let objeto = ("");
-let foto = ("");
-let decisão1 = ("");
-let decisão2 = ("");
-let barco = ("");
-let ponte = ("");
-let tentanovamente2 = true;
-let jogoAtivo4 = true;
-let floresta4 = ("");
-let BAD_ENDING = false;
-let BAD_ENDING_2 = false;
-let BAD_ENDING_3 = false;
-let GOOD_ENDING = false;
-let REAL_ENDING = false;
-let fotopega = false
-let leufoto = false
-let casafora =false
-let N = false
-let L = false
-let O = false
-let S = false
-let back = true
-let conquistas
-let s1
-let s2
-let s3
-let contagemS
-let Vida = 100;
-let v1
-let v2
-let v3
-let v4
-let v5
-let v6
-let chavedois
-let teste
-let teste2
-let valorsanidade = 100
-let destruir = false
-let skipsavefilecheck = false
+        let temChave = false; // Control of key possession
+        let jogoAtivo = true; // Flag to continue the game
+        let jogoAtivo1 = true;
+        let iniciofalha = false;
+        let papega = false;
+        let tentanovamente = true;
+        let floresta1;
+        let atalho = false;
+        let gameover = false;
+        let saiudafloresta = false;
+        let floresta2;
+        let jogoAtivo2 = true
+        let cabana;
+        let mapaachado = false;
+        let tentanovamente1 = true;
+        let cabana1;
+        let kitm = false
+        let cabana2;
+        let saiudacasa = false;
+        let saiudafloresta1 = false;
+        let floresta3;
+        let jogoAtivo3 = true
+        let mapa;
+        let objeto;
+        let foto;
+        let decisão1;
+        let decisão2;
+        let barca;
+        let ponte;
+        let tentanovamente2 = true;
+        let jogoAtivo4 = true;
+        let floresta4;
+        let BAD_ENDING = false;
+        let BAD_ENDING_2 = false;
+        let BAD_ENDING_3 = false;
+        let GOOD_ENDING = false;
+        let REAL_ENDING = false;
+        let fotopega = false
+        let leufoto = false
+        let casafora = false
+        let N = false
+        let L = false
+        let O = false
+        let S = false
+        let back = true
+        let conquistas
+        let s1
+        let s2
+        let s3
+        let contagemS
+        let Vida = 100;
+        let v1
+        let v2
+        let v3
+        let v4
+        let v5
+        let v6
+        let chavedois
+        let teste
+        let teste2
+        let valorsanidade = 100
+        let destruir = false
+        let skipsavefilecheck = false
 
 
 
@@ -544,8 +543,8 @@ let skipsavefilecheck = false
 // 1 (IR EMBORA)
 // FIM
 
-const accountFilePath = '../Account/Containfo.txt';
-const save_conquistas = '../Account/Conquistassavefile.bin'
+const accountFilePath = '../Account/AccountInfo.txt';
+const save_conquistas = '../Account/Achievementsavefile.bin'
 let Login
 let overwrite = "S"
 let skipaccount = false
@@ -677,16 +676,6 @@ function lerNumeroDoArquivo(nomeDoArquivo) {
     console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
     console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
     console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
     
     process.exit()
 } else if (numero == 2){
@@ -719,6 +708,9 @@ console.log ("------------------------------------------------------------------
     process.exit()
 }
 
+const conquistasExistem = fs.existsSync(save_conquistas);
+
+const contaExiste = fs.existsSync(accountFilePath);
 
 console.log (" ");
 console.log (" ");
@@ -741,6 +733,7 @@ console.log ("---------------------------------------------------------------");
 console.log ("--- VERSÃO 2.5 ---")
 console.log ("---------------------------------------------------------------");
 console.log ("Bem-vindo a Pale Luna! Siga as regras para garantir a experiência completa.");
+console.log("---------------------------------------------------------------");
 console.log ("Regra [01]: Digite apenas números (1, 2, 3 e 4).");
 console.log ("Regra [02]: Não utilize caracteres especiais.");
 console.log ("Regra [03]: Divirta-se 😉");
@@ -752,6 +745,7 @@ console.log(`Finais completados: [${count}/6]`);
 console.log('Lista de finais:', finais);
 pausarParaContinuar()
 
+let contagg = false
 
 if (!skipaccount) {
     console.clear();
@@ -783,7 +777,7 @@ if (!skipaccount) {
             console.clear();
         skipsavefilecheck = true
         check = true
-            if (fs.existsSync(save_conquistas && accountFilePath)) {
+            if (contaExiste) {
                 
                 console.log ("███████████████████████████████████████████████████████████████████")
     console.log ("██                                                               ██")
@@ -826,7 +820,7 @@ if (!skipaccount) {
     console.log ("")
                     console.log("---------------------------------------------------------------");
                     console.log("-> Criação de conta cancelada. Arquivo existente não foi sobrescrito.");
-                    console.log("---------------------------------------------------------------");
+
         
                 }
             }
@@ -855,30 +849,41 @@ if (!skipaccount) {
             const conteudo =
                              "Nome: " + Usuario + "\r\n" +
                              "Senha: " + Senha + "\r\n" + 
-                             "Idioma: Brasil (BR) \r\n";
+                             "Idioma: Português (BR) \r\n";
         
             fs.writeFileSync(accountFilePath, conteudo, 'utf8');
     
             let finais1
-    if (finais.length == 0) {
-        finais1; 
-    
-    } else {
-        finais1 = finais
-    }
-            const conteudo5 = 
-            
-                             (finais1) + "\r\n"; 
-    
-    fs.writeFileSync(save_conquistas, conteudo5, 'utf8');           
-        }
+    if (count == 0) {
         console.clear();
         console.log("---------------------------------------------------------------");
         console.log ("-> [SISTEMA] Conta criada com sucesso!");
         console.log("---------------------------------------------------------------");
-        console.log("-> Você pode acessar suas informações no arquivo 'Containfo.txt' na pasta 'Account'.");
-        console.log("-> Seus finais estão salvos no arquivo 'Conquistassavefile.bin' na pasta 'Account'.");
-        
+        console.log("-> Você pode acessar suas informações no arquivo ")
+        console.log("'Accountinfo.txt' na pasta 'Account'.");
+        console.log("-> Você não tem finais, quando você tiver eles estarão alojados em: ")
+        console.log("'Achievementsavefile.bin' na pasta 'Account'.");
+    
+    } else {
+        finais1 = finais
+        const conteudo5 = 
+            
+                             (finais1) + "\r\n"; 
+    
+    fs.writeFileSync(save_conquistas, conteudo5, 'utf8');      
+    contagg = true     
+    }  
+        }
+        if (contagg){
+        console.clear();
+        console.log("---------------------------------------------------------------");
+        console.log ("-> [SISTEMA] Conta criada com sucesso!");
+        console.log("---------------------------------------------------------------");
+        console.log("-> Você pode acessar suas informações no arquivo ")
+        console.log("'Accountinfo.txt' na pasta 'Account'.");
+        console.log("-> Seus finais estão salvos no arquivo ")
+        console.log("'Achievementsavefile.bin' na pasta 'Account'.");
+        }
 
         } else {
             console.clear();
@@ -1280,14 +1285,14 @@ while (jogoAtivo1) {
         console.log ("██   ██                          ██  ██                 LESTE         ")
         console.log ("██   ██                         ██    ██                  \\/         ")                                            
         console.log ("██████████████████████████████████████████████████████         ████")
-    } else if (N && L && !O) {
+    } else if (N && L && O) {
         console.log ("----------------------------------------------------------")
         console.log (" ")
         console.log ("██████████████████████████████████████████████████████         ████")
         console.log ("                   ██                                            ")
         console.log ("                 ██                                       /\\      ")
         console.log ("               ██                                        OESTE     ")
-        console.log ("         ██  ██                                                    ")
+        console.log ("         ██  ██                                         (Já foi)              ")
         console.log ("       ██  ██                                                      ")
         console.log ("     ██                                                            ")
         console.log ("██   ██                            ██        (Já foi) NORTE >      ")
@@ -1433,9 +1438,9 @@ while (jogoAtivo1) {
         console.log ("[02] Se esconder");
         console.log("---------------------------------------------------------------");
         console.log ("Comando?");
-        decisão1 = prompt("> ");
+        decisão1 = Number(prompt("> "));
 
-         if (decisão1 === "1") {
+         if (decisão1 === 1) {
              console.clear();
              console.log("---------------------------------------------------------------");
              console.log ("-> Você começa a correr o mais rapido possivel...");
@@ -1452,7 +1457,7 @@ while (jogoAtivo1) {
              } else {
                  process.exit(56)
              }
-         } else if (decisão1 === "2") {
+         } else if (decisão1 === 2) {
              console.clear();
              console.log ("---------------------------------------------------------------");
              console.log ("-> Você decidi se esconder em uma moita ao seu lado");
@@ -1499,149 +1504,149 @@ S = false
 
 while (jogoAtivo2) {
     if (!N && !S && !L) {
-        console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                     /\\         ")
-        console.log ("               ██                                      NORTE          ")
-        console.log ("         ██  ██                                                    ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██                     LESTE >        ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██                   SUL           ")
-        console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")                                            
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("")
+        console.log("----------------------------------------------------------")
+        console.log(" ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("                   ██                                            ")
+        console.log("                 ██                                     /\\         ")
+        console.log("               ██                                      NORTE          ")
+        console.log("         ██  ██                                                    ")
+        console.log("       ██  ██                                                      ")
+        console.log("     ██                                                          ")
+        console.log("██   ██                            ██                     LESTE >        ")
+        console.log("██   ██                          ██████                            ")
+        console.log("██   ██                         █  ██  █                           ")
+        console.log("██   ██                            ██                   SUL           ")
+        console.log("██   ██                          ██  ██                 \\/            ")
+        console.log("██   ██                         ██    ██                           ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("")
     } else if (N && S && L) {
-        console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                     /\\         ")
-        console.log ("               ██                                      NORTE          ")
-        console.log ("         ██  ██                                       (Já foi)           ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██             (Já foi) LESTE >        ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █              (Já foi)            ")
-        console.log ("██   ██                            ██                   SUL           ")
-        console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")                                            
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("")
+        console.log("----------------------------------------------------------")
+        console.log(" ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("                   ██                                            ")
+        console.log("                 ██                                     /\\         ")
+        console.log("               ██                                      NORTE          ")
+        console.log("         ██  ██                                       (Já foi)           ")
+        console.log("       ██  ██                                                      ")
+        console.log("     ██                                                          ")
+        console.log("██   ██                            ██             (Já foi) LESTE >        ")
+        console.log("██   ██                          ██████                            ")
+        console.log("██   ██                         █  ██  █              (Já foi)            ")
+        console.log("██   ██                            ██                   SUL           ")
+        console.log("██   ██                          ██  ██                 \\/            ")
+        console.log("██   ██                         ██    ██                           ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("")
     } else if (!N && !S && L) {
-        console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                     /\\         ")
-        console.log ("               ██                                      NORTE          ")
-        console.log ("         ██  ██                                                    ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██              (Já foi) LESTE >        ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██                   SUL           ")
-        console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")                                            
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("")
+        console.log("----------------------------------------------------------")
+        console.log(" ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("                   ██                                            ")
+        console.log("                 ██                                     /\\         ")
+        console.log("               ██                                      NORTE          ")
+        console.log("         ██  ██                                                    ")
+        console.log("       ██  ██                                                      ")
+        console.log("     ██                                                          ")
+        console.log("██   ██                            ██              (Já foi) LESTE >        ")
+        console.log("██   ██                          ██████                            ")
+        console.log("██   ██                         █  ██  █                           ")
+        console.log("██   ██                            ██                   SUL           ")
+        console.log("██   ██                          ██  ██                 \\/            ")
+        console.log("██   ██                         ██    ██                           ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("")
     } else if (!N && S && !L) {
-        console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                     /\\         ")
-        console.log ("               ██                                      NORTE          ")
-        console.log ("         ██  ██                                                    ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██                     LESTE >        ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █              (Já foi)             ")
-        console.log ("██   ██                            ██                   SUL           ")
-        console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")                                            
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("")
+        console.log("----------------------------------------------------------")
+        console.log(" ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("                   ██                                            ")
+        console.log("                 ██                                     /\\         ")
+        console.log("               ██                                      NORTE          ")
+        console.log("         ██  ██                                                    ")
+        console.log("       ██  ██                                                      ")
+        console.log("     ██                                                          ")
+        console.log("██   ██                            ██                     LESTE >        ")
+        console.log("██   ██                          ██████                            ")
+        console.log("██   ██                         █  ██  █              (Já foi)             ")
+        console.log("██   ██                            ██                   SUL           ")
+        console.log("██   ██                          ██  ██                 \\/            ")
+        console.log("██   ██                         ██    ██                           ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("")
     } else if (N && !S && !L) {
-        console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                     /\\         ")
-        console.log ("               ██                                      NORTE          ")
-        console.log ("         ██  ██                                       (Já foi)              ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██                     LESTE >        ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██                   SUL           ")
-        console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")                                            
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("")
+        console.log("----------------------------------------------------------")
+        console.log(" ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("                   ██                                            ")
+        console.log("                 ██                                     /\\         ")
+        console.log("               ██                                      NORTE          ")
+        console.log("         ██  ██                                       (Já foi)              ")
+        console.log("       ██  ██                                                      ")
+        console.log("     ██                                                          ")
+        console.log("██   ██                            ██                     LESTE >        ")
+        console.log("██   ██                          ██████                            ")
+        console.log("██   ██                         █  ██  █                           ")
+        console.log("██   ██                            ██                   SUL           ")
+        console.log("██   ██                          ██  ██                 \\/            ")
+        console.log("██   ██                         ██    ██                           ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("")
     } else if (!N && S && L) {
-        console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                     /\\         ")
-        console.log ("               ██                                      NORTE          ")
-        console.log ("         ██  ██                                                    ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██              (Já foi)   LESTE >        ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █              (Já foi)            ")
-        console.log ("██   ██                            ██                   SUL           ")
-        console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")                                            
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("")
+        console.log("----------------------------------------------------------")
+        console.log(" ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("                   ██                                            ")
+        console.log("                 ██                                     /\\         ")
+        console.log("               ██                                      NORTE          ")
+        console.log("         ██  ██                                                    ")
+        console.log("       ██  ██                                                      ")
+        console.log("     ██                                                          ")
+        console.log("██   ██                            ██              (Já foi)   LESTE >        ")
+        console.log("██   ██                          ██████                            ")
+        console.log("██   ██                         █  ██  █              (Já foi)            ")
+        console.log("██   ██                            ██                   SUL           ")
+        console.log("██   ██                          ██  ██                 \\/            ")
+        console.log("██   ██                         ██    ██                           ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("")
     } else if (N && S && !L) {
-        console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                     /\\         ")
-        console.log ("               ██                                      NORTE          ")
-        console.log ("         ██  ██                                       (Já foi)            ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██                     LESTE >        ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █              (Já foi)             ")
-        console.log ("██   ██                            ██                   SUL           ")
-        console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")                                            
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("")
+        console.log("----------------------------------------------------------")
+        console.log(" ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("                   ██                                            ")
+        console.log("                 ██                                     /\\         ")
+        console.log("               ██                                      NORTE          ")
+        console.log("         ██  ██                                       (Já foi)            ")
+        console.log("       ██  ██                                                      ")
+        console.log("     ██                                                          ")
+        console.log("██   ██                            ██                     LESTE >        ")
+        console.log("██   ██                          ██████                            ")
+        console.log("██   ██                         █  ██  █              (Já foi)             ")
+        console.log("██   ██                            ██                   SUL           ")
+        console.log("██   ██                          ██  ██                 \\/            ")
+        console.log("██   ██                         ██    ██                           ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("")
     } else if (N && !S && L) {
-        console.log ("----------------------------------------------------------")
-        console.log (" ")
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("                   ██                                            ")
-        console.log ("                 ██                                     /\\         ")
-        console.log ("               ██                                      NORTE          ")
-        console.log ("         ██  ██                                       (Já foi)             ")
-        console.log ("       ██  ██                                                      ")
-        console.log ("     ██                                                          ")
-        console.log ("██   ██                            ██              (Já foi) LESTE >        ")
-        console.log ("██   ██                          ██████                            ")
-        console.log ("██   ██                         █  ██  █                           ")
-        console.log ("██   ██                            ██                   SUL           ")
-        console.log ("██   ██                          ██  ██                 \\/            ")
-        console.log ("██   ██                         ██    ██                           ")                                            
-        console.log ("██████████████████████████████████████████████████            █████")
-        console.log ("")
+        console.log("----------------------------------------------------------")
+        console.log(" ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("                   ██                                            ")
+        console.log("                 ██                                     /\\         ")
+        console.log("               ██                                      NORTE          ")
+        console.log("         ██  ██                                       (Já foi)             ")
+        console.log("       ██  ██                                                      ")
+        console.log("     ██                                                          ")
+        console.log("██   ██                            ██              (Já foi) LESTE >        ")
+        console.log("██   ██                          ██████                            ")
+        console.log("██   ██                         █  ██  █                           ")
+        console.log("██   ██                            ██                   SUL           ")
+        console.log("██   ██                          ██  ██                 \\/            ")
+        console.log("██   ██                         ██    ██                           ")
+        console.log("██████████████████████████████████████████████████            █████")
+        console.log("")
     }
     console.log ("---------------------------------------------------------------");
     console.log ("-> Pegue sua recompensa. A lua palida sorri para você.");
@@ -1792,23 +1797,23 @@ while (jogoAtivo2) {
              }
         } else if (cabana === "2") {
             console.clear();
-            console.log ("----------------------------------------------------------")
-            console.log (" ")
-            console.log ("███████████████████████████████████████████████████████████████████")
-            console.log ("██                                                               ")
-            console.log ("██                                                               ")
-            console.log ("██                                                               ")
-            console.log ("██                                                      ")
-            console.log ("██                                                     ")
-            console.log ("██                                                     █        ")
-            console.log ("██                    ██                              ██")
-            console.log ("██                  ██████                            ██")
-            console.log ("██                 █  ██  █                           ██")
-            console.log ("██                    ██                              ██")
-            console.log ("██                  ██  ██                            ██-------")
-            console.log ("██                 ██    ██                           ██     ------")                                       
-            console.log ("████████████████████████████████████████████████████████████████████ ---")
-            console.log ("")
+            console.log("----------------------------------------------------------")
+            console.log(" ")
+            console.log("███████████████████████████████████████████████████████████████████")
+            console.log("██                                                               ")
+            console.log("██                                                               ")
+            console.log("██                                                               ")
+            console.log("██                                                      ")
+            console.log("██                                                     ")
+            console.log("██                                                     █        ")
+            console.log("██                    ██                              ██")
+            console.log("██                  ██████                            ██")
+            console.log("██                 █  ██  █                           ██")
+            console.log("██                    ██                              ██")
+            console.log("██                  ██  ██                            ██-------")
+            console.log("██                 ██    ██                           ██     ------")
+            console.log("████████████████████████████████████████████████████████████████████ ---")
+            console.log("")
             console.log ("---------------------------------------------------------------");
             console.log ("-> Você ignora a cabana e continua o seu caminho...");
             console.log ("-> Após andar um pouco você encontra uma ponte quebrada");
@@ -1876,10 +1881,10 @@ while (jogoAtivo2) {
         console.log ("[03] Voltar para a bifurcação");
         console.log ("---------------------------------------------------------------");
         console.log ("Comando?");
-        barco = prompt("> ");
+        barco = Number(prompt("> "));
         console.log (" ");
 
-        if (barco === "1") {
+        if (barco === 1) {
             console.clear();
             console.log ("---------------------------------------------------------------");
             console.log ("-> Você pega o barco e começa a remar...");
@@ -1891,7 +1896,7 @@ while (jogoAtivo2) {
         console.log ("[02] Entrar dentro da caverna");
         console.log ("---------------------------------------------------------------");
         console.log ("Comando?");
-        barco2 = prompt("> ");
+        barco2 = Number(prompt("> "));
         console.log (" ");
 
         if (barco2 == 1) {
@@ -2010,6 +2015,8 @@ if (teste2 == 1) {
     console.log ("---------------------------------------------------------------");
     console.log ("2 dias depois você nota que realmente não há nada para se fazer la embaixo.")
     console.log ("E então você volta para a superfice...")
+} else {
+    Opcãoinvalida()
 }
 
 } else if (teste == 2) {
@@ -2064,7 +2071,7 @@ if (teste2 == 1) {
         } else {
             Opcãoinvalida()
         }
-        } else if (barco === "2") {
+        } else if (barco === 2) {
             console.clear();
             console.log ("---------------------------------------------------------------");
             console.log ("-> Você ignora o barco e continua o seu caminho...");
@@ -2073,13 +2080,13 @@ if (teste2 == 1) {
             console.log ("[OPÇÕES]");
             console.log ("---------------------------------------------------------------")
             console.log ("[01] Correr");
-            console.log ("[01] Se esconder");
+            console.log ("[02] Se esconder");
             console.log ("---------------------------------------------------------------");
             console.log ("Comando?");
-            decisão2 = prompt("> ");
+            decisão2 = Number(prompt("> "));
             console.log (" ");
 
-            if (decisão2 === "1") {
+            if (decisão2 === 1) {
                 console.clear();
                 console.log ("---------------------------------------------------------------");
                 console.log ("-> Você começa a correr o mais rapido possivel...");
@@ -2094,7 +2101,7 @@ if (teste2 == 1) {
                 } else {
                     Opcãoinvalida()
                 }
-            } else if (decisão2 === "2") {
+            } else if (decisão2 === 2) {
                 console.clear();
                 console.log ("---------------------------------------------------------------");
                 console.log ("-> Você se esconde em uma caverna ao lado");
@@ -2115,7 +2122,7 @@ if (teste2 == 1) {
                 Opcãoinvalida()
              }
     
-} else if (barco === "3") {
+} else if (barco === 3) {
     console.clear();
     console.log ("---------------------------------------------------------------");
     console.log ("-> Você volta para a bifurcação...");
@@ -2413,18 +2420,12 @@ while (jogoAtivo3) {
                 console.log ("-> Depois de um tempo você decide continuar o seu caminho");
                 console.log ("-> Você chega em uma bifurcação");
                 pausarParaContinuar()
-
-                let foto11 = Number(prompt("> "))
-
-                if (foto11 == 1){
-                menosSanidade()
+                    menosSanidade()
+                
                 fotopega = true
                 leufoto = true
                 jogoAtivo3 = false;
                 saiudafloresta2 = true;
-                } else {
-                    Opcãoinvalida()
-                }
             } else if (foto == 2 ) {
                 console.clear();
                 console.log ("---------------------------------------------------------------");
@@ -2464,10 +2465,10 @@ while (jogoAtivo3) {
         console.log ("[02] Se esconder");
         console.log ("---------------------------------------------------------------")
         console.log ("Comando?")
-        decisão2 = prompt("> ");
+        decisão2 = Number(prompt("> "));
         console.log (" ")
 
-        if (decisão2 === "1") {
+        if (decisão2 === 1) {
             console.clear();
             console.log ("---------------------------------------------------------------");
             console.log ("-> Você começa a correr o mais rapido possivel...");
@@ -2482,7 +2483,7 @@ while (jogoAtivo3) {
             console.log(" ██████  ██   ██  ██      ██ ███████      ██████    ██████  ███████ ██   ██ ");
             console.log ("---------------------------------------------------------------");
             process.exit(1);
-} else if (decisão2 === "2") {
+} else if (decisão2 === 2) {
     console.clear();
     console.log ("---------------------------------------------------------------");
     console.log ("-> Você se esconde em uma caverna ao lado");
@@ -2497,7 +2498,12 @@ while (jogoAtivo3) {
     console.log(" ██████  ██   ██  ██      ██ ███████      ██████    ██████  ███████ ██   ██ ");
     console.log ("---------------------------------------------------------------");
     process.exit(1);
+    } else {
+        Opcãoinvalida()
     }
+
+
+
 } else if (floresta3 == 3) {
     console.clear();
     console.log ("---------------------------------------------------------------");
@@ -2599,7 +2605,7 @@ while (jogoAtivo4) {
     
     console.log ("---------------------------------------------------------------");
 console.log ("-> Pegue sua recompensa, a lua palida sorri para você")
-console.log ("-> A sua frente exitem caminhos, ao NORTE e SUL");
+console.log ("-> A sua frente existem caminhos, ao NORTE e SUL");
 console.log ("---------------------------------------------------------------");
 console.log ("[OPÇÕES]");
 console.log ("---------------------------------------------------------------");
@@ -2759,13 +2765,13 @@ console.log ("---------------------------------------------------------------");
         if (casa2 == 1) {
             console.clear();
             console.log("---------------------------------------------------------------");
-console.log("Ao entrar na casa, seus passos ecoam de forma assustadora pelo silêncio.");
-console.log("Seu primeiro instinto é procurar por sinais de vida")
+console.log("-> Ao entrar na casa, seus passos ecoam de forma assustadora pelo silêncio.");
+console.log("-> Seu primeiro instinto é procurar por sinais de vida")
 console.log("alguém morando ou talvez preso ali.");
 console.log("---------------------------------------------------------------");
-console.log("Após uma busca cuidadosa, você não encontra ninguém. ")
-console.log("A solidão do lugar é palpável.");
-console.log("Você então começa a revistar a casa em busca de algo útil, como um telefone.");
+console.log("-> Após uma busca cuidadosa, você não encontra ninguém. ")
+console.log("-> A solidão do lugar é palpável.");
+console.log("-> Você então começa a revistar a casa em busca de algo útil, como um telefone.");
 console.log("Sobre uma mesa empoeirada, você encontra um bilhete com um ")
 console.log("mapa rudimentar desenhado com setas.");
 console.log("---------------------------------------------------------------");
@@ -2781,9 +2787,9 @@ console.log("---------------------------------------------------------------");
             if (mapa3 == 1) {
                 console.clear();
                 console.log("---------------------------------------------------------------");
-console.log("Você segue o mapa com atenção, cada curva um passo em direção ao desconhecido.");
-console.log("Ao chegar no 'X' marcado, você pisa e o chão range, soando oco sob seus pés.");
-console.log("Um receio imediato surge. A dúvida paira no ar: cavar e encarar o que há embaixo ou ignorar e seguir em frente?");
+console.log("-> Você segue o mapa com atenção, cada curva um passo em direção ao desconhecido.");
+console.log("-> Ao chegar no 'X' marcado, você pisa e o chão range, soando oco sob seus pés.");
+console.log("-> Um receio imediato surge. A dúvida paira no ar: cavar e encarar o que há embaixo ou ignorar e seguir em frente?");
 console.log("---------------------------------------------------------------");
                 console.log ("[OPÇÕES]")
                 console.log ("---------------------------------------------------------------");
@@ -2800,32 +2806,8 @@ console.log("---------------------------------------------------------------");
 console.log("-> A terra solta cede facilmente. Logo, você distingue a forma inconfundível de um corpo humano.");
 console.log("-> Ao limpar a última camada de terra, seu sangue gela com a visão.");
 console.log("---------------------------------------------------------------");
-console.log("-> É o corpo pequeno e frágil de uma criança.");
-console.log("-> Seu coração dispara, martelando contra as costelas.");
-console.log("-> Em meio ao pânico, de repente, você ouve...");
-                   console.log ("----------------------------------------------------------------------------")
-                   console.log ("-> Parabens!!")
-                   console.log ("----------------------------------------------------------------------------")
-                   console.log ("—— 40.24248 ——")
-                   console.log (" ")
-                   console.log ("—— -121.4434 ——")
-                   console.log ("----------------------------------------------------------------------------")
-                   console.log ("CRTHR FHN ERPBZCRAFN!!")
-                   console.log ("----------------------------------------------------------------------------")
-                   jogoAtivo4 = false
-                   SECRET_ENDING = false
-                    REAL_ENDING = true
-                    BAD_ENDING = false
-                    BAD_ENDING_2 = false
-                    BAD_ENDING_3 = false
-                    GOOD_ENDING = false
                    
                    if (destruir == true){
-                    console.clear();
-                    console.log("---------------------------------------------------------------");
-                    console.log("-> A terra solta cede facilmente. Logo, você distingue a forma inconfundível de um corpo humano.");
-                    console.log("-> Ao limpar a última camada de terra, seu sangue gela com a visão.");
-                    console.log("---------------------------------------------------------------");
                     console.log("-> O corpo da criança levanta olhando fixamente para você...")
                     console.log("-> CRIANÇA: 'VOCÊ DESTRUIU MEU PERGAMINHO, AGORA EU VOU TE DESTRUIR...'")
                     SECRET_ENDING = true
@@ -2834,7 +2816,28 @@ console.log("-> Em meio ao pânico, de repente, você ouve...");
                     BAD_ENDING_2 = false
                     BAD_ENDING_3 = false
                     GOOD_ENDING = false
+                    jogoAtivo4 = false
                     console.log("---------------------------------------------------------------");
+                   } else {
+                    console.log("-> É o corpo pequeno e frágil de uma criança.");
+                    console.log("-> Seu coração dispara, martelando contra as costelas.");
+                    console.log("-> Em meio ao pânico, de repente, você ouve...");
+                    console.log ("----------------------------------------------------------------------------")
+                    console.log ("-> Parabens!!")
+                    console.log ("----------------------------------------------------------------------------")
+                    console.log ("—— 40.24248 ——")
+                    console.log (" ")
+                    console.log ("—— -121.4434 ——")
+                    console.log ("----------------------------------------------------------------------------")
+                    console.log ("CRTHR FHN ERPBZCRAFN!!")
+                    console.log ("----------------------------------------------------------------------------")
+                    jogoAtivo4 = false
+                    SECRET_ENDING = false
+                    REAL_ENDING = true
+                    BAD_ENDING = false
+                    BAD_ENDING_2 = false
+                    BAD_ENDING_3 = false
+                    GOOD_ENDING = false
                    }
 
                 } else if (cavar == 2) {
