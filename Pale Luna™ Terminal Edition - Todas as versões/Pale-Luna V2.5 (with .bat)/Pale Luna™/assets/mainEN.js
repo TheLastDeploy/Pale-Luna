@@ -135,7 +135,7 @@ function increaseSanity() {
     while (s3 != 1) {
         console.clear()
         printDivider();
-        console.log("-> WARNING: YOUR SANITY INCREASED!")
+        console.log("-> [WARNING] YOUR SANITY INCREASED!")
         console.log("-> You now have ", valorsanidade, "% sanity")
         printDivider();
         console.log("-> Do you want to continue?")
@@ -686,10 +686,6 @@ function lerNumeroDoArquivo(nomeDoArquivo) {
     console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
     console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
     console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
-    console.log ("-> HAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHHAH")
     
     process.exit()
 } else if (numero == 2){
@@ -877,11 +873,11 @@ if (!skipaccount) {
         }
 
         console.clear();
-console.log("---------------------------------------------------------------");
-console.log("-> [SYSTEM] Account created successfully!");
-console.log("---------------------------------------------------------------");
-console.log("-> You can access your information in the 'Containfo.txt' file in the 'Account' folder.");
-console.log("-> Your endings are saved in the 'Conquistassavefile.bin' file in the 'Account' folder.");
+        console.log("---------------------------------------------------------------");
+        console.log("-> [SYSTEM] Account created successfully!");
+        console.log("---------------------------------------------------------------");
+        console.log("-> You can access your information in the 'Containfo.txt' file in the 'Account' folder.");
+        console.log("-> Your endings are saved in the 'Conquistassavefile.bin' file in the 'Account' folder.");
         
 
     } else {
@@ -954,7 +950,7 @@ while (check == false) {
             if (dados.includes('undefined')) {
                 console.clear()
                 console.log("---------------------------------------------------------------");
-            console.log("-> No endings detected...")
+            console.log("-> You still have no endings...")
             console.log("--------------------------------------------------------------");
             pauseToContinue()
             }
@@ -980,7 +976,7 @@ while (check == false) {
                 pauseToContinue()
             } else {
                 console.log("---------------------------------------------------------------");
-                console.log("-> No files.")
+                console.log("-> No endings files found!")
                 pauseToContinue()
             }
         } else {
@@ -1015,7 +1011,7 @@ let começar = prompt("> ");
 if (count > 5 || count < 0) {
     console.clear();
     printDivider();
-    console.log("-> ERROR: You cannot have more than 5 endings or less than 0 endings, please run the progress eraser!.");
+    console.log("-> [ERROR]: You cannot have more than 5 endings or less than 0 endings, please run the progress eraser!.");
     printDivider();
     process.exit(1); // Exits the program with exit code 1 (failure)
 }
@@ -1035,7 +1031,7 @@ console.clear()
 console.log("---------------------------------------------------------------");
 console.log("[CONTEXT]")
 console.log("---------------------------------------------------------------");
-console.log("-> You are Paul, an electrical engineer who was called to fix")
+console.log("-> You are Michael Nevins, an electrical engineer who was called to fix")
 console.log("poles, but not everything went as planned and")
 console.log("you were kidnapped by someone!")
 console.log("---------------------------------------------------------------");
@@ -1172,7 +1168,7 @@ while (jogoAtivo) {
         console.log("-> You tried to open the door...");
         if (temChave) {
             console.log("-> You can open the door with the found key!");
-            console.log("-> WARNING: You used the key!");
+            console.log("-> [WARNING] You used the key!");
             temChave = false
             jogoAtivo = false;
             saiudacasa = true;
@@ -1387,9 +1383,10 @@ while (jogoAtivo1) {
             printDivider();
             console.log("-> You find a secret shortcut!");
             printDivider();
-            console.log("Options:");
-            console.log("1. Take the shortcut");
-            console.log("2. Ignore the shortcut");
+            console.log("[OPTIONS]");
+            printDivider()
+            console.log("[01] Take the shortcut");
+            console.log("[02] Ignore the shortcut");
             printDivider();
             console.log("Command?")
             atalho = prompt(">");
@@ -1400,7 +1397,7 @@ while (jogoAtivo1) {
                 console.log("-> You manage to leave the forest, but secrets still await discovery...");
                 printDivider();
                 console.log("-> You won!!");
-                console.log("-> Congratulations? You completed the BAD ENDING, SECRETS STILL AWAIT YOU.");
+                console.log("-> Congratulations? You completed the BAD ENDING, NVAQN ERFGNZ FRTERQBF RFCRENAQB CBE IBPÊ.");
                 printDivider();
 
                 jogoAtivo = false
@@ -1427,9 +1424,10 @@ while (jogoAtivo1) {
         console.log("-> Suddenly from afar you see a tall man coming, with an axe and not very friendly.");
         O = true
         printDivider();
-        console.log("Options:");
-        console.log("1. Run away");
-        console.log("2. Hide");
+        console.log("[OPTIONS]");
+        printDivider()
+        console.log("[01] Run away");
+        console.log("[02] Hide");
         printDivider();
         console.log("Command?");
         decisão1 = prompt(">");
@@ -1903,11 +1901,11 @@ while (jogoAtivo2) {
                 console.log("-> You enter the cave, and inside you are horrified...")
                 console.log("-> Inside you see several gravestones and in the center of the cemetery, there is an open scroll...")
                 printDivider();
-                console.log("Options")
+                console.log("[OPTIONS]")
                 printDivider();
-                console.log("1. Read")
-                console.log("2. Do Not Read")
-                console.log("3. DESTROY!")
+                console.log("[01] Read")
+                console.log("[02] Do Not Read")
+                console.log("[03] DESTROY!")
                 printDivider();
                 pergaminho = Number(prompt("> "));
 
@@ -1917,7 +1915,7 @@ while (jogoAtivo2) {
                         printDivider();
                         console.log("You pick up the scroll and start reading...")
                         printDivider();
-                        console.log("DAY 1: Where am I?")
+                        console.log("[DAY 01]: Where am I?")
                         printDivider();
                         console.log("I don't really know where to start.");
                         console.log("My hands still tremble so much I can barely hold this improvised pen...");
@@ -1940,6 +1938,14 @@ while (jogoAtivo2) {
                         console.log("I am trapped, lost, and now I have found a submerged cemetery.");
                         console.log("What kind of madness is this? I need to record everything.");
                         console.log("I hope this charcoal lasts. And that I last too.");
+                        console.log("")
+                        console.log("I tried yelling for help earlier, but only the mocking echo answered.");
+                        console.log("The forest outside lost me. This cave wants to swallow me.");
+                        console.log("")
+                        console.log("Tomorrow. I need to find a way out of here. Or understand what this diary says.");
+                        console.log("Sanity is a thin line over an abyss of gravestones.");
+                        printDivider();
+                        console.log("-> At the end you see a lot of blood and fear for the writer's life...")
                         printDivider();
                         console.log("-> Press [1] to continue reading, or press [2] to close")
                         printDivider();
@@ -1948,7 +1954,7 @@ while (jogoAtivo2) {
                         if (teste == 1) {
                             console.clear()
                             printDivider();
-                            console.log("DAY 2: Is this real?")
+                            console.log("[DAY 02]: Is this real?")
                             printDivider();
                             console.log("I spent the night awake, if there is such a thing as night in this damp hole.");
                             console.log("The flashlight died. Now I only have darkness and the sound of water.");
@@ -2004,7 +2010,7 @@ while (jogoAtivo2) {
                                 console.log("-> To pass the time you start to search the place and in the corner of a gravestone you see a key!")
                                 console.log("-> You pick it up...")
                                 printDivider();
-                                console.log("-> KEY COLLECTED!")
+                                console.log("-> [KEY COLLECTED]")
                                 chavedois = true
                                 printDivider();
                                 console.log("2 days later you realize there's really nothing to do down there.")
@@ -2056,7 +2062,7 @@ while (jogoAtivo2) {
                     console.log("-> THIS ACTION WILL HAVE CONSEQUENCES IN THE FUTURE...")
                     printDivider();
                     console.log("-> Seeing that you don't have many options, you try to swim back...")
-                    printDivider();
+                    
                 } else {
                     InvalidOption()
                 }
@@ -2172,7 +2178,7 @@ while (jogoAtivo3) {
                 printDivider();
                 console.log("-> The map says the North path is the right way");
                 printDivider();
-                console.log("-> *WARNING* You cannot use the map again");
+                console.log("-> [WARNING] You cannot use the map again");
                 mapaachado = false;
 
             } else if (mapa == 2) {
@@ -2412,22 +2418,17 @@ while (jogoAtivo3) {
                     console.log("-> You feel a little scared...");
                     console.log("-> After a while you decide to continue on your way");
                     console.log("-> You arrive at a fork");
-                    printDivider();
-                    console.log("-> Press [1] to continue...")
-                    console.log("-> (If you press any other key the game will close!)")
-                    printDivider();
+                    pauseToContinue()
 
-                    let foto11 = Number(prompt("> "))
-
-                    if (foto11 == 1) {
+                    if (Math.random() < 0.5) {
                         decreaseSanity()
-                        fotopega = true
-                        leufoto = true
-                        jogoAtivo3 = false;
-                        saiudafloresta2 = true;
                     } else {
-                        InvalidOption()
+                        increaseSanity()
                     }
+                    fotopega = true
+                    leufoto = true
+                    jogoAtivo3 = false;
+                    saiudafloresta2 = true;
                 } else if (foto == 2) {
                     console.clear();
                     printDivider();
@@ -2671,8 +2672,13 @@ while (jogoAtivo4) {
                         console.log("-> Before leaving, you remember the child's photo...")
                         console.log("-> and decide to call the police as soon as you get home!")
                         printDivider();
-                        console.log("-> You completed the GOOD_ENDING")
+                        console.log("-> You completed the [GOOD_ENDING]")
                         printDivider();
+                        SECRET_ENDING = false
+                        REAL_ENDING = false
+                        BAD_ENDING = false
+                        BAD_ENDING_2 = false
+                        BAD_ENDING_3 = false
                         GOOD_ENDING = true
                         jogoAtivo4 = false
                     } else if (fotopega && !leufoto) {
@@ -2680,17 +2686,27 @@ while (jogoAtivo4) {
                         console.log("-> Before leaving, you remember the child's photo.")
                         console.log("-> but think someone just dropped it...")
                         printDivider();
-                        console.log("-> You completed the BAD_ENDING_2")
+                        console.log("-> You completed the [BAD_ENDING_2]")
                         printDivider();
+                        SECRET_ENDING = false
+                        REAL_ENDING = false
+                        BAD_ENDING = false
                         BAD_ENDING_2 = true
+                        BAD_ENDING_3 = false
+                        GOOD_ENDING = false
                         jogoAtivo4 = false
                     } else if (!leufoto && !fotopega) {
                         printDivider();
                         console.log("-> You leave without thinking straight.")
                         printDivider();
-                        console.log("-> You completed the BAD_ENDING_3")
+                        console.log("-> You completed the [BAD_ENDING_3]")
                         printDivider();
+                        SECRET_ENDING = false
+                        REAL_ENDING = false
+                        BAD_ENDING = false
+                        BAD_ENDING_2 = false
                         BAD_ENDING_3 = true
+                        GOOD_ENDING = false
                         jogoAtivo4 = false
                     }
                 } else if (carro1 == 2) {
@@ -2749,14 +2765,14 @@ while (jogoAtivo4) {
 
         if (casa2 == 1) {
             console.clear();
-            printDivider();
+            console.log("---------------------------------------------------------------");
             console.log("Upon entering the house, your steps echo eerily through the silence.");
             console.log("Your first instinct is to look for signs of life, someone living or perhaps trapped there.");
-            printDivider();
+            console.log("---------------------------------------------------------------");
             console.log("After a careful search, you find no one. The solitude of the place is palpable.");
             console.log("You then start searching the house for something useful, like a phone.");
             console.log("On a dusty table, you find a note with a rudimentary map drawn with arrows.");
-            printDivider();
+            console.log("---------------------------------------------------------------");
             console.log("[OPTIONS]")
             printDivider();
             console.log("[01] Follow map.")
@@ -2768,11 +2784,11 @@ while (jogoAtivo4) {
 
             if (mapa3 == 1) {
                 console.clear();
-                printDivider();
+                console.log("---------------------------------------------------------------");
                 console.log("You follow the map carefully, each turn a step towards the unknown.");
                 console.log("Upon reaching the marked 'X', you step and the ground creaks, sounding hollow under your feet.");
                 console.log("Immediate apprehension arises. Doubt lingers in the air: dig and face what lies beneath or ignore and move on?");
-                printDivider();
+                console.log("---------------------------------------------------------------");
                 console.log("[OPTIONS]")
                 printDivider();
                 console.log("[01] Dig in search of something.")
@@ -2784,41 +2800,58 @@ while (jogoAtivo4) {
 
                 if (cavar == 1) {
                     console.clear();
-                    printDivider();
+                    console.log("---------------------------------------------------------------");
                     console.log("-> The loose earth yields easily. Soon, you distinguish the unmistakable shape of a human body.");
                     console.log("-> As you clear the last layer of earth, your blood runs cold at the sight.");
-                    printDivider();
-                    console.log("-> It's the small, fragile body of a child.");
-                    console.log("-> Your heart pounds, hammering against your ribs.");
-                    console.log("-> Amidst the panic, suddenly, you hear...");
-                    console.log("----------------------------------------------------------------------------")
-                    console.log("-> Congratulations!!")
-                    console.log("----------------------------------------------------------------------------")
-                    console.log("—— 40.24248 ——")
-                    console.log(" ")
-                    console.log("—— -121.4434 ——")
-                    console.log("----------------------------------------------------------------------------")
-                    console.log("FDRTH SHN BRFBZCRAFN!!") // Original "CRTHR FHN ERPBZCRAFN!!"
-                    console.log("----------------------------------------------------------------------------")
-                    jogoAtivo4 = false
-                    REAL_ENDING = true
-
+                    console.log("---------------------------------------------------------------");
+                    
+                    if (destruir == true){
+                        console.log("-> The child's body stands up looking at you fixedly...")
+                        console.log("-> CHILD: 'YOU DESTROYED MY SCROLL, NOW I WILL DESTROY YOU...'")
+                        SECRET_ENDING = true
+                        REAL_ENDING = false
+                        BAD_ENDING = false
+                        BAD_ENDING_2 = false
+                        BAD_ENDING_3 = false
+                        GOOD_ENDING = false
+                        console.log("---------------------------------------------------------------");
+                    } else {
+                        console.log("-> It's the small, fragile body of a child.");
+                        console.log("-> Your heart pounds, hammering against your ribs.");
+                        console.log("-> Amidst the panic, suddenly, you hear...");
+                        console.log("----------------------------------------------------------------------------")
+                        console.log("-> Congratulations!!")
+                        console.log("----------------------------------------------------------------------------")
+                        console.log("—— 40.24248 ——")
+                        console.log(" ")
+                        console.log("—— -121.4434 ——")
+                        console.log("----------------------------------------------------------------------------")
+                        console.log("CRTHR FHN ERPBZCRAFN!!")
+                        console.log("----------------------------------------------------------------------------")
+                        jogoAtivo4 = false
+                        SECRET_ENDING = false
+                        REAL_ENDING = true
+                        BAD_ENDING = false
+                        BAD_ENDING_2 = false
+                        BAD_ENDING_3 = false
+                        GOOD_ENDING = false
+                    }
 
                 } else if (cavar == 2) {
                     console.clear();
-                    printDivider();
+                    console.log("----------------------------------------------------------------------------");
                     console.log("-> You decide not to dig and turn to move on. A fatal mistake.");
                     console.log("-> From the shadows, a figure moves. Before you can react, a violent impact hits your abdomen.");
                     console.log("-> The world spins as you fall. The last thing you see is a man's face, expressionless, watching you die.");
-                    printDivider();
+                    console.log("----------------------------------------------------------------------------");
                     console.log("-> YOU DIED!");
-                    printDivider();
+                    console.log("----------------------------------------------------------------------------");
                     console.log(" ██████   █████   ███    ███ ███████      ██████   ██    ██ ███████ ██████");
                     console.log("██       ██   ██  ████  ████ ██          ██    ██  ██    ██ ██      ██   ██");
                     console.log("██   ███ ███████  ██ ████ ██ █████       ██    ██  ██    ██ █████   ██████  ");
                     console.log("██    ██ ██   ██  ██  ██  ██ ██          ██    ██  ██    ██ ██      ██   ██");
                     console.log(" ██████  ██   ██  ██      ██ ███████      ██████    ██████  ███████ ██   ██ ");
-                    printDivider();
+                    console.log("---------------------------------------------------------------");
                     process.exit(1);
 
                 } else {
@@ -2827,24 +2860,24 @@ while (jogoAtivo4) {
 
             } else if (mapa3 == 2) {
                 console.clear();
-                printDivider();
+                console.log("---------------------------------------------------------------");
                 console.log("-> A suspicion runs down your spine. The map seems too easy, perhaps a trap.");
                 console.log("-> You ignore it, deciding to continue your search through the house. Perhaps you missed something.");
-                printDivider();
+                console.log("---------------------------------------------------------------");
                 console.log("-> Time drags on in the gloom. Every second feels like an eternity, until a sound breaks the silence: the front door opens.");
                 console.log("-> Heavy footsteps echo through the house. The owner has returned.");
                 console.log("-> You despair and dive into the first hiding place you find: a dark, dusty wardrobe.");
                 console.log("-> Through the cracks in the door, you see him. He stops, notices an object out of place and his body stiffens. He knows someone is here.");
                 console.log("-> The sound of his footsteps approaches your hiding place, louder and louder... The wardrobe door abruptly opens.");
-                printDivider();
-                console.log("You Died!!")
-                printDivider();
+                console.log("---------------------------------------------------------------");
+                console.log("-> You Died!!")
+                console.log("---------------------------------------------------------------");
                 console.log(" ██████   █████   ███    ███ ███████      ██████   ██    ██ ███████ ██████");
                 console.log("██       ██   ██  ████  ████ ██          ██    ██  ██    ██ ██      ██   ██");
                 console.log("██   ███ ███████  ██ ████ ██ █████       ██    ██  ██    ██ █████   ██████  ");
                 console.log("██    ██ ██   ██  ██  ██  ██ ██          ██    ██  ██    ██ ██      ██   ██");
                 console.log(" ██████  ██   ██  ██      ██ ███████      ██████    ██████  ███████ ██   ██ ");
-                printDivider();
+                console.log("---------------------------------------------------------------");
                 process.exit(1);
 
             } else {
@@ -2926,7 +2959,7 @@ if (BAD_ENDING) {
         if (err) throw err;
     })
 } else if (SECRET_ENDING){
-    const conteudo6 = "VOCÊ COMPLETOU O FINAL SECRETO";
+    const conteudo6 = "YOU COMPLETED THE SECRET ENDING";
     fs.writeFileSync('../Achievements/SECRET_ENDING.bin', conteudo6, 'utf8');
     fs.appendFile(save_conquistas, 'SECRET_ENDING.bin', (err) => {
         if (err) throw err;
