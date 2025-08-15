@@ -1,2 +1,1 @@
-wscript.Sleep 500
-MsgBox "Você só tem uma chance...", 64, ""
+MsgBox "Voce so tem uma chance...", 64, ""

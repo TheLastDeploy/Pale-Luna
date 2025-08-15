@@ -928,20 +928,32 @@ if (!skipaccount) {
     pausarParaContinuar()
     
     dados = fs.readFileSync(save_conquistas, 'utf8')
-    
-    if (dados.includes('BAD_ENDING.bin')){
+    if (dados.includes('BAD_ENDING.bin')) {
         fs.writeFileSync('../Achievements/BAD_ENDING.bin', 'a', 'utf8');
-    } else if (dados.includes('REAL_ENDING.bin')) {
+    }
+    if (dados.includes('REAL_ENDING.bin')) {
         fs.writeFileSync('../Achievements/REAL_ENDING.bin', 'a', 'utf8');
-    } else if (dados.includes('GOOD_ENDING.bin')) {
+    }
+    if (dados.includes('GOOD_ENDING.bin')) {
         fs.writeFileSync('../Achievements/GOOD_ENDING.bin', 'a', 'utf8');
-    } else if (dados.includes('BAD_ENDING2.bin')) {
+    }
+    if (dados.includes('BAD_ENDING2.bin')) {
         fs.writeFileSync('../Achievements/BAD_ENDING2.bin', 'a', 'utf8');
-    } else if (dados.includes('BAD_ENDING3.bin')) {
+    }
+    if (dados.includes('BAD_ENDING3.bin')) {
         fs.writeFileSync('../Achievements/BAD_ENDING3.bin', 'a', 'utf8');
-    } else if (dados.includes('SECRET_ENDING.bin')) {
+    }
+    if (dados.includes('SECRET_ENDING.bin')) {
         fs.writeFileSync('../Achievements/SECRET_ENDING.bin', 'a', 'utf8');
     }
+    if (dados.includes('undefined')) {
+        console.clear()
+        console.log("---------------------------------------------------------------");
+    console.log("-> Você ainda não tem finais...")
+    console.log("--------------------------------------------------------------");
+    pauseToContinue()
+    }
+    
     check = true
     skipaccount = true
     
@@ -1896,8 +1908,8 @@ while (jogoAtivo2) {
             console.log ("[OPÇÕES]")
             console.log ("---------------------------------------------------------------");
             console.log ("[01] Ler")
-            console.log ("[01] Não Ler")
-            console.log ("[01] DESTRUIR!")
+            console.log ("[02] Não Ler")
+            console.log ("[03] DESTRUIR!")
             console.log ("---------------------------------------------------------------");
             pergaminho = Number(prompt("> "));
 
@@ -2798,6 +2810,12 @@ console.log("-> Em meio ao pânico, de repente, você ouve...");
                     console.log("-> O corpo da criança levanta olhando fixamente para você...")
                     console.log("-> CRIANÇA: 'VOCÊ DESTRUIU MEU PERGAMINHO, AGORA EU VOU TE DESTRUIR...'")
                     SECRET_ENDING = true
+                    REAL_ENDING = false
+                    BAD_ENDING = false
+                    BAD_ENDING_2 = false
+                    BAD_ENDING_3 = false
+                    GOOD_ENDING = false
+                    console.log("---------------------------------------------------------------");
                    }
 
                 } else if (cavar == 2) {
@@ -2833,7 +2851,7 @@ console.log("-> Você se desespera e mergulha no primeiro esconderijo que encont
 console.log("-> Pelas frestas da porta, você o vê. Ele para, nota um objeto fora do lugar e seu corpo enrijece. Ele sabe que há alguém aqui.");
 console.log("-> O som dos passos dele se aproxima do seu esconderijo, cada vez mais alto... A porta do guarda-roupa se abre abruptamente.");
                 console.log ("---------------------------------------------------------------");
-                console.log ("Você Morreu!!")
+                console.log ("[Você Morreu!!]")
                 console.log ("---------------------------------------------------------------");
                 console.log(" ██████   █████   ███    ███ ███████      ██████   ██    ██ ███████ ██████");
                 console.log("██       ██   ██  ████  ████ ██          ██    ██  ██    ██ ██      ██   ██");
