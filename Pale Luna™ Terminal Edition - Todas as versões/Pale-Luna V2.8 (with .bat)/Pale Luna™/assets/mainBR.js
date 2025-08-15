@@ -950,7 +950,6 @@ if (!skipaccount) {
         console.clear()
         console.log("---------------------------------------------------------------");
     console.log("-> Você ainda não tem finais...")
-    console.log("--------------------------------------------------------------");
     pauseToContinue()
     }
     
@@ -2058,7 +2057,7 @@ if (teste2 == 1) {
                 console.log ("-> ESSA AÇÃO PROVOCARÁ CONSEQUENCIAS NO FUTURO...")
                 console.log ("---------------------------------------------------------------");
                 console.log ("-> Vendo que você não tem muitas opções, você tenta voltar nadando...")
-                console.log ("---------------------------------------------------------------");
+                
             } else {
                 Opcãoinvalida()
             }
@@ -2154,12 +2153,12 @@ while (jogoAtivo3) {
         while (mapa67 == false) {
         console.log ("-> Quer usar o mapa?");
         console.log ("---------------------------------------------------------------");
-        console.log ("OPÇÕES");
+        console.log ("[OPÇÕES]");
         console.log ("---------------------------------------------------------------")
         console.log ("[01] Sim");
         console.log ("[02] Não");
         console.log ("---------------------------------------------------------------");
-        console.log ("AÇÕES");
+        console.log ("[AÇÕES]");
         console.log ("---------------------------------------------------------------")
         console.log ("[03] Inventario")
         console.log ("---------------------------------------------------------------");
@@ -2413,10 +2412,7 @@ while (jogoAtivo3) {
                 console.log ("-> Você se sente um pouco assustado...");
                 console.log ("-> Depois de um tempo você decide continuar o seu caminho");
                 console.log ("-> Você chega em uma bifurcação");
-                console.log ("---------------------------------------------------------------");
-                console.log ("-> Pressione 1 para continuar...")
-                console.log ("-> (Se você pressionar qualquer outra tela o jogo irá fechar!)")
-                console.log ("---------------------------------------------------------------");
+                pausarParaContinuar()
 
                 let foto11 = Number(prompt("> "))
 
@@ -2539,7 +2535,7 @@ while (jogoAtivo4) {
     console.log ("--------------------------------------------------------------")
         console.log (" ")
         console.log ("██████████████████████████████████████████████             ██")
-        console.log ("██           ██                    █                /\\     ██")
+        console.log ("██           ██                    █                /\\    ██")
         console.log ("██           ██                    █               NORTE   ██")
         console.log ("██ ██        ██                    █             (Já foi)  ██")
         console.log ("██   ████████                      ██                      ██")
@@ -2548,14 +2544,14 @@ while (jogoAtivo4) {
         console.log ("██               █  ██  █          ██                      ██")
         console.log ("██                  ██             ██            (Já foi)  ██")
         console.log ("██                ██  ██                           SUL     ██")
-        console.log ("██               ██    ██                          \\/      ██")
+        console.log ("██               ██    ██                          \\/     ██")
         console.log ("██████████████████████████████████████████████             ██")
         console.log (" ")
     } else if (!N && S) {
         console.log ("--------------------------------------------------------------")
         console.log (" ")
         console.log ("██████████████████████████████████████████████             ██")
-        console.log ("██           ██                    █                /\\     ██")
+        console.log ("██           ██                    █                /\\    ██")
         console.log ("██           ██                    █               NORTE   ██")
         console.log ("██ ██        ██                    █                       ██")
         console.log ("██   ████████                      ██                      ██")
@@ -2564,14 +2560,14 @@ while (jogoAtivo4) {
         console.log ("██               █  ██  █          ██                      ██")
         console.log ("██                  ██             ██            (Já foi)  ██")
         console.log ("██                ██  ██                           SUL     ██")
-        console.log ("██               ██    ██                          \\/      ██")
+        console.log ("██               ██    ██                          \\/     ██")
         console.log ("██████████████████████████████████████████████             ██")
         console.log (" ")
     } else if (N && !S) {
         console.log ("--------------------------------------------------------------")
         console.log (" ")
         console.log ("██████████████████████████████████████████████             ██")
-        console.log ("██           ██                    █                /\\     ██")
+        console.log ("██           ██                    █                /\\    ██")
         console.log ("██           ██                    █               NORTE   ██")
         console.log ("██ ██        ██                    █             (Já foi)  ██")
         console.log ("██   ████████                      ██                      ██")
@@ -2580,14 +2576,14 @@ while (jogoAtivo4) {
         console.log ("██               █  ██  █          ██                      ██")
         console.log ("██                  ██             ██                      ██")
         console.log ("██                ██  ██                           SUL     ██")
-        console.log ("██               ██    ██                          \\/      ██")
+        console.log ("██               ██    ██                          \\/     ██")
         console.log ("██████████████████████████████████████████████             ██")
         console.log (" ")
     } else if (!N && !S){
         console.log ("--------------------------------------------------------------")
         console.log (" ")
         console.log ("██████████████████████████████████████████████             ██")
-        console.log ("██           ██                    █                /\\     ██")
+        console.log ("██           ██                    █                /\\    ██")
         console.log ("██           ██                    █               NORTE   ██")
         console.log ("██ ██        ██                    █                       ██")
         console.log ("██   ████████                      ██                      ██")
@@ -2596,7 +2592,7 @@ while (jogoAtivo4) {
         console.log ("██               █  ██  █          ██                      ██")
         console.log ("██                  ██             ██                      ██")
         console.log ("██                ██  ██                           SUL     ██")
-        console.log ("██               ██    ██                          \\/      ██")
+        console.log ("██               ██    ██                          \\/     ██")
         console.log ("██████████████████████████████████████████████             ██")
         console.log (" ")
     }
@@ -2671,7 +2667,12 @@ console.log ("---------------------------------------------------------------");
                     console.log ("---------------------------------------------------------------");
                     console.log ("-> Você completou o [GOOD_ENDING]")
                     console.log ("---------------------------------------------------------------")
-                    GOOD_ENDING=true
+                    SECRET_ENDING = false
+                    REAL_ENDING = false
+                    BAD_ENDING = false
+                    BAD_ENDING_2 = false
+                    BAD_ENDING_3 = false
+                    GOOD_ENDING = true
                     jogoAtivo4=false
                 } else if (fotopega && !leufoto) {
                     console.log ("---------------------------------------------------------------");
@@ -2680,7 +2681,12 @@ console.log ("---------------------------------------------------------------");
                     console.log ("---------------------------------------------------------------");
                     console.log ("-> Você completou o [BAD_ENDING_2]")
                     console.log ("---------------------------------------------------------------")
-                    BAD_ENDING_2=true
+                    SECRET_ENDING = false
+                    REAL_ENDING = false
+                    BAD_ENDING = false
+                    BAD_ENDING_2 = true
+                    BAD_ENDING_3 = false
+                    GOOD_ENDING = false
                     jogoAtivo4=false
                 } else if (!leufoto && !fotopega){
                     console.log ("---------------------------------------------------------------");
@@ -2688,7 +2694,12 @@ console.log ("---------------------------------------------------------------");
                     console.log ("---------------------------------------------------------------");
                     console.log ("-> Você completou o [BAD_ENDING_3]")
                     console.log ("---------------------------------------------------------------")
-                    BAD_ENDING_3=true
+                    SECRET_ENDING = false
+                    REAL_ENDING = false
+                    BAD_ENDING = false
+                    BAD_ENDING_2 = false
+                    BAD_ENDING_3 = true
+                    GOOD_ENDING = false
                     jogoAtivo4=false
                 }
             } else if (carro1 == 2) {
@@ -2749,11 +2760,14 @@ console.log ("---------------------------------------------------------------");
             console.clear();
             console.log("---------------------------------------------------------------");
 console.log("Ao entrar na casa, seus passos ecoam de forma assustadora pelo silêncio.");
-console.log("Seu primeiro instinto é procurar por sinais de vida, alguém morando ou talvez preso ali.");
+console.log("Seu primeiro instinto é procurar por sinais de vida")
+console.log("alguém morando ou talvez preso ali.");
 console.log("---------------------------------------------------------------");
-console.log("Após uma busca cuidadosa, você não encontra ninguém. A solidão do lugar é palpável.");
+console.log("Após uma busca cuidadosa, você não encontra ninguém. ")
+console.log("A solidão do lugar é palpável.");
 console.log("Você então começa a revistar a casa em busca de algo útil, como um telefone.");
-console.log("Sobre uma mesa empoeirada, você encontra um bilhete com um mapa rudimentar desenhado com setas.");
+console.log("Sobre uma mesa empoeirada, você encontra um bilhete com um ")
+console.log("mapa rudimentar desenhado com setas.");
 console.log("---------------------------------------------------------------");
             console.log ("[OPÇÕES]")
             console.log ("---------------------------------------------------------------");
@@ -2799,7 +2813,12 @@ console.log("-> Em meio ao pânico, de repente, você ouve...");
                    console.log ("CRTHR FHN ERPBZCRAFN!!")
                    console.log ("----------------------------------------------------------------------------")
                    jogoAtivo4 = false
-                   REAL_ENDING=true
+                   SECRET_ENDING = false
+                    REAL_ENDING = true
+                    BAD_ENDING = false
+                    BAD_ENDING_2 = false
+                    BAD_ENDING_3 = false
+                    GOOD_ENDING = false
                    
                    if (destruir == true){
                     console.clear();
