@@ -10,10 +10,10 @@ const rl = readline.createInterface({
 
 // Defines the main menu items.
 const menuItems = [
-    'Start Game',
-    'Delete progress',
-    'Settings',
-    'Exit'
+    '[01] Start Game',
+    '[02] Delete progress',
+    '[03] Settings',
+    '[04] Exit'
 ];
 
 let selectedIndex = 0; // Keeps track of the currently selected menu item (index).
@@ -107,12 +107,12 @@ function ajustarCores() {
         listaTexto.forEach(item => console.log(item)); // Displays available text colors.
         console.log("");
         console.log(linhaDivisoria);
-        console.log("-> To go back to the Main Menu, type '0' in the Background Color field OR just press ENTER for both options.");
+        console.log("-> To go back to the Main Menu, just press ENTER for both options.");
         console.log("-> You can change colors multiple times here!");
         console.log(linhaDivisoria);
 
-        let inputFundo = prompt("Background color (type name or code, e.g.: Black or 0): ");
-        let inputTexto = prompt("Text color (type name or code, e.g.: Light Green or A): ");
+        let inputFundo = prompt("Background color (type name, e.g.: Black): ");
+        let inputTexto = prompt("Text color (type name, e.g.: Light Green): ");
 
         // Checks if the user wants to go back to the main menu.
         if (inputFundo.trim() === '0' || (inputFundo.trim() === '' && inputTexto.trim() === '')) {
