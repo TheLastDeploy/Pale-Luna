@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCyDJGqB+kM5FChVSESgOXmoH/U76eX+/Na3o0EYFM4qdo5ZPnbOFOUB50zqdJpt835TjMIDAidofx6uLiMhp2/AUqbFA8KOvgbvS0TJw085D2x7iSOdzB80ZNJ72sIQkza77l5cSqAD7Uj+UqxDOXbvwOxeaodVvUKjYV3A2v1XS+KnV43oDzOID3wRjfInSb9rjpMSViN6QFZTiLYM
+::fBw5plQjdCyDJGqh2mMZFChVSESgOXmoH/U76eX+/Na3o0EYGc4qdo7n6rWCJaA//0vl93Lvlk5fisYFAhpUPjevZxs9pmAC+ySxOMOdoE/gWQif41kjuLBxlF/gjSc+Lf99lMJD5XLwqQ23iKwE2TixXKgaXF/RwKBteOUV8ws2jIv0m6NFdf/tZLOnCjXHQw==
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -26,14 +26,13 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCyDJGqB+kM5FChVSESgOXmoH/U76eX+/Na3o0EYFM4qdo5ZPnbOFOUB50zqdJpt835TjMIDAidofx6uLiMhp2/AUqbFA8KOvgbvS0TJw085D2x7iSOdzB80ZNJ72sIQkza77l5cSqAD7Uj+UqxDOXbvwOxeaodVvUKjYV3A2v1XS+KnV43oDzOID3wRjfInSb9an48oHwxgQBnYb3ss1S7qTpu13XsBDDfMsOXrxhcxf9+b
+::Zh4grVQjdCyDJGqh2mMZFChVSESgOXmoH/U76eX+/Na3o0EYGc4qdo7n6rWCJaA//0vl93Lvlk5fisYFAhpUPjevZxs9pmAC+ySxOMOdoE/gWQif41kjuLBxlF/gjSc+Lf99lMJD5XLwqQ23iKwE2TixXKgaXF/RwKBteOUV8ws2jIv0qrJZT7bCfrPogdIKY10ann3KhYJm3qYpVjR8QRYUjqFpgQ==
 ::YB416Ek+ZG8=
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
 @echo off
 title Pale Luna Terminal Edition
-mode con: cols=80 lines=40
 color 0B
 where node >nul
 if errorlevel 1 (
@@ -41,7 +40,6 @@ if errorlevel 1 (
 pause
   exit
 )
-taskkill /f /im "vlc.exe"
 cd assets
 if not exist menu.js (
 echo Erro: Arquivo "menu.js" nao encontrado na pasta "assets".
