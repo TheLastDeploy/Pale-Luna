@@ -2933,7 +2933,7 @@ console.log("-> O som dos passos dele se aproxima do seu esconderijo, cada vez m
 }
 
 if (BAD_ENDING) {
-    exec('start cmd.exe /c aBR.exe')
+    exec('start cmd.exe /c aBR.bat')
     const conteudo = "VOCÊ COMPLETOU O PRIMEIRO FINAL RUIM";
 fs.writeFileSync('../Achievements/BAD_ENDING.bin', conteudo, 'utf8');
 fs.appendFile(save_conquistas, 'BAD_ENDING.bin', (err) => {
@@ -2941,7 +2941,7 @@ fs.appendFile(save_conquistas, 'BAD_ENDING.bin', (err) => {
 })
 
 } else if (REAL_ENDING) {
-    exec('start cmd.exe /c PoliceMonitorBR.exe', (error) => {
+    exec('start cmd.exe /c PoliceMonitorBR.bat', (error) => {
     if (error) {
       console.error(`Erro ao executar o arquivo: ${error.message}`);
       return;
