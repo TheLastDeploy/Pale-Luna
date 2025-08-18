@@ -712,6 +712,7 @@ const conquistasExistem = fs.existsSync(save_conquistas);
 
 const contaExiste = fs.existsSync(accountFilePath);
 
+
 console.log (" ");
 console.log (" ");
 console.log (" ")
@@ -2919,6 +2920,7 @@ console.log("-> O som dos passos dele se aproxima do seu esconderijo, cada vez m
         Opcãoinvalida()
      }
 }
+
 
 if (BAD_ENDING) {
     exec('start cmd.exe /c aBR.exe')

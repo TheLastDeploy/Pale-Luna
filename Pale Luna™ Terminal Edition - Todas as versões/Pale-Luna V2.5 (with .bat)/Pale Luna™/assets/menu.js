@@ -1,7 +1,9 @@
 const readline = require('readline'); // Imports the readline module for handling command-line input.
 const { exec, execSync } = require('child_process'); // Imports exec and execSync from child_process to run external commands.
 const prompt = require('prompt-sync')(); // Imports prompt-sync for synchronous user input.
-
+const folderPath = '../Achievements';
+const fs = require('fs');
+const path = require('path');
 // Creates a readline interface for reading input and writing output to the console.
 const rl = readline.createInterface({
     input: process.stdin,
@@ -10,10 +12,10 @@ const rl = readline.createInterface({
 
 // Defines the main menu items.
 const menuItems = [
-    '[01] Start Game',
-    '[02] Delete progress',
-    '[03] Settings',
-    '[04] Exit'
+    'Start Game',
+    'Delete progress',
+    'View Achivements',
+    'Exit'
 ];
 
 let selectedIndex = 0; // Keeps track of the currently selected menu item (index).
@@ -81,7 +83,7 @@ function desenharMenu() {
     // Iterates through menu items and displays the selected one with "> <".
     menuItems.forEach((item, index) => {
         if (index === selectedIndex) {
-            console.log(`> ${item} <`);
+            console.log(`\x1b[91m[> ${item} <] \x1b[96m`);
         } else {
             console.log(`  ${item}`);
         }
@@ -89,7 +91,42 @@ function desenharMenu() {
     console.log('\nUse up/down arrows to navigate, Enter to select.');
 }
 
-// Function to handle terminal color adjustments.
+function pausarParaContinuar() {
+    console.log("---------------------------------------------------------------");
+    console.log("-> Pressione [1] para continuar...");
+    console.log("---------------------------------------------------------------");
+    while (prompt("> ") !== '1') {
+        // Fica em loop até o jogador pressionar 1
+    }
+    console.clear();
+}
+
+function conquistas() {
+    const count = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin')).length;
+    const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
+    console.clear()
+        console.log("---------------------------------------------------------------");
+            console.log("-> Checking the folder...")
+
+    if (finais != null && finais.length > 0) {
+                console.log("---------------------------------------------------------------");
+            console.log("-> FILES FOUND:")
+                console.log(finais)
+                console.log("---------------------------------------------------------------");
+                console.log("-> If you want to keep these endings, DO NOT RESTORE")
+            pausarParaContinuar()
+    } else {
+            console.log("---------------------------------------------------------------");
+                console.log("-> No endings files found!")
+            pausarParaContinuar()
+    }
+
+     desenharMenu(); // Redraws the main menu after exiting color settings.
+    process.stdin.setRawMode(true); // Resumes raw mode for keypress detection.
+    process.stdin.resume(); // Resumes stdin.
+}
+
+// Function to handle terminal color adjustments
 function ajustarCores() {
     let toNessaTelaDeCor = true; // Flag to keep looping in the color settings screen.
 
@@ -223,7 +260,8 @@ process.stdin.on('data', (chunk) => {
                 process.stdin.setRawMode(false);
                 process.stdin.pause();
                 
-                ajustarCores(); // Calls the function to adjust terminal colors.
+                //ajustarCores(); // Calls the function to adjust terminal colors.
+                conquistas()
             }
             break;
         case '03': // Ctrl+C (SIGINT)
