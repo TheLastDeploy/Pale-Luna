@@ -712,6 +712,8 @@ const conquistasExistem = fs.existsSync(save_conquistas);
 
 const contaExiste = fs.existsSync(accountFilePath);
 
+let jafoinorte = false
+
 console.log (" ");
 console.log (" ");
 console.log (" ")
@@ -732,17 +734,18 @@ console.log ("--- EDIÇÃO DE TERMINAL - FEITO PELA SAD BERRY GAMES ---")
 console.log ("---------------------------------------------------------------");
 console.log ("--- VERSÃO 2.5 ---")
 console.log ("---------------------------------------------------------------");
-console.log ("Bem-vindo a Pale Luna! Siga as regras para garantir a experiência completa.");
+console.log ("-> Bem-vindo a Pale Luna! Siga as regras para garantir a experiência completa.");
 console.log("---------------------------------------------------------------");
-console.log ("Regra [01]: Digite apenas números (1, 2, 3 e 4).");
-console.log ("Regra [02]: Não utilize caracteres especiais.");
-console.log ("Regra [03]: Divirta-se 😉");
+console.log ("-> Regra [01]: Digite apenas números (1, 2, 3 e 4).");
+console.log ("-> Regra [02]: Não utilize caracteres especiais.");
+console.log ("-> Regra [03]: Deixe o jogo em tela cheia!")
+console.log ("-> Regra [04]: Divirta-se 😉");
 console.log ("---------------------------------------------------------------");
 const folderPath = '../Achievements';
 const count = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin')).length;
 const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
-console.log(`Finais completados: [${count}/6]`);
-console.log('Lista de finais:', finais);
+console.log(`-> Finais completados: [${count}/6]`);
+console.log('-> Lista de finais:', finais);
 pausarParaContinuar()
 
 let contagg = false
@@ -861,6 +864,7 @@ if (!skipaccount) {
         console.log("---------------------------------------------------------------");
         console.log("-> Você pode acessar suas informações no arquivo ")
         console.log("'Accountinfo.txt' na pasta 'Account'.");
+        console.log("---------------------------------------------------------------");
         console.log("-> Você não tem finais, quando você tiver eles estarão alojados em: ")
         console.log("'Achievementsavefile.bin' na pasta 'Account'.");
     
@@ -881,6 +885,7 @@ if (!skipaccount) {
         console.log("---------------------------------------------------------------");
         console.log("-> Você pode acessar suas informações no arquivo ")
         console.log("'Accountinfo.txt' na pasta 'Account'.");
+        console.log("---------------------------------------------------------------");
         console.log("-> Seus finais estão salvos no arquivo ")
         console.log("'Achievementsavefile.bin' na pasta 'Account'.");
         }
@@ -1360,6 +1365,13 @@ while (jogoAtivo1) {
 
     if (floresta1 === 1) {
         console.clear();
+
+        if (jafoinorte) {
+        console.log ("---------------------------------------------------------------")
+        console.log ("-> Você ja foi pelo norte!")
+        pausarParaContinuar()
+        } else {
+        jafoinorte = true
         console.log ("---------------------------------------------------------------");
         console.log ("-> Você se sente mais confiante em ir pelo norte...");
         N = true
@@ -1424,7 +1436,8 @@ while (jogoAtivo1) {
         } else {
             Opcãoinvalida()
          }
-      } 
+      }
+    } 
     } else if (floresta1 === 2) {
         console.clear();
         console.log("---------------------------------------------------------------");

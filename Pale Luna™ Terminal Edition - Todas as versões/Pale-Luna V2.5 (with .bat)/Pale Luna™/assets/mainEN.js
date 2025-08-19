@@ -740,17 +740,18 @@ console.log("--- TERMINAL EDITION - MADE BY SAD BERRY GAMES ---")
 printDivider()
 console.log("--- VERSION 2.5 ---")
 printDivider()
-console.log("Welcome to Pale Luna! Follow the rules to ensure the full experience.");
+console.log("-> Welcome to Pale Luna! Follow the rules to ensure the full experience.");
 console.log("---------------------------------------------------------------");
-console.log("Rule [01]: Type only numbers (1, 2, 3, and 4).");
-console.log("Rule [02]: Do not use special characters.");
-console.log("Rule [03]: Have fun 😉");
+console.log("-> Rule [01]: Type only numbers (1, 2, 3, and 4).");
+console.log("-> Rule [02]: Do not use special characters.");
+console.log("-> Rule [03]: Put game on full screen!")
+console.log("-> Rule [04]: Have fun 😉");
 printDivider()
 const folderPath = '../Achievements';
 const count = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin')).length;
 const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
-console.log(`Endings completed: [${count}/6]`);
-console.log('List of endings:', finais);
+console.log(`-> Endings completed: [${count}/6]`);
+console.log('-> List of endings:', finais);
 pauseToContinue()
 
 let contagg = false
@@ -2554,48 +2555,48 @@ while (jogoAtivo4) {
         console.log("--------------------------------------------------------------")
         console.log(" ")
         console.log("██████████████████████████████████████████████             ██")
-        console.log("██           ██                    █                /\\     ██")
+        console.log("██           ██                    █               /\\     ██")
         console.log("██           ██                    █               NORTH   ██")
-        console.log("██ ██        ██                    █             (Already went)  ██")
+        console.log("██ ██        ██                    █       (Already went)  ██")
         console.log("██   ████████                      ██                      ██")
         console.log("██ ██               ██           ██████                    ██")
         console.log("████              ██████           ██                      ██")
         console.log("██               █  ██  █          ██                      ██")
-        console.log("██                  ██             ██            (Already went)  ██")
-        console.log("██                ██  ██                           SOUTH     ██")
-        console.log("██               ██    ██                          \\/      ██")
+        console.log("██                  ██             ██      (Already went)  ██")
+        console.log("██                ██  ██                         SOUTH     ██")
+        console.log("██               ██    ██                         \\/      ██")
         console.log("██████████████████████████████████████████████             ██")
         console.log(" ")
     } else if (!N && S) {
         console.log("--------------------------------------------------------------")
         console.log(" ")
         console.log("██████████████████████████████████████████████             ██")
-        console.log("██           ██                    █                /\\     ██")
-        console.log("██           ██                    █               NORTH   ██")
+        console.log("██           ██                    █               /\\     ██")
+        console.log("██           ██                    █              NORTH    ██")
         console.log("██ ██        ██                    █                       ██")
         console.log("██   ████████                      ██                      ██")
         console.log("██ ██               ██           ██████                    ██")
         console.log("████              ██████           ██                      ██")
         console.log("██               █  ██  █          ██                      ██")
-        console.log("██                  ██             ██            (Already went)  ██")
-        console.log("██                ██  ██                           SOUTH     ██")
-        console.log("██               ██    ██                          \\/      ██")
+        console.log("██                  ██             ██      (Already went)  ██")
+        console.log("██                ██  ██                         SOUTH     ██")
+        console.log("██               ██    ██                         \\/      ██")
         console.log("██████████████████████████████████████████████             ██")
         console.log(" ")
     } else if (N && !S) {
         console.log("--------------------------------------------------------------")
         console.log(" ")
         console.log("██████████████████████████████████████████████             ██")
-        console.log("██           ██                    █                /\\     ██")
+        console.log("██           ██                    █               /\\     ██")
         console.log("██           ██                    █               NORTH   ██")
-        console.log("██ ██        ██                    █             (Already went)  ██")
+        console.log("██ ██        ██                    █       (Already went)  ██")
         console.log("██   ████████                      ██                      ██")
         console.log("██ ██               ██           ██████                    ██")
         console.log("████              ██████           ██                      ██")
         console.log("██               █  ██  █          ██                      ██")
         console.log("██                  ██             ██                      ██")
-        console.log("██                ██  ██                           SOUTH     ██")
-        console.log("██               ██    ██                          \\/      ██")
+        console.log("██                ██  ██                           SOUTH   ██")
+        console.log("██               ██    ██                          \\/     ██")
         console.log("██████████████████████████████████████████████             ██")
         console.log(" ")
     } else if (!N && !S) {

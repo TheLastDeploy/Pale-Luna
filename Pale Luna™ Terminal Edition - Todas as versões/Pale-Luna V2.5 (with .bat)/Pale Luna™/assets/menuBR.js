@@ -125,20 +125,7 @@ function conquistas() {
     process.stdin.setRawMode(true); // Resumes raw mode for keypress detection.
     process.stdin.resume(); // Resumes stdin.
 }
-function erase() {
-    exec('start cmd.exe /c Erase_Data.bat', (error) => { // Executa o arquivo batch em uma nova janela.
-                    if (error) {
-                        console.error(`Erro ao executar o arquivo: ${error.message}`);
-                    } else {
-                        console.log('O comando Erase_Data.bat foi executado com sucesso.');
-                    }
-                    console.log('\nPressione ENTER para voltar ao menu...');
-                    prompt(''); // Espera o usuário pressionar Enter.
-                    desenharMenu(); // Redesenha o menu.
-                    process.stdin.setRawMode(true); // Reabilita o modo bruto.
-                    process.stdin.resume(); // Retoma a entrada padrão.
-                });
-}
+
 // Função para lidar com os ajustes de cor do terminal.
 function ajustarCores() {
     let toNessaTelaDeCor = true; // Flag para continuar o loop na tela de configurações de cor.
@@ -257,7 +244,18 @@ process.stdin.on('data', (chunk) => {
             } else if (selectedIndex === 1) { // Opção "Excluir progresso"
                 process.stdin.setRawMode(false); // Desativa o modo bruto antes de executar o comando externo.
                 process.stdin.pause(); // Pausa a entrada padrão.
-                Erase()
+                exec('start cmd.exe /c Erase_Data.bat', (error) => { // Executa o arquivo batch em uma nova janela.
+                    if (error) {
+                        console.error(`Erro ao executar o arquivo: ${error.message}`);
+                    } else {
+                        console.log('O comando Erase_Data.bat foi executado com sucesso.');
+                    }
+                    console.log('\nPressione ENTER para voltar ao menu...');
+                    prompt(''); // Espera o usuário pressionar Enter.
+                    desenharMenu(); // Redesenha o menu.
+                    process.stdin.setRawMode(true); // Reabilita o modo bruto.
+                    process.stdin.resume(); // Retoma a entrada padrão.
+                });
             } else if (selectedIndex === 2) { // Opção "Ver Conquistas"
                 process.stdin.setRawMode(false);
                 process.stdin.pause();

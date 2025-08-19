@@ -734,17 +734,18 @@ console.log ("--- EDIÇÃO DE TERMINAL - FEITO PELA SAD BERRY GAMES ---")
 console.log ("---------------------------------------------------------------");
 console.log ("--- VERSÃO 2.5 ---")
 console.log ("---------------------------------------------------------------");
-console.log ("Bem-vindo a Pale Luna! Siga as regras para garantir a experiência completa.");
+console.log ("-> Bem-vindo a Pale Luna! Siga as regras para garantir a experiência completa.");
 console.log("---------------------------------------------------------------");
-console.log ("Regra [01]: Digite apenas números (1, 2, 3 e 4).");
-console.log ("Regra [02]: Não utilize caracteres especiais.");
-console.log ("Regra [03]: Divirta-se 😉");
+console.log ("-> Regra [01]: Digite apenas números (1, 2, 3 e 4).");
+console.log ("-> Regra [02]: Não utilize caracteres especiais.");
+console.log ("-> Regra [03]: Deixe o jogo em tela cheia!")
+console.log ("-> Regra [04]: Divirta-se 😉");
 console.log ("---------------------------------------------------------------");
 const folderPath = '../Achievements';
 const count = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin')).length;
 const finais = fs.readdirSync(folderPath).filter(f => f.endsWith('.bin'));
-console.log(`Finais completados: [${count}/6]`);
-console.log('Lista de finais:', finais);
+console.log(`-> Finais completados: [${count}/6]`);
+console.log('-> Lista de finais:', finais);
 pausarParaContinuar()
 
 let contagg = false
