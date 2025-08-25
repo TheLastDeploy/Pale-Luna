@@ -1,0 +1,1 @@
+MsgBox "You only have one shot...", 64, "Pale Luna"
