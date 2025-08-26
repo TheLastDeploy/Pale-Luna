@@ -710,11 +710,7 @@ const conquistasExistem = fs.existsSync(save_conquistas);
 const contaExiste = fs.existsSync(accountFilePath);
 
 let jafoinorte = false
-
-console.log (" ");
-console.log (" ");
-console.log (" ")
-console.log ("██████╗  █████╗ ██╗     ███████╗ TM           ███████████");
+console.log ("██████╗  █████╗ ██╗     ███████╗              ███████████");
 console.log ("██╔══██╗██╔══██╗██║     ██╔════╝           █████████████████ ");
 console.log ("██████╔╝███████║██║     █████╗           █████████████████████ ");
 console.log ("██╔═══╝ ██╔══██║██║     ██╔══╝          ███████████████████████ ");
@@ -731,7 +727,7 @@ console.log ("--- EDIÇÃO DE TERMINAL - FEITO PELA SAD BERRY GAMES ---")
 console.log ("===========================================================================")
 console.log ("--- VERSÃO 2.8 ---")
 console.log ("===========================================================================")
-console.log ("[BEM-VINDO Á PALE LUNA - SIGA AS REGRAS PARA QUE NÃO HAJA PROBLEMAS]");
+console.log ("[BEM-VINDO A PALE LUNA - SIGA AS REGRAS PARA QUE NÃO HAJA PROBLEMAS]");
 console.log ("===========================================================================")
 console.log ("-> Regra [01]: Digite apenas números (1, 2, 3 e 4).");
 console.log ("-> Regra [02]: Não utilize caracteres especiais.");

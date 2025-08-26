@@ -4,6 +4,7 @@ const prompt = require('prompt-sync')(); // Importa prompt-sync para entrada sí
 const folderPath = '../Achievements';
 const fs = require('fs');
 const path = require('path');
+const couaaant1a = fs.existsSync('../assets/ET.txt')
 // Cria uma interface readline para ler a entrada e escrever a saída no console.
 const rl = readline.createInterface({
     input: process.stdin,
@@ -23,6 +24,7 @@ function Opcãoinvalida() {
     process.exit(90)
 }
 
+let lang1 = false
 let config2 = false
 let FN = false
 let lang = 0
@@ -204,6 +206,7 @@ const menuItems = [
     'RESET PROGRESS',
     'ACHIEVEMENTS',
     'SETTINGS',
+    'CREDITS',
     'EXIT'
 ];
 
@@ -259,7 +262,7 @@ console.log ("==================================================================
             console.clear()
             console.log ("===========================================================================")
             console.log ("[SOUNDTRACK STARTED]")
-            console.log ("===========================================================================")
+
             tocamusic()
             tocando = true
             pausarParaContinuar()
@@ -285,9 +288,11 @@ function Idioma() {
     if (lang == 1) {
         portugues = true;
         english = false;
+lang1 = true
     } else if (lang == 2) {
         portugues = false;
         english = true;
+lang1 = true
     } else {
         console.clear();
         console.log ("===========================================================================")
@@ -448,31 +453,42 @@ FN = true
     console.log ("[03] - Return to the settings menu")
     console.log ("===========================================================================")
     let easterEggsChoice = Number(prompt("> "));
+
     if (easterEggsChoice == 1) {
         console.clear()
+
+if (ET) {
+        console.log ("===========================================================================")
+        console.log ("[EASTER EGGS ALREADY ACTIVATED]")
+} else {
         console.log ("===========================================================================")
         console.log ("[EASTER EGGS]")
         console.log ("===========================================================================")
         console.log ("-> Easter Eggs Activated!")
-        console.log ("-> Easter Eggs Enabled!")
         ET = true   
-        pauseToContinue()
+}
+        pausarParaContinuar()
     } else if (easterEggsChoice == 2) {
         console.clear()
+
+if (!ET) {
+        console.log ("===========================================================================")
+        console.log ("[EASTER EGGS ALREADY DISABLED]")
+} else {
         console.log ("===========================================================================")
         console.log ("[EASTER EGGS]")
         console.log ("===========================================================================")
         console.log ("-> Easter Eggs Disabled!")
-        console.log ("-> Easter Eggs Disabled!")
         ET = false
-        pauseToContinue()
+}
+        pausarParaContinuar()
     } else if (easterEggsChoice == 3) {
         console.clear()
     } else {
         console.clear()
         console.log ("===========================================================================")
         console.log ("[EASTER EGGS]")
-        InvalidOption()
+        Opcãoinvalida()
     }
 } else if (escolha == 6) {
 config = false
@@ -704,25 +720,23 @@ process.stdin.on('data', (chunk) => {
                 rl.close(); // Fecha a interface readline.
                 process.stdin.pause(); // Pausa a entrada padrão.
 if (ET) {
-    fs.writeFileSync('../assets/ET.txt', 'Easter Eggs Ativados', 'utf8'); // Cria um arquivo para ativar Easter Eggs.
-} console.clear()
+    fs.writeFileSync('../assets/ET.txt', 'Easter Eggs Ativados', 'utf8'); // Cria um arquivo para ativar Easter Eggs.
+} else {
+    const couaaant1 = fs.existsSync('../assets/ET.txt')
+    if (couaaant1) {
+        fs.unlinkSync('../assets/ET.txt'); // Remove o arquivo se Easter Eggs estiver desativado.
+    }
+}
+
+console.clear()
 let a11111 = fs.existsSync('../account/AccountInfo.txt')
-if (config2 == false) {
-    console.log ("===========================================================================")
-    console.log ("[RECOMMENDATION]")
-    console.log ("===========================================================================")
-    console.log ("-> You have not accessed the settings menu yet, if you are interested in these topics:")
-    console.log ("===========================================================================")
-    console.log ("[SOUNDTRACK]")
-    console.log ("[ACCOUNT CREATION]")
-    console.log ("[SAVE RESTORATION]")
-    console.log ("[EASTER EGGS]")
-    console.log ("===========================================================================")
-    console.log ("-> Access the settings menu by following these steps:")
-    console.log ("-> MENU > SETTINGS")
-    pausarParaContinuar()
-
-
+if (lang1 == false) {
+    console.log ("===========================================================================")
+    console.log ("[WARNING - LANGUAGE]")
+    console.log ("===========================================================================")
+    console.log ("-> You have not selected a language! the version started will be in English.")
+    console.log ("-> To change this, Follow the steps below")
+    console.log ("-> [MENU] > [SETTINGS] > [LANGUAGE SELECTION].")
 }
 
 if (!a11111) {
@@ -730,11 +744,22 @@ if (!a11111) {
     console.log ("[WARNING - ACCOUNT CREATION]")
     console.log ("===========================================================================")
     console.log ("-> You have not created an account, if you wish to create one. Follow the steps below!")
-    console.log ("-> MENU > SETTINGS > ACCOUNT CREATION")
-    pausarParaContinuar()
+    console.log ("-> [MENU] > [SETTINGS] > [ACCOUNT CREATION]")
 }
+
+    pausarParaContinuar()
+
+
+
+
+if (lang == 2) {
                 require('./mainEN.js'); // Requer um script externo para iniciar o jogo.
-            } else if (selectedIndex === 4) { // Opção "Sair"
+} else if (lang == 1) {
+    require('./mainBR.js')
+} else {
+    require('./mainEN.js'); // Requer um script externo para iniciar o jogo.
+}
+            } else if (selectedIndex === 5) { // Opção "Sair"
                 rl.close();
                 process.exit(); // Sai do processo Node.js.
             } else if (selectedIndex === 1) { // Opção "Excluir progresso"
@@ -756,13 +781,36 @@ if (!a11111) {
                 process.stdin.setRawMode(false);
                 process.stdin.pause();
                 conquistas();
-            } else if (selectedIndex === 3) { // Opção "Mudar para Inglês"
-                process.stdin.setRawMode(false);
+            } else if (selectedIndex === 4) { // Opção "CREDITS"
+               process.stdin.setRawMode(false);
                 process.stdin.pause();
-                
-                ajustarCores();
-                
-            }
+                console.log ("===========================================================================")
+                console.log ("[CREDITS]")
+                console.log ("===========================================================================")
+                console.log ("[OUR TEAM]")
+                console.log ("===========================================================================")
+                console.log ("-> Programming: Lucas Eduardo and Kayc Félix (Ideas)")
+                console.log ("-> Beta Testing: Kayc Félix, Isabella Sanches, Miguel Marconato and some friends")
+                console.log ("-> Writing: Lucas Eduardo and some ideas from Miguel Marconato")
+                console.log ("-> Art: Lucas Eduardo")
+                console.log ("-> Music: Ryan Creep (Youtube.com)")
+                console.log ("-> Special Thanks to: Miguel Marconato, Kayc Félix, Isabella Sanches and SENAI Team")
+                console.log ("===========================================================================")
+                console.log ("-> THANK YOU FOR PLAYING OUR GAME!")
+                console.log ("===========================================================================")
+                                console.log('\nPress ENTER to return to the menu...');
+                                    prompt(''); // Espera o usuário pressionar Enter.
+                                    desenharMenu(); // Redesenha o menu.
+                                    process.stdin.setRawMode(true); // Reabilita o modo bruto
+                                    process.stdin.resume(); // Retoma a entrada padrão.
+            } else if (selectedIndex === 3) { // Opção "Configurações"
+                    process.stdin.setRawMode(false);
+                    process.stdin.pause();
+                    ajustarCores();
+    
+}
+
+
             break;
         case '03': // Ctrl+C (SIGINT)
             
@@ -776,5 +824,7 @@ if (!a11111) {
 
 // Listener de eventos para quando a interface readline é fechada.
 rl.on('close', () => {
-    console.log('\nMenu closed.');
+    console.log ("===========================================================================")
+    console.log('[EXITING]');
+console.log ("===========================================================================")
 });

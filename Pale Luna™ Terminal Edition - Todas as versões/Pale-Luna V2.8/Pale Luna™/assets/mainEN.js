@@ -694,10 +694,7 @@ const contaExiste = fs.existsSync(accountFilePath);
 
 let jafoinorte = false
 
-console.log (" ");
-console.log (" ");
-console.log (" ")
-console.log ("██████╗  █████╗ ██╗     ███████╗ TM           ███████████");
+console.log ("██████╗  █████╗ ██╗     ███████╗              ███████████");
 console.log ("██╔══██╗██╔══██╗██║     ██╔════╝           █████████████████ ");
 console.log ("██████╔╝███████║██║     █████╗           █████████████████████ ");
 console.log ("██╔═══╝ ██╔══██║██║     ██╔══╝          ███████████████████████ ");
@@ -751,7 +748,7 @@ console.log ("==================================================================
 console.log ("[01] Yes");
 console.log ("[02] No");
 console.log ("===========================================================================");
-let começar = prompt("> ");
+let começar = Number(prompt("> "));
 
 if (count >5 || count < 0) {
     console.clear();
@@ -761,13 +758,13 @@ if (count >5 || count < 0) {
         process.exit(1); // Encerra o programa com código de saída 1 (falha)
 }
 
-if (começar === "2") {
+if (começar == 2) {
     console.log (" ");
     console.log("===========================================================================");
     console.log("-> What a shame, I'll see you next time!");
     console.log("===========================================================================");
     process.exit(0); // Encerra o programa com código de saída 0 (sucesso)
-} else if (começar !== "1") {
+} else if (começar !== 1) {
     Opcãoinvalida()
 }
 
