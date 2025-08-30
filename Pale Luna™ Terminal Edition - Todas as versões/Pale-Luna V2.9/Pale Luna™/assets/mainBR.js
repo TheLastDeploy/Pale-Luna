@@ -653,10 +653,10 @@ console.log ("[02] Nao");
 console.log ("===========================================================================");
 let começar = prompt("> ");
 
-if (count >5 || count < 0) {
+if (count >6 || count < 0) {
     console.clear();
     console.log ("===========================================================================");
-    console.log ("-> [ERRO]: Você não pode ter mais de 5 finais ou menos de 0 finais, por favor execute o apagador de progresso!.");
+    console.log ("-> [ERRO]: Você não pode ter mais de 6 finais ou menos de 0 finais, por favor execute o apagador de progresso!.");
         console.log ("===========================================================================");
         process.exit(1); // Encerra o programa com código de saída 1 (falha)
 }

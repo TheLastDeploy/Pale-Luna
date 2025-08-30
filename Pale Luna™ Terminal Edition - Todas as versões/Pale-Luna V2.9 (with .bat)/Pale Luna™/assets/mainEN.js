@@ -750,10 +750,10 @@ console.log ("[02] No");
 console.log ("===========================================================================");
 let começar = Number(prompt("> "));
 
-if (count >5 || count < 0) {
+if (count >6 || count < 0) {
     console.clear();
     console.log ("===========================================================================");
-    console.log ("-> [ERROR]: You cannot have more than 5 endings or less than 0 endings, please run the progress eraser!.");
+    console.log ("-> [ERROR]: You cannot have more than 6 endings or less than 0 endings, please run the progress eraser!.");
         console.log ("===========================================================================");
         process.exit(1); // Encerra o programa com código de saída 1 (falha)
 }
