@@ -378,6 +378,7 @@ function centerAscii(logo) {
 function gameover() {
 
     const logo = [
+        "",
     " ███████████████    ████████████    █████████████████████     █████████████",
     "██████             ██████  ██████   ██████  ██████  ██████   ██████",
     "██████             ██████  ██████   ██████  ██████  ██████   ██████",
@@ -400,6 +401,7 @@ function gameover() {
 
 function logoinicial(){
     const logo = [
+"",
 "██████╗  █████╗ ██╗     ███████╗              ███████████",
 "██╔══██╗██╔══██╗██║     ██╔════╝           █████████████████ ",
 "██████╔╝███████║██║     █████╗           █████████████████████ ",
@@ -620,6 +622,7 @@ function lerNumeroDoArquivo(nomeDoArquivo) {
   const numero = lerNumeroDoArquivo('HAHAHAHAHAHAHA.txt')
 let jafoinorte = false
 
+centertext("")
 centertext("██████╗  █████╗ ██╗     ███████╗              ███████████        ");
 centertext("██╔══██╗██╔══██╗██║     ██╔════╝           █████████████████     ");
 centertext("██████╔╝███████║██║     █████╗           █████████████████████   ");
@@ -633,7 +636,7 @@ centertext("██║     ██║   ██║██║╚██╗██║█
 centertext("███████╗╚██████╔╝██║ ╚████║██║  ██║        █████████████████     ");
 centertext("╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝           ███████████        ");
 centertext("===========================================================================")
-centertext("--- TERMINAL EDITION - CREATED BY MASSIVE STUDIOS ---")
+centertext("--- TERMINAL EDITION - CREATED BY 2-12 STUDIO ---")
 centertext("===========================================================================")
 centertext("--- VERSION 3.0 ---")
 centertext("===========================================================================")
