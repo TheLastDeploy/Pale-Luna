@@ -10,4 +10,4 @@ Prepare-se para reviver o terror de Pale Luna em uma nova versão do JavaScript!
 - Instale ou extraia o o jogo;
 - Pronto.
 
-## Feito por Lukz, CEO da Sad Berry Games
+## Feito pela 2-12 Studio.
