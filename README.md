@@ -1,6 +1,6 @@
 # Pale Luna: Terminal Edition
 
-Brazilian Portuguese:
+# Brazilian Portuguese:
 Prepare-se para reviver o terror de Pale Luna em uma nova versão do JavaScript!
 
 ## Instalação
@@ -15,7 +15,7 @@ Prepare-se para reviver o terror de Pale Luna em uma nova versão do JavaScript!
 
 -----------------------------------------------
 
-English:
+# English:
 Get ready to relive the terror of Pale Luna in a new version of JavaScript!
 
 ## Installation
